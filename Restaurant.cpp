@@ -20,12 +20,12 @@ void Restaurant::setPrice(int price)
     m_price = price;
 }
 
-void Restaurant::setRating(int rating)
+void Restaurant::setRating(double rating)
 {
     m_rating = rating;
 }
 
-void Restaurant::setPRating(int pRating)
+void Restaurant::setPRating(double pRating)
 {
     m_pRating = pRating;
 }
@@ -45,12 +45,12 @@ int Restaurant::getPrice()
     return m_price;
 }
 
-int Restaurant::getRating()
+double Restaurant::getRating()
 {
     return m_rating;
 }
 
-int Restaurant::getPRating()
+double Restaurant::getPRating()
 {
     return m_pRating;
 }

@@ -9,8 +9,8 @@ class Restaurant
     std::string m_name;
     std::string m_cuisine;
     int m_price;
-    int m_rating;
-    int m_pRating;
+    double m_rating;
+    double m_pRating;
 
     public:
 
@@ -18,13 +18,13 @@ class Restaurant
     void setName(std::string name);
     void setCuisine(std::string cuisine);
     void setPrice(int price);
-    void setRating(int rating);
-    void setPRating(int pRating);
+    void setRating(double rating);
+    void setPRating(double pRating);
     std::string getName();
     std::string getCusine();
     int getPrice();
-    int getRating();
-    int getPRating();
+    double getRating();
+    double getPRating();
 
 };
 
