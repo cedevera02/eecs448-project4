@@ -1,5 +1,5 @@
 prog: main.o Account.o Executive.o Restaurant.o UI.o
-	g++ -std=c++11 -g -Wall main.o Account.o Executive.o Restaurant.o UI.o
+	g++ -std=c++11 -g -Wall main.o Account.o Executive.o Restaurant.o UI.o -o prog
 
 main.o: main.cpp Account.h Executive.h Restaurant.h UI.h
 	g++ -std=c++11 -g -Wall -c main.cpp

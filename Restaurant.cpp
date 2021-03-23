@@ -3,6 +3,10 @@
 Restaurant::Restaurant(std::string name)
 {
     m_name = name;
+    m_cuisine = "";
+    m_price = 0;
+    m_rating = 0.0;
+    m_pRating = 0;
 }
 
 void Restaurant::setName(std::string name)
