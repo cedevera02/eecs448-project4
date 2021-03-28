@@ -22,6 +22,7 @@ class Executive
 
     private:
     std::vector<Restaurant>* m_restVector;
+    UI m_UI;
     std::string m_userFile;
     int m_menuChoice;
 

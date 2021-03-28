@@ -7,7 +7,7 @@
 Executive::Executive()
 {
     m_restVector = new std::vector<Restaurant>;
-    //I assume we'll want to create a UI object to be used here
+    m_UI = UI(m_restVector);
 }
 
 
@@ -72,7 +72,7 @@ void Executive::writeOut(const char* fileToWrite)
     {
         for(int i = 0; i< m_restVector->size(); i++) {
             m_file << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine() 
-            << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << std::endl;
+            << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << std::endl;
         }
     }
     else
