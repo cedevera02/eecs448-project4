@@ -35,6 +35,96 @@ void Executive::run()
         switch statement to catch all cases and call proper UI methods
     }
     */
+   if(input == 1)
+        {
+            printAll();
+
+
+        }
+        else if(input == 2)
+        {
+            int lower, higher;
+            std::cout << "1. $, 2. $$, 3. $$$\n(use the number lable to select the price range)\n";
+
+            std::cout << "Please give a lower price range: ";
+            std::cin >> lower;
+            while(std::cin.fail() || lower < 1 || lower > 3) // lower has to be in and within range.
+            {
+                std::cin.clear();
+                std::cin.ignore();
+                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                std::cin >> lower;
+            }
+
+            std::cout << "Please give a higher price range: ";
+            std::cin >> higher;
+            while(std::cin.fail() || higher < lower || higher > 3) // higher has to be an int, has to be greater than or equal to lower, has to be with in highest range.
+            {
+                std::cin.clear();
+                std::cin.ignore();
+                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                std::cin >> higher;
+            }
+
+            printByPrice(lower, higher);
+
+
+        }
+        else if(input == 3)
+        {
+            int choice;
+            for(int i=0; i < _cuisineVec.size(); i++)
+            {
+                std::cout << i << ". " << _cuisineVec[i] << "\n";
+            }
+            std::cout << "Please Select a cuisine: ";
+            std::cin >> choice;
+            while(std::cin.fail() || choice < 1 || choice > 24)
+            {
+                std::cin.clear();
+                std::cin.ignore();
+                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                std::cin >> choice;
+            }
+
+            printByCuisine(_cuisineVec[choice]);
+
+
+        }
+        else if(input == 4) // Search By Ratings.
+        {
+            int choice;
+            std::cout << "Would you like to search by\n1. Personal Ratings\n2. Public Ratings\n";
+            std::cin >> choice;
+            while(std::cin.fail() || choice < 1 || choice > 2)
+            {
+                std::cin.clear();
+                std::cin.ignore();
+                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                std::cin >> choice;
+            }
+            printByRating(choice);
+
+
+        }
+        else if(input == 5) // Give a rating.
+        {
+
+        }
+        else if(input == 6) // Remove.
+        {
+
+        }
+        else if(input == 7) // Random.
+        {
+            printRandom();
+
+
+        }
+        else //exit.
+        {
+            running = false;
+        }
 }
 
 bool Executive::readIn(std::string fileToParse)
@@ -78,5 +168,25 @@ void Executive::writeOut(const char* fileToWrite)
     else
     {
         std::cout << "Couldn't open write " << fileToWrite << " file!\n";
+    }
+}
+
+void Executive::fillCuisineVector()
+{
+    bool repeat = false;
+    for(int i=0; i < m_restVector->size(); i++) // fills in the cuisine vector, checks to make sure doesn't repeat a cuisine.
+    {
+        for(int j=0;  j < m_cuisineVector.size(); j++)
+        {
+            if(m_cuisineVector[i] == m_cuisineVector[j])
+            {
+                repeat = true;
+                break;
+            }
+        }
+        if(!repeat)
+        {
+            m_cuisineVector[i] == _resVector[i].getCusine();
+        }
     }
 }

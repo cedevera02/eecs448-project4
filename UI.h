@@ -8,7 +8,7 @@
 class UI
 {
     public:
-    UI(std::vector<Restaurant> vec); // UI object constructor, store _resVector member variable, fills in cuisine vector.
+    UI(std::vector<Restaurant>* vec); // UI object constructor, store _resVector member variable, fills in cuisine vector.
     void printMenu();
     void printAll();
     void printByPrice(int lower, int higher);
@@ -19,7 +19,7 @@ class UI
     void removeRestaurant();
 
     private:
-    std::vector<Restaurant> _resVector; // vector storing Restaurant objects
+    std::vector<Restaurant>* _resVector; // vector storing Restaurant objects
     std::vector<std::string> _cuisineVec;
 
 };

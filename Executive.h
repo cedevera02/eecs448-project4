@@ -25,6 +25,7 @@ class Executive
     UI m_UI;
     std::string m_userFile;
     int m_menuChoice;
+    std::vector<string> m_cuisineVector;
 
     std::string m_tempRestName;
     std::string m_tempRestType;
@@ -43,6 +44,7 @@ class Executive
     void run();
     bool readIn(std::string fileToParse);
     void writeOut(const char* fileToWrite);
+    void fillCuisineVector();
 
 };
 
