@@ -13,7 +13,7 @@ Executive.o: Executive.h Executive.cpp
 Restaurant.o: Restaurant.h Restaurant.cpp
 	g++ -std=c++11 -g -Wall -c Restaurant.cpp
 
-UI.o: UI.h UI.cpp
+UI.o: UI.h UI.cpp Restaurant.h
 	g++ -std=c++11 -g -Wall -c UI.cpp
 
 clean:

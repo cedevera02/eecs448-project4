@@ -1,9 +1,10 @@
 #include "UI.h"
 
 
-UI::UI(Restaurant** ptr)
+
+UI::UI(std::vector<Restaurant> vec)
 {
-    _ResPtr = ptr;
+    _ResVector = vec;
 }
 
 void UI::printMenu()
@@ -117,9 +118,9 @@ void UI::printMenu()
 
 void UI::printAll()
 {
-    for(int i=0; i < _gameSize; i++)
+    for(int i=0; i < _ResVector.size(); i++)
      {
-         std::cout << _ResPtr[i]->getName() << " (" << _ResPtr[i]->getYear() << ") [" <<_ResPtr[i]->getGR() << ", " << _ResPtr[i]->getPR() << ", " << _ResPtr[i]->getMP() << ", " << _ResPtr[i]->getMT() << "] \n";
+         std::cout << _ResVector[i].getName() << "  " << _ResVector[i].getCusine() << "  " <<_ResVector[i].getPrice() << "  Rating: " << _ResVector[i].getRating() << "  Personal Rating: " << _ResVector[i].getPRating() << "\n";
      }
 }
 
