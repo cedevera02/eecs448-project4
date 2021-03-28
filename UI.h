@@ -12,7 +12,7 @@ class UI
     void printAll();
     void printByPrice(int lower, int higher);
     void printByCuisine(int choice);
-    void printByRating();
+    void printByRating(int type);
     void printRandom();
     void giveRating();
     void removeRestaurant();

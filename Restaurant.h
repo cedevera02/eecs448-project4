@@ -13,7 +13,6 @@ class Restaurant
     double m_pRating;
 
     public:
-
     Restaurant(std::string name);
     void setName(std::string name);
     void setCuisine(std::string cuisine);
