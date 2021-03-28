@@ -15,6 +15,7 @@ class Restaurant
     public:
 
     Restaurant(std::string name);
+    ~Restaurant();
     void setName(std::string name);
     void setCuisine(std::string cuisine);
     void setPrice(int price);

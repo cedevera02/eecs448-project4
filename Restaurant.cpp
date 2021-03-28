@@ -9,6 +9,11 @@ Restaurant::Restaurant(std::string name)
     m_pRating = 0;
 }
 
+Restaurant::~Restaurant()
+{
+
+}
+
 void Restaurant::setName(std::string name)
 {
     m_name = name;
