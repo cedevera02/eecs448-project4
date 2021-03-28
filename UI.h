@@ -1,6 +1,7 @@
 #ifndef UI_H
 #define UI_H
 #include "Restaurant.h"
+#include <vector>
 #include <iostream>
 #include <string>
 
