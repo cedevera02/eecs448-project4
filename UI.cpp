@@ -4,7 +4,25 @@
 
 UI::UI(std::vector<Restaurant> vec)
 {
-    _ResVector = vec;
+    _resVector = vec;
+
+    bool repeat = false;
+    for(int i=0; i < _resVector.size(); i++) // fills in the cuisine vector, checks to make sure doesn't repeat a cuisine.
+    {
+        for(int j=0;  j < _cuisineVec.size(); j++)
+        {
+            if(_cuisineVec[i] == _cuisineVec[j])
+            {
+                repeat = true;
+                break;
+            }
+        }
+        if(!repeat)
+        {
+            _cuisineVec[i] == _resVector[i].getCusine();
+        }
+    }
+       
 }
 
 void UI::printMenu()
@@ -65,6 +83,7 @@ void UI::printMenu()
             int choice;
             //American,Asian,Asian_Fusion,Barbeque,Cajun,Chinese,Diner,Fast_Casual,Fast_Food,Greek,Hawaiian,Healthy,Italian,Mediterranean,Mexican,New_American,Pizza,Ramen,Sandwich,Seafood,Steak,Sushi,Tex_mex,Thai
             std::cout << "1. American\n2. Asian\n3. "; // NEED TO FINISH
+            for(i=0; i < )
             std::cout << "Please Select a cuisine: ";
             std::cin >> choice;
             while(std::cin.fail() || choice < 1 || choice > 24)
@@ -74,7 +93,9 @@ void UI::printMenu()
                 std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
                 std::cin >> choice;
             }
-            printByCuisine(choice);
+            std::string temp;
+
+            printByCuisine(temp);
 
 
         }
@@ -118,17 +139,49 @@ void UI::printMenu()
 
 void UI::printAll()
 {
-    for(int i=0; i < _ResVector.size(); i++)
-     {
-         std::cout << _ResVector[i].getName() << "  " << _ResVector[i].getCusine() << "  " <<_ResVector[i].getPrice() << "  Rating: " << _ResVector[i].getRating() << "  Personal Rating: " << _ResVector[i].getPRating() << "\n";
-     }
+    for(int i=0; i < _resVector.size(); i++)
+    {
+        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+    }
 }
 
 void UI::printByPrice(int lower, int higher)
-{}
+{
+    bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
+    for(int i=0; i < _resVector.size(); i++)
+    {
+        if(_resVector[i].getPrice() > lower && _resVector[i].getPrice() < higher)
+        {
+            haveRes = true;
+            std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+        }
 
-void UI::printByCuisine(int choice)
-{}
+    }
+
+    if(haveRes == false)
+    {
+        std::cout << "No restaurants fit that criteria.\n";
+    }
+}
+
+void UI::printByCuisine(std::string choice)
+{
+    bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
+    for(int i=0; i < _resVector.size(); i++)
+    {
+        if(_resVector[i].getCusine() == 
+        {
+            haveRes = true;
+            std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+        }
+
+    }
+
+    if(haveRes == false)
+    {
+        std::cout << "No restaurants fit that criteria.\n";
+    }
+}
 
 void UI::printByRating(int type)
 {}
@@ -141,19 +194,3 @@ void UI::giveRating()
 
 void UI::removeRestaurant()
 {}
-
-int UI::intInputCheck()
-{
-    int input;
-    std::cin >> input;
-
-        while(std::cin.fail())
-        {
-            std::cin.clear();
-            std::cin.ignore();
-            std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
-            std::cin >> input;
-        }
-
-    return input;
-}
