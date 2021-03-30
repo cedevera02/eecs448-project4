@@ -133,7 +133,7 @@ void UI::giveRating(std::string name, int rating)
     
     if(!haveRes)
     {
-        std::cout << "\nNo restaurant found with the matching name!";
+        std::cout << "\nNo restaurant found with the matching name!" << "\n";
     }
 }
 
@@ -149,6 +149,6 @@ void UI::removeRestaurant(std::string name)
     
     if(!haveRes)
     {
-        std::cout << "\nNo restaurant found with the matching name!";
+        std::cout << "\nNo restaurant found with the matching name!" << "\n";
     }
 }
