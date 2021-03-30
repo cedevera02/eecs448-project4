@@ -51,7 +51,7 @@ void UI::printByPrice(int lower, int higher)
 
     if(haveRes == false)
     {
-        std::cout << "No restaurants fit that criteria.\n";
+        std::cout << "No restaurants fit that criteria." << "\n";
     }
 }
 
@@ -70,18 +70,85 @@ void UI::printByCuisine(std::string choice)
 
     if(haveRes == false)
     {
-        std::cout << "No restaurants fit that criteria.\n";
+        std::cout << "No restaurants fit that criteria." << "\n";
     }
 }
 
-void UI::printByRating(int type)
-{}
+void UI::printByRating(int type, int rating)
+{
+    bool haveRes = false; 
+	for(int i = 0; i < _resVector.size(); i++)
+    {
+        if(type == 0)//Personal
+        {
+	        if(_resVector[i].getRating() == rating)
+            {
+	            haveRes = true;
+    	        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+            }
+        }
+        else if(type == 1)//Public
+        {
+            if(_resVector[i].getPRating() == rating)
+            {
+	            haveRes = true;
+    	        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+            }
+        }
+    }
+	
+    if(haveRes == false)
+    {
+        std::cout << "\nNo restaurants fit that criteria." << "\n";
+    }
+}
 
 void UI::printRandom()
-{}
+{
+    int random= 0;
+    bool haveRes = false;
+    for(int i = 0; i < _resVector.size(); i++)
+    {
+	    random = rand() %2;
+	    if(random == 1)
+        {
+	        haveRes = true;
+	        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+	    }
+	}
+}
 
-void UI::giveRating()
-{}
+void UI::giveRating(std::string name, int rating)
+{
+    bool haveRes = false;
+    for(int i = 0; i < _resVector.size(); i++)
+    {
+	    haveRes = true;
+	    if(_resVector[i].getName().compare(name) == 0)
+        {
+	        _resVector[i].setRating(rating);
+	        std::cout << "\nRating " << rating << " set successfully for restaurant " << _resVector[i].getName() << "\n";
+	    }
+    }
+    
+    if(!haveRes)
+    {
+        std::cout << "\nNo restaurant found with the matching name!";
+    }
+}
 
-void UI::removeRestaurant()
-{}
+void UI::removeRestaurant(std::string name)
+{
+    bool haveRes = false;
+    for(int i = 0; i < _resVector.size(); i++)
+    {
+	    haveRes = true;
+	    _resVector.erase(_resVector.begin() + i);
+	    std::cout << "\nThe restaurant " << name << " was removed successfully from the list of restaurants" << "\n";
+    }
+    
+    if(!haveRes)
+    {
+        std::cout << "\nNo restaurant found with the matching name!";
+    }
+}
