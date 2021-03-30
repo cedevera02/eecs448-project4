@@ -60,7 +60,7 @@ void UI::printByCuisine(std::string choice)
     bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
     for(int i=0; i < _resVector.size(); i++)
     {
-        if(_resVector[i].getCusine() == 
+        if(_resVector[i].getCusine() == choice)
         {
             haveRes = true;
             std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";

@@ -20,7 +20,6 @@ class UI
 
     private:
     std::vector<Restaurant>* _resVector; // vector storing Restaurant objects
-    std::vector<std::string> _cuisineVec;
 
 };
 
