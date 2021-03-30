@@ -11,21 +11,18 @@ UI::UI(std::vector<Restaurant>* vec)
 void UI::printMenu()
 {
     int input;
-    bool running = true;
 
-    do{
-        std::cout << "Project Name Place Holder\n--------------------------\n1. Show all Restaurants\n2. Search by Prices\n3. Search by Cuisine\n4. Search by Rating\n5. Give a Rating\n6. Remove a Restaurant\n7. Random\n8. Exit Program\n";
+    
+    std::cout << "Project Name Place Holder\n--------------------------\n1. Show all Restaurants\n2. Search by Prices\n3. Search by Cuisine\n4. Search by Rating\n5. Give a Rating\n6. Remove a Restaurant\n7. Random\n8. Exit Program\n";
+    std::cin >> input;
+
+    while(std::cin.fail() || input < 1 || input > 8)
+    {
+        std::cin.clear();
+        std::cin.ignore();
+        std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
         std::cin >> input;
-
-        while(std::cin.fail() || input < 1 || input > 8)
-        {
-            std::cin.clear();
-            std::cin.ignore();
-            std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
-            std::cin >> input;
-        }
-
-    }while(running);
+    }
 }
 
 void UI::printAll()
