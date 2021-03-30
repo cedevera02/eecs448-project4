@@ -2,7 +2,7 @@
 
 
 
-UI::UI(std::vector<Restaurant> vec)
+UI::UI(std::vector<Restaurant>* vec)
 {
     _resVector = vec;
  
@@ -30,21 +30,21 @@ void UI::printMenu()
 
 void UI::printAll()
 {
-    for(int i=0; i < _resVector.size(); i++)
+    for(int i=0; i < _resVector->size(); i++)
     {
-        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
     }
 }
 
 void UI::printByPrice(int lower, int higher)
 {
     bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
-    for(int i=0; i < _resVector.size(); i++)
+    for(int i=0; i < _resVector->size(); i++)
     {
-        if(_resVector[i].getPrice() > lower && _resVector[i].getPrice() < higher)
+        if(_resVector->at(i).getPrice() > lower && _resVector->at(i).getPrice() < higher)
         {
             haveRes = true;
-            std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+            std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
         }
 
     }
@@ -58,12 +58,12 @@ void UI::printByPrice(int lower, int higher)
 void UI::printByCuisine(std::string choice)
 {
     bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
-    for(int i=0; i < _resVector.size(); i++)
+    for(int i=0; i < _resVector->size(); i++)
     {
-        if(_resVector[i].getCusine() == choice)
+        if(_resVector->at(i).getCusine() == choice)
         {
             haveRes = true;
-            std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+            std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
         }
 
     }
@@ -77,22 +77,22 @@ void UI::printByCuisine(std::string choice)
 void UI::printByRating(int type, int rating)
 {
     bool haveRes = false; 
-	for(int i = 0; i < _resVector.size(); i++)
+	for(int i = 0; i < _resVector->size(); i++)
     {
         if(type == 0)//Personal
         {
-	        if(_resVector[i].getRating() == rating)
+	        if(_resVector->at(i).getRating() == rating)
             {
 	            haveRes = true;
-    	        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+    	        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
             }
         }
         else if(type == 1)//Public
         {
-            if(_resVector[i].getPRating() == rating)
+            if(_resVector->at(i).getPRating() == rating)
             {
 	            haveRes = true;
-    	        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+    	        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
             }
         }
     }
@@ -107,13 +107,13 @@ void UI::printRandom()
 {
     int random= 0;
     bool haveRes = false;
-    for(int i = 0; i < _resVector.size(); i++)
+    for(int i = 0; i < _resVector->size(); i++)
     {
 	    random = rand() %2;
 	    if(random == 1)
         {
 	        haveRes = true;
-	        std::cout << _resVector[i].getName() << "  " << _resVector[i].getCusine() << "  " <<_resVector[i].getPrice() << "  Rating: " << _resVector[i].getRating() << "  Personal Rating: " << _resVector[i].getPRating() << "\n";
+	        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
 	    }
 	}
 }
@@ -121,13 +121,13 @@ void UI::printRandom()
 void UI::giveRating(std::string name, int rating)
 {
     bool haveRes = false;
-    for(int i = 0; i < _resVector.size(); i++)
+    for(int i = 0; i < _resVector->size(); i++)
     {
 	    haveRes = true;
-	    if(_resVector[i].getName().compare(name) == 0)
+	    if(_resVector->at(i).getName().compare(name) == 0)
         {
-	        _resVector[i].setRating(rating);
-	        std::cout << "\nRating " << rating << " set successfully for restaurant " << _resVector[i].getName() << "\n";
+	        _resVector->at(i).setRating(rating);
+	        std::cout << "\nRating " << rating << " set successfully for restaurant " << _resVector->at(i).getName() << "\n";
 	    }
     }
     
@@ -140,10 +140,10 @@ void UI::giveRating(std::string name, int rating)
 void UI::removeRestaurant(std::string name)
 {
     bool haveRes = false;
-    for(int i = 0; i < _resVector.size(); i++)
+    for(int i = 0; i < _resVector->size(); i++)
     {
 	    haveRes = true;
-	    _resVector.erase(_resVector.begin() + i);
+	    _resVector->erase(_resVector->begin() + i);
 	    std::cout << "\nThe restaurant " << name << " was removed successfully from the list of restaurants" << "\n";
     }
     
