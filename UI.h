@@ -13,10 +13,10 @@ class UI
     void printAll();
     void printByPrice(int lower, int higher);
     void printByCuisine(std::string choice);
-    void printByRating(int type);
+    void printByRating(int type, int rating);
     void printRandom();
-    void giveRating();
-    void removeRestaurant();
+    void giveRating(std::string name, int rating);
+    void removeRestaurant(std::string name);
 
     private:
     std::vector<Restaurant>* _resVector; // vector storing Restaurant objects
