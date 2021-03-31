@@ -25,7 +25,8 @@ class Executive
     UI m_UI;
     std::string m_userFile;
     int m_menuChoice;
-    std::vector<string> m_cuisineVector;
+    std::vector<std::string> m_cuisineVector;
+    bool m_loginStatus;
 
     std::string m_tempRestName;
     std::string m_tempRestType;

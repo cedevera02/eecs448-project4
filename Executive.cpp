@@ -8,6 +8,7 @@ Executive::Executive()
 {
     m_restVector = new std::vector<Restaurant>;
     m_UI = UI(m_restVector);
+    m_loginStatus = false;
 }
 
 
@@ -109,11 +110,25 @@ void Executive::run()
         }
         else if(input == 5) // Give a rating.
         {
+            if(m_loginStatus)
+            {
 
+            }
+            else
+            {
+                std::cout << "You are not logged in. Please restart and lopgin to use this feature.\n";
+            }
         }
         else if(input == 6) // Remove.
         {
+            if(m_loginStatus)
+            {
 
+            }
+            else
+            {
+                std::cout << "You are not logged in. Please restart and lopgin to use this feature.\n";
+            }
         }
         else if(input == 7) // Random.
         {
