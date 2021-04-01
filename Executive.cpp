@@ -114,7 +114,7 @@ void Executive::run()
         else if(m_menuChoice == SEARCH_TYPE_CODE)
         {
             int choice;
-            for(int i=0; i < m_cuisineVector.size(); i++)
+            for(int i=0; i < (int)m_cuisineVector.size(); i++)
             {
                 std::cout << i << ". " << m_cuisineVector[i] << "\n";
             }
@@ -168,7 +168,7 @@ void Executive::run()
                 int aRatingToAdd;
 
                 std::cout << "Select a restaurant from the list below to add a rating to: \n";
-                for(int i = 0; i < m_restVector->size(); i++) {
+                for(int i = 0; i < (int)m_restVector->size(); i++) {
                     std::cout << m_restVector->at(i).getName() << ", ";
                     checkerSet.insert(m_restVector->at(i).getName());
                     if(i != 0 && i % 4 == 0) {
@@ -272,7 +272,7 @@ void Executive::writeOut(std::string fileToWrite)
     m_file.open(fileToWrite + ".txt", std::ios::out | std::ios::trunc); // I believe the second arg will clear the file
     if(m_file.is_open())
     {
-        for(int i = 0; i< m_restVector->size(); i++) {
+        for(int i = 0; i< (int)m_restVector->size(); i++) {
             m_file << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine() 
             << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << std::endl;
         }
@@ -286,9 +286,9 @@ void Executive::writeOut(std::string fileToWrite)
 void Executive::fillCuisineVector()
 {
     bool repeat = false;
-    for(int i=0; i < m_restVector->size(); i++) // fills in the cuisine vector, checks to make sure doesn't repeat a cuisine.
+    for(int i=0; i < (int)m_restVector->size(); i++) // fills in the cuisine vector, checks to make sure doesn't repeat a cuisine.
     {
-        for(int j=0;  j < m_cuisineVector.size(); j++) //probably rewrite this later to use a hash-table so we don't need nested for loops
+        for(int j=0;  j < (int)m_cuisineVector.size(); j++) //probably rewrite this later to use a hash-table so we don't need nested for loops
         {
             if(m_cuisineVector[i] == m_cuisineVector[j])
             {
