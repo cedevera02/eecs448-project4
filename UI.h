@@ -8,6 +8,7 @@
 class UI
 {
     public:
+    UI(){}
     UI(std::vector<Restaurant>* vec); // UI object constructor, store _resVector member variable, fills in cuisine vector.
     int printMenu();
     void printAll();

@@ -8,7 +8,7 @@
 Executive::Executive()
 {
     m_restVector = new std::vector<Restaurant>;
-    //m_UI = UI(m_restVector);
+    m_UI = nullptr;
     m_isReturning = false;
     m_menuChoice = 0;
     m_Account = Account();
