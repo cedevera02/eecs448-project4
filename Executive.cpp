@@ -8,7 +8,7 @@
 Executive::Executive()
 {
     m_restVector = new std::vector<Restaurant>;
-    m_UI = UI(m_restVector);
+    //m_UI = UI(m_restVector);
     m_isReturning = false;
     m_menuChoice = 0;
     m_Account = Account();
@@ -71,6 +71,8 @@ void Executive::run()
 
         readIn(tempName);
     }
+    m_UI = UI(m_restVector);
+    fillCuisineVector();
 
     while(m_menuChoice != EXIT_CODE)
     {
