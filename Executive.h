@@ -7,7 +7,7 @@
 #include "UI.h" //include this so we can create and use UI
 #include "Account.h"
 
-#define STD_FILE_NAME       "restaurants.txt"
+#define STD_FILE_NAME       "restaurants"
 #define SHOW_ALL_CODE       (1)
 #define SEARCH_PRICE_CODE   (2)
 #define SEARCH_TYPE_CODE    (3)
