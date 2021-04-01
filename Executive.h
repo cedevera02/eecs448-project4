@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include "UI.h" //include this so we can create and use UI
+#include "Account.h"
 
 #define STD_FILE_NAME       "restaurants.txt"
 #define SHOW_ALL_CODE       (1)
@@ -23,10 +24,12 @@ class Executive
     private:
     std::vector<Restaurant>* m_restVector;
     UI m_UI;
+    Account m_Account;
     std::string m_userFile;
     int m_menuChoice;
     std::vector<std::string> m_cuisineVector;
-    bool m_loginStatus;
+    bool m_isReturning;
+    bool m_didLogin;
 
     std::string m_tempRestName;
     std::string m_tempRestType;
@@ -37,14 +40,14 @@ class Executive
     std::fstream m_file;
     //std::ofstream m_outFile;
 
-    bool m_isNewUser; //use to tell if it's a new user and what you need to for write out sequence
+    
 
     public:
     Executive();
     ~Executive();
     void run();
     bool readIn(std::string fileToParse);
-    void writeOut(const char* fileToWrite);
+    void writeOut(std::string fileToWrite);
     void fillCuisineVector();
 
 };

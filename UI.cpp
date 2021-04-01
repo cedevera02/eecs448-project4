@@ -8,7 +8,7 @@ UI::UI(std::vector<Restaurant>* vec)
  
 }
 
-void UI::printMenu()
+int UI::printMenu()
 {
     int input;
 
@@ -23,6 +23,8 @@ void UI::printMenu()
         std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
         std::cin >> input;
     }
+
+    return input;
 }
 
 void UI::printAll()

@@ -9,7 +9,7 @@ class UI
 {
     public:
     UI(std::vector<Restaurant>* vec); // UI object constructor, store _resVector member variable, fills in cuisine vector.
-    void printMenu();
+    int printMenu();
     void printAll();
     void printByPrice(int lower, int higher);
     void printByCuisine(std::string choice);

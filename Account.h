@@ -10,8 +10,10 @@ class Account
        
 
     public:
-        Account(std::string fileName);
-		bool Login();
+        Account();
+		bool Login(std::string name);
+        void setName(std::string name);
+        std::string getName();
         
         
 };
