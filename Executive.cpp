@@ -257,6 +257,9 @@ bool Executive::readIn(std::string fileToParse)
             temp.setPRating(m_tempRating);
             m_restVector->push_back(temp);
         }
+        // for (int i =0; i < int(m_restVector->size()); i++){ //just checking to make sure it reads it all
+        //     std::cout << m_restVector->at(i).getName() << std::endl;
+        // }
         m_file.close();
         return true;
     } 

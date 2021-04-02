@@ -34,7 +34,7 @@ class Executive
     std::string m_tempRestName;
     std::string m_tempRestType;
     int m_tempPricing;
-    int m_tempRating;
+    double m_tempRating;
     int m_tempUserRating;
 
     std::fstream m_file;
