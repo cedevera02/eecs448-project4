@@ -133,13 +133,16 @@ void UI::removeRestaurant(std::string name)
     bool haveRes = false;
     for(int i = 0; i < _resVector->size(); i++)
     {
-	    haveRes = true;
-	    _resVector->erase(_resVector->begin() + i);
-	    std::cout << "\nThe restaurant " << name << " was removed successfully from the list of restaurants" << "\n";
+        if (_resVector->at(i).getName()== name){
+            haveRes = true;
+            _resVector->erase(_resVector->begin() + i);
+            break;
+        }
     }
+	std::cout << "\nThe restaurant " << name << " was removed successfully from the list of restaurants" << "\n";
     
     if(!haveRes)
     {
-        std::cout << "\nNo restaurant found with the matching name!" << "\n";
+        std::cout << "\nNo restaurant found with the matching name! Did you make sure to include the underlines(_)?" << "\n";
     }
 }
