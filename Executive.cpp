@@ -67,6 +67,14 @@ void Executive::run()
     }
     m_UI = UI(m_restVector);
     fillCuisineVector();
+    // THIS IS FOR TESTING IF THE CUISINE VECTOR IS FILLED
+    /*
+    for (int i = 0; i < m_cuisineVector.size(); i++)
+    {
+        std::cout << m_cuisineVector.at(i) << "\n";
+    }
+    */
+    
 
     while(m_menuChoice != EXIT_CODE)
     {
@@ -106,7 +114,7 @@ void Executive::run()
             int choice;
             for(int i=0; i < (int)m_cuisineVector.size(); i++)
             {
-                std::cout << i << ". " << m_cuisineVector[i] << "\n";
+                std::cout << i+1 << ". " << m_cuisineVector.at(i) << "\n";
             }
             std::cout << "Please Select a cuisine: ";
             std::cin >> choice;
@@ -116,7 +124,7 @@ void Executive::run()
                 std::cin >> choice;
             }
 
-            m_UI.printByCuisine(m_cuisineVector[choice]);
+            m_UI.printByCuisine(m_cuisineVector.at(choice-1));
 
 
         }
@@ -303,6 +311,10 @@ void Executive::fillCuisineVector()
                 {
                     repeat = true;
                     break;
+                }
+                else
+                {
+                    repeat = false;
                 }
             }
             catch (const std::out_of_range& oor)
