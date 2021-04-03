@@ -241,7 +241,7 @@ void Executive::run()
         std::cout << "Data saved!\n";
     }
 
-    std::cout << "\n(∗ ･‿･)ﾉ゛Goodbye!\n";
+    std::cout << "\nGoodbye!\n";
 }
 
 bool Executive::readIn(std::string fileToParse)
