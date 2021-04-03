@@ -49,6 +49,7 @@ class Executive
     bool readIn(std::string fileToParse);
     void writeOut(std::string fileToWrite);
     void fillCuisineVector();
+    void correctInvalid();
 
 };
 

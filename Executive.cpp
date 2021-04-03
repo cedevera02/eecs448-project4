@@ -28,9 +28,7 @@ void Executive::run()
     std::cin >> m_isReturning;
 
     while (std::cin.fail() || m_isReturning < 0 || m_isReturning > 1) {
-        std::cin.clear();
-        std::cin.ignore();
-        std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+        correctInvalid();
         std::cin >> m_isReturning;
     }
 
@@ -41,9 +39,7 @@ void Executive::run()
         std::cin >> m_isReturning;
 
         while (std::cin.fail() || m_isReturning < 0 || m_isReturning > 1) {
-            std::cin.clear();
-            std::cin.ignore();
-            std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+            correctInvalid();
             std::cin >> m_isReturning;
         }
 
@@ -63,9 +59,7 @@ void Executive::run()
         tempName = "a" + tempName; //add a to keep with username creation convention
 
         while(!m_Account.Login(tempName)) {
-            std::cin.clear();
-            std::cin.ignore();
-            std::cout << "Username not found. Either restart (ctrl-c) and create an account or try again: ";
+            correctInvalid();
             std::cin >> tempName;
         }
 
@@ -91,9 +85,7 @@ void Executive::run()
             std::cin >> lower;
             while(std::cin.fail() || lower < 1 || lower > 3) // lower has to be in and within range.
             {
-                std::cin.clear();
-                std::cin.ignore();
-                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                correctInvalid();
                 std::cin >> lower;
             }
 
@@ -101,9 +93,7 @@ void Executive::run()
             std::cin >> higher;
             while(std::cin.fail() || higher < lower || higher > 3) // higher has to be an int, has to be greater than or equal to lower, has to be with in highest range.
             {
-                std::cin.clear();
-                std::cin.ignore();
-                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                correctInvalid();
                 std::cin >> higher;
             }
 
@@ -122,9 +112,7 @@ void Executive::run()
             std::cin >> choice;
             while(std::cin.fail() || choice < 1 || choice > 24)
             {
-                std::cin.clear();
-                std::cin.ignore();
-                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                correctInvalid();
                 std::cin >> choice;
             }
 
@@ -140,9 +128,7 @@ void Executive::run()
             std::cin >> typeChoice;
             while(std::cin.fail() || typeChoice < 1 || typeChoice > 2)
             {
-                std::cin.clear();
-                std::cin.ignore();
-                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                correctInvalid();
                 std::cin >> typeChoice;
             }
 
@@ -150,9 +136,7 @@ void Executive::run()
             std::cin >> ratingChoice;
             while(std::cin.fail() || typeChoice < 1 || typeChoice > 5)
             {
-                std::cin.clear();
-                std::cin.ignore();
-                std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                correctInvalid();
                 std::cin >> typeChoice;
             }
             m_UI.printByRating(typeChoice, ratingChoice);
@@ -179,9 +163,7 @@ void Executive::run()
                 std::cin >> restChoice;
 
                 while(std::cin.fail() || (checkerSet.find(restChoice) == checkerSet.end())) {
-                    std::cin.clear();
-                    std::cin.ignore();
-                    std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                    correctInvalid();
                     std::cin >> restChoice;
                 }
 
@@ -189,9 +171,7 @@ void Executive::run()
                 std::cin >> aRatingToAdd;
 
                 while(std::cin.fail() || aRatingToAdd < 1 || aRatingToAdd > 5) {
-                    std::cin.clear();
-                    std::cin.ignore();
-                    std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                    correctInvalid();
                     std::cin >> aRatingToAdd;
                 }
 
@@ -216,9 +196,7 @@ void Executive::run()
                 std::cin >> restChoice;
 
                 while(std::cin.fail()) {
-                    std::cin.clear();
-                    std::cin.ignore();
-                    std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
+                    correctInvalid();
                     std::cin >> restChoice;
                 }
 
@@ -311,4 +289,11 @@ void Executive::fillCuisineVector()
             m_cuisineVector.push_back(m_restVector->at(i).getCusine());
         }
     }
+}
+
+void Executive::correctInvalid()
+{
+    std::cin.clear();
+    std::cin.ignore();
+    std::cout << "Sorry, your input did not seem to be a valid input. Try again: ";
 }
