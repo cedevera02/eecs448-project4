@@ -1,0 +1,3 @@
+# this makes it so .o files and the .vscode folder (used when debugging in vscode) are ignored then pusing
+*.o
+.vscode/**

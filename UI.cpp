@@ -40,7 +40,7 @@ void UI::printByPrice(int lower, int higher)
     bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
     for(int i=0; i < _resVector->size(); i++)
     {
-        if(_resVector->at(i).getPrice() > lower && _resVector->at(i).getPrice() < higher)
+        if(_resVector->at(i).getPrice() >= lower && _resVector->at(i).getPrice() <= higher)
         {
             haveRes = true;
             std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
@@ -104,17 +104,9 @@ void UI::printByRating(int type, int rating)
 
 void UI::printRandom()
 {
-    int random= 0;
-    bool haveRes = false;
-    for(int i = 0; i < _resVector->size(); i++)
-    {
-	    random = rand() %2;
-	    if(random == 1)
-        {
-	        haveRes = true;
-	        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
-	    }
-	}
+    int i = rand() % (_resVector->size()-1) + 0;
+    std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
+
 }
 
 void UI::giveRating(std::string name, int rating)
