@@ -29,7 +29,6 @@ class Executive
     int m_menuChoice;
     std::vector<std::string> m_cuisineVector;
     bool m_isReturning;
-    bool m_didLogin;
 
     std::string m_tempRestName;
     std::string m_tempRestType;

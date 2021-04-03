@@ -123,23 +123,48 @@ void Executive::run()
         else if(m_menuChoice == SEARCH_RATING_CODE) // Search By Ratings.
         {
             int typeChoice;
-            double ratingChoice;
+            double lowR, highR;
             std::cout << "Would you like to search by\n1. Personal Ratings\n2. Public Ratings\n";
             std::cin >> typeChoice;
-            while(std::cin.fail() || typeChoice < 1 || typeChoice > 2)
+
+            if(m_isReturning)
+            {
+                while(std::cin.fail() || typeChoice < 1 || typeChoice > 2)
+                {
+                    correctInvalid();
+                    std::cin >> typeChoice;
+                }
+            }
+            else
+            {
+                if(typeChoice == 1)
+                {
+                    std::cout << "You are not logged in. Please restart and login to use this feature.\n";
+                }
+                while(std::cin.fail() || typeChoice !=2)
+                {
+                    correctInvalid();
+                    std::cin >> typeChoice;
+                }
+            }
+            
+
+            std::cout << "Please give a lower rating range(1.0-5.0): ";
+            std::cin >> lowR;
+            while(std::cin.fail() || lowR < 1 || lowR > 5) // lower has to be in and within range.
             {
                 correctInvalid();
-                std::cin >> typeChoice;
+                std::cin >> lowR;
             }
 
-            std::cout << "Enter a rating you would like to search for (1-5): ";
-            std::cin >> ratingChoice;
-            while(std::cin.fail() || typeChoice < 1 || typeChoice > 5)
+            std::cout << "Please give a higher rating range(1.0-5.0): ";
+            std::cin >> highR;
+            while(std::cin.fail() || highR < lowR || highR > 5) // higher has to be an int, has to be greater than or equal to lower, has to be with in highest range.
             {
                 correctInvalid();
-                std::cin >> typeChoice;
+                std::cin >> highR;
             }
-            m_UI.printByRating(typeChoice, ratingChoice);
+            m_UI.printByRating(typeChoice, lowR, highR);
 
 
         }
@@ -227,12 +252,13 @@ bool Executive::readIn(std::string fileToParse)
     m_file.open(fileToParse + ".txt");
     if(m_file.is_open()) 
     {
-        while(m_file >> m_tempRestName >> m_tempRestType >> m_tempPricing >> m_tempRating) 
+        while(m_file >> m_tempRestName >> m_tempRestType >> m_tempPricing >> m_tempRating >> m_tempUserRating) 
         {
             Restaurant temp = Restaurant(m_tempRestName);
             temp.setCuisine(m_tempRestType);
             temp.setPrice(m_tempPricing);
-            temp.setPRating(m_tempRating);
+            temp.setRating(m_tempRating);
+            temp.setPRating(m_tempUserRating);
             m_restVector->push_back(temp);
         }
         // for (int i =0; i < int(m_restVector->size()); i++){ //just checking to make sure it reads it all

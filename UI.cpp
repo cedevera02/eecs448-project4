@@ -73,22 +73,22 @@ void UI::printByCuisine(std::string choice)
     }
 }
 
-void UI::printByRating(int type, int rating)
+void UI::printByRating(int type, double ratingLower, double ratingHigher)
 {
     bool haveRes = false; 
 	for(int i = 0; i < _resVector->size(); i++)
     {
-        if(type == 0)//Personal
+        if(type == 1)//Personal
         {
-	        if(_resVector->at(i).getRating() == rating)
+	        if(_resVector->at(i).getPRating() >= ratingLower && _resVector->at(i).getPRating() <= ratingHigher)
             {
 	            haveRes = true;
     	        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
             }
         }
-        else if(type == 1)//Public
+        else if(type == 2)//Public
         {
-            if(_resVector->at(i).getPRating() == rating)
+            if(_resVector->at(i).getRating() >= ratingLower && _resVector->at(i).getRating() <= ratingHigher)
             {
 	            haveRes = true;
     	        std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
@@ -117,7 +117,7 @@ void UI::giveRating(std::string name, int rating)
 	    haveRes = true;
 	    if(_resVector->at(i).getName().compare(name) == 0)
         {
-	        _resVector->at(i).setRating(rating);
+	        _resVector->at(i).setPRating(rating);
 	        std::cout << "\nRating " << rating << " set successfully for restaurant " << _resVector->at(i).getName() << "\n";
 	    }
     }

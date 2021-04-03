@@ -14,7 +14,7 @@ class UI
     void printAll();
     void printByPrice(int lower, int higher);
     void printByCuisine(std::string choice);
-    void printByRating(int type, int rating);
+    void printByRating(int type, double ratingLower, double ratingHigher);
     void printRandom();
     void giveRating(std::string name, int rating);
     void removeRestaurant(std::string name);
