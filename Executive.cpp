@@ -293,15 +293,22 @@ void Executive::fillCuisineVector()
     {
         for(int j=0;  j < (int)m_cuisineVector.size(); j++) //probably rewrite this later to use a hash-table so we don't need nested for loops
         {
-            if(m_cuisineVector[i] == m_cuisineVector[j])
+            try
             {
-                repeat = true;
-                break;
+                if(m_restVector->at(i).getCusine() == m_cuisineVector.at(j))
+                {
+                    repeat = true;
+                    break;
+                }
+            }
+            catch (const std::out_of_range& oor)
+            {
+                std::cerr << "Out of Range error: " << oor.what() << '\n';
             }
         }
         if(!repeat)
         {
-            m_cuisineVector[i] == m_restVector->at(i).getCusine();
+            m_cuisineVector.push_back(m_restVector->at(i).getCusine());
         }
     }
 }
