@@ -1,13 +1,19 @@
 #include "UI.h"
 
 
-
+///UI CONSTRUCTOR
+///
+///@param vec Takes in restaurant vector pointer
 UI::UI(std::vector<Restaurant>* vec)
 {
     _resVector = vec;
  
 }
 
+///METHODS
+///
+///Prints out all of the menu options that user can choose from
+///@return Returns the int value that the user chooses
 int UI::printMenu()
 {
     int input;
@@ -27,6 +33,9 @@ int UI::printMenu()
     return input;
 }
 
+///This method prints all of the retaurants and their data
+///
+///Acesses local restaurant vector and formats the output into lines
 void UI::printAll()
 {
     for(int i=0; i < _resVector->size(); i++)
@@ -35,6 +44,10 @@ void UI::printAll()
     }
 }
 
+///This method prints all of the restaurants in a certain price range
+///
+///@param lower The lower bound for the price range
+///@param higher The higher boudn for the price range
 void UI::printByPrice(int lower, int higher)
 {
     bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
@@ -54,6 +67,9 @@ void UI::printByPrice(int lower, int higher)
     }
 }
 
+///This method prints all of the restaurants in a given cuisine type
+///
+///@param choice The cuisine choice entered by the user
 void UI::printByCuisine(std::string choice)
 {
     bool haveRes = false; // to have a different cout when there are no Restaurtants that fit the category.
@@ -73,6 +89,12 @@ void UI::printByCuisine(std::string choice)
     }
 }
 
+
+///This methods prints all of the restaurants in a given rating range
+///
+///@param type This determines if it personal or global rating
+///@param ratingLower The lower bound for the rating
+///@param ratingHigher The higher bound for the rating
 void UI::printByRating(int type, double ratingLower, double ratingHigher)
 {
     bool haveRes = false; 
@@ -102,6 +124,7 @@ void UI::printByRating(int type, double ratingLower, double ratingHigher)
     }
 }
 
+///This method selects and prints a random restaurant and its data
 void UI::printRandom()
 {
     int i = rand() % (_resVector->size()-1) + 0;
@@ -109,6 +132,10 @@ void UI::printRandom()
 
 }
 
+///This methods allows a user to give a retaurant a personal rating
+///
+///@param name The name of the restaurant to rate
+///@param rating The rating double that the user gives
 void UI::giveRating(std::string name, double rating)
 {
     bool haveRes = false;
@@ -128,6 +155,9 @@ void UI::giveRating(std::string name, double rating)
     }
 }
 
+///This methods allows a user to remove a restaurant from the vector
+///
+///@param name The restaurant object to removes
 void UI::removeRestaurant(std::string name)
 {
     bool haveRes = false;
