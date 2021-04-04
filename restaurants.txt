@@ -27,4 +27,4 @@ Fuzzy's_Taco_Shop Tex_Mex 1 4.3 0
 King_Buffet Chinese 1 3.9 0
 War_Restaurant Sushi 2 4.3 0
 Noodles_and_Company Fast_Food 1 4.2 0
-The_Fresh_Mediterranean_Co Mediterranean 1 4.9 0s
+The_Fresh_Mediterranean_Co Mediterranean 1 4.9 0
