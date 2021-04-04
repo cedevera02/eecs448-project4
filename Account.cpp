@@ -15,7 +15,7 @@ Account::Account()
 //login checks to see if name of account is valid. If not, login fails.
 bool Account::Login(std::string name)
 { 
-    std::ofstream file;
+    std::ifstream file;
     file.open(name + ".txt");//to allow for using variable name
     if (file.is_open())
     {

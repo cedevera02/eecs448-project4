@@ -56,7 +56,7 @@ void Executive::run()
 
         std::cout << "Welcome back! Please enter your username (case-sensitive): ";
         std::cin >> tempName;
-        tempName = "a" + tempName; //add a to keep with username creation convention
+       // tempName = "a" + tempName; //add a to keep with username creation convention
 
         while(!m_Account.Login(tempName)) {
             correctInvalid();
