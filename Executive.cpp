@@ -182,7 +182,7 @@ void Executive::run()
             {
                 std::string restChoice;
                 std::unordered_set <std::string> checkerSet;
-                int aRatingToAdd;
+                double aRatingToAdd;
 
                 std::cout << "Select a restaurant from the list below to add a rating to: \n";
                 for(int i = 0; i < (int)m_restVector->size(); i++) {

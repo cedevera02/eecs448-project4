@@ -109,7 +109,7 @@ void UI::printRandom()
 
 }
 
-void UI::giveRating(std::string name, int rating)
+void UI::giveRating(std::string name, double rating)
 {
     bool haveRes = false;
     for(int i = 0; i < _resVector->size(); i++)
