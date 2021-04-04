@@ -19,7 +19,7 @@ bool Account::Login(std::string name)
     file.open(name + ".txt");//to allow for using variable name
     if (file.is_open())
     {
-        std::cout<<"Welcome "<<m_accName<<" back\n";
+        std::cout<<"Welcome back" << m_accName << "\n";
         file.close();
         return(true);
     }
