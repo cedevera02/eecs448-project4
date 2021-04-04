@@ -4,7 +4,9 @@
 #include <iostream>
 
 
-
+///ACCOUNT CONSTRUCTOR
+///
+///This will initialize the account name to null char
 Account::Account()
 {
     m_accName = '\0';
@@ -12,7 +14,11 @@ Account::Account()
 
 
 
-//login checks to see if name of account is valid. If not, login fails.
+///METHODS
+///
+///This attempts a user account login
+///@param name, String that is the accoutn name that user enters
+///@return Returns true if can login (open the file) using the given name, false otherwise
 bool Account::Login(std::string name)
 { 
     std::ifstream file;
@@ -30,11 +36,15 @@ bool Account::Login(std::string name)
     }
 }
 
+///Helper function to set the local user name variable
 void Account::setName(std::string name)
 {
     m_accName = name;
 }
 
+///Helper function to get the local user name varialbe
+///
+///@return Returns the user name string
 std::string Account::getName()
 {
     return m_accName;

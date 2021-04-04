@@ -4,7 +4,9 @@
 #include <unordered_set>
 
 
-
+///EXECUTIVE CONSTRUCTOR
+///
+///This will initalize local objects and some local variables
 Executive::Executive()
 {
     m_restVector = new std::vector<Restaurant>;
@@ -14,13 +16,18 @@ Executive::Executive()
     m_Account = Account();
 }
 
-
+///EXECUTIVE DESTRUCTOR
+///
+///Clears out the objects in the heap allocated restaurant vector, deletes pointer
 Executive::~Executive()
 {
     m_restVector->clear();
     delete m_restVector;
 }
 
+///METHODS
+///
+///This is the main game loop, called in main as the access point to the program, handles logic after menu choice, file writes and reads, input check
 void Executive::run()
 {
 
@@ -255,6 +262,9 @@ void Executive::run()
     std::cout << "\nGoodbye!\n";
 }
 
+///function called when run method needs to read in from a file
+/** If the user is a guest or new user, this is a standard file, otherwise it is under their username.*/
+///@param fileToParse, the string that names the file to be read in
 bool Executive::readIn(std::string fileToParse)
 {
     m_file.open(fileToParse + ".txt");
@@ -282,6 +292,9 @@ bool Executive::readIn(std::string fileToParse)
     }
 }
 
+///function called when run methods needs to write to a file
+/**If the user is a guest no write will happen, if they are a new user the file will be created, returning users overwrite old file.*/
+///@param fileToWrite, the string that names the file to written to
 void Executive::writeOut(std::string fileToWrite)
 {
     m_file.open(fileToWrite + ".txt", std::ios::out | std::ios::trunc); // I believe the second arg will clear the file
@@ -298,6 +311,8 @@ void Executive::writeOut(std::string fileToWrite)
     }
 }
 
+///function called when run has the restaurant vector and needs to fill out cuisine vector
+/**This vector is filled to use for printing all of the cuisine types that the user can search by*/
 void Executive::fillCuisineVector()
 {
     bool repeat = false;
@@ -329,6 +344,7 @@ void Executive::fillCuisineVector()
     }
 }
 
+///Helper function to reduce code repition in input checks
 void Executive::correctInvalid()
 {
     std::cin.clear();
