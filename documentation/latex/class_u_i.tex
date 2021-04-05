@@ -1,0 +1,198 @@
+\hypertarget{class_u_i}{}\doxysection{UI Class Reference}
+\label{class_u_i}\index{UI@{UI}}
+
+
+This class handles all of the \mbox{\hyperlink{class_u_i}{UI}} output.  
+
+
+
+
+{\ttfamily \#include $<$UI.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}{UI}} ()
+\item 
+\mbox{\hyperlink{class_u_i_a10827ab0bd81a09ffcd3aad6db96988e}{UI}} (std\+::vector$<$ \mbox{\hyperlink{class_restaurant}{Restaurant}} $>$ $\ast$vec)
+\item 
+int \mbox{\hyperlink{class_u_i_a03927f9bb28c870ad5393d3685ff8585}{print\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_u_i}{UI}} object constructor, store \+\_\+res\+Vector member variable, fills in cuisine vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a2c9a6760be043007c983846d852c1380}{print\+All}} ()
+\begin{DoxyCompactList}\small\item\em prints full user menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_abd81e5deaf5536fadc66298361da6fab}{print\+By\+Price}} (int lower, int higher)
+\begin{DoxyCompactList}\small\item\em prints all restaurants. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_ab392759153fd2fa6a3289f4906bcfa36}{print\+By\+Cuisine}} (std\+::string choice)
+\begin{DoxyCompactList}\small\item\em prints restaurants fitting the users given price range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a83862af6daad6408ea99b2603fbeb162}{print\+By\+Rating}} (int type, double rating\+Lower, double rating\+Higher)
+\begin{DoxyCompactList}\small\item\em prints all restaurants that fits the users choosen cusine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a5e3bdf1530b121ef319ed798aba9f63c}{print\+Random}} ()
+\begin{DoxyCompactList}\small\item\em prints all restaurants fitting in the users given rating range(eitehr personal or public ratings). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a1ddd0681e37fdccd119cbe894f95b80a}{give\+Rating}} (std\+::string name, double rating)
+\begin{DoxyCompactList}\small\item\em prints a random restaurant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a174b21eb3f76b4b4170d84f7e8a0871c}{remove\+Restaurant}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em allows a logged in user to assign a restaurant a personal rating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles all of the \mbox{\hyperlink{class_u_i}{UI}} output. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}\label{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}} 
+\index{UI@{UI}!UI@{UI}}
+\index{UI@{UI}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{UI()}{UI()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily UI\+::\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_u_i_a10827ab0bd81a09ffcd3aad6db96988e}\label{class_u_i_a10827ab0bd81a09ffcd3aad6db96988e}} 
+\index{UI@{UI}!UI@{UI}}
+\index{UI@{UI}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{UI()}{UI()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily UI\+::\+UI (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_restaurant}{Restaurant}} $>$ $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_u_i}{UI}} CONSTRUCTOR
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Takes in restaurant vector pointer \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_a1ddd0681e37fdccd119cbe894f95b80a}\label{class_u_i_a1ddd0681e37fdccd119cbe894f95b80a}} 
+\index{UI@{UI}!giveRating@{giveRating}}
+\index{giveRating@{giveRating}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{giveRating()}{giveRating()}}
+{\footnotesize\ttfamily void UI\+::give\+Rating (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{double}]{rating }\end{DoxyParamCaption})}
+
+
+
+prints a random restaurant. 
+
+This methods allows a user to give a retaurant a personal rating
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the restaurant to rate \\
+\hline
+{\em rating} & The rating double that the user gives \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a2c9a6760be043007c983846d852c1380}\label{class_u_i_a2c9a6760be043007c983846d852c1380}} 
+\index{UI@{UI}!printAll@{printAll}}
+\index{printAll@{printAll}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printAll()}{printAll()}}
+{\footnotesize\ttfamily void UI\+::print\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+prints full user menu. 
+
+This method prints all of the retaurants and their data
+
+Acesses local restaurant vector and formats the output into lines \mbox{\Hypertarget{class_u_i_ab392759153fd2fa6a3289f4906bcfa36}\label{class_u_i_ab392759153fd2fa6a3289f4906bcfa36}} 
+\index{UI@{UI}!printByCuisine@{printByCuisine}}
+\index{printByCuisine@{printByCuisine}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printByCuisine()}{printByCuisine()}}
+{\footnotesize\ttfamily void UI\+::print\+By\+Cuisine (\begin{DoxyParamCaption}\item[{std\+::string}]{choice }\end{DoxyParamCaption})}
+
+
+
+prints restaurants fitting the users given price range. 
+
+This method prints all of the restaurants in a given cuisine type
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice} & The cuisine choice entered by the user \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_abd81e5deaf5536fadc66298361da6fab}\label{class_u_i_abd81e5deaf5536fadc66298361da6fab}} 
+\index{UI@{UI}!printByPrice@{printByPrice}}
+\index{printByPrice@{printByPrice}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printByPrice()}{printByPrice()}}
+{\footnotesize\ttfamily void UI\+::print\+By\+Price (\begin{DoxyParamCaption}\item[{int}]{lower,  }\item[{int}]{higher }\end{DoxyParamCaption})}
+
+
+
+prints all restaurants. 
+
+This method prints all of the restaurants in a certain price range
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & The lower bound for the price range \\
+\hline
+{\em higher} & The higher boudn for the price range \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a83862af6daad6408ea99b2603fbeb162}\label{class_u_i_a83862af6daad6408ea99b2603fbeb162}} 
+\index{UI@{UI}!printByRating@{printByRating}}
+\index{printByRating@{printByRating}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printByRating()}{printByRating()}}
+{\footnotesize\ttfamily void UI\+::print\+By\+Rating (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{double}]{rating\+Lower,  }\item[{double}]{rating\+Higher }\end{DoxyParamCaption})}
+
+
+
+prints all restaurants that fits the users choosen cusine. 
+
+This methods prints all of the restaurants in a given rating range
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & This determines if it personal or global rating \\
+\hline
+{\em rating\+Lower} & The lower bound for the rating \\
+\hline
+{\em rating\+Higher} & The higher bound for the rating \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a03927f9bb28c870ad5393d3685ff8585}\label{class_u_i_a03927f9bb28c870ad5393d3685ff8585}} 
+\index{UI@{UI}!printMenu@{printMenu}}
+\index{printMenu@{printMenu}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printMenu()}{printMenu()}}
+{\footnotesize\ttfamily int UI\+::print\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_u_i}{UI}} object constructor, store \+\_\+res\+Vector member variable, fills in cuisine vector. 
+
+METHODS
+
+Prints out all of the menu options that user can choose from \begin{DoxyReturn}{Returns}
+Returns the int value that the user chooses 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_a5e3bdf1530b121ef319ed798aba9f63c}\label{class_u_i_a5e3bdf1530b121ef319ed798aba9f63c}} 
+\index{UI@{UI}!printRandom@{printRandom}}
+\index{printRandom@{printRandom}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{printRandom()}{printRandom()}}
+{\footnotesize\ttfamily void UI\+::print\+Random (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+prints all restaurants fitting in the users given rating range(eitehr personal or public ratings). 
+
+This method selects and prints a random restaurant and its data. \mbox{\Hypertarget{class_u_i_a174b21eb3f76b4b4170d84f7e8a0871c}\label{class_u_i_a174b21eb3f76b4b4170d84f7e8a0871c}} 
+\index{UI@{UI}!removeRestaurant@{removeRestaurant}}
+\index{removeRestaurant@{removeRestaurant}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{removeRestaurant()}{removeRestaurant()}}
+{\footnotesize\ttfamily void UI\+::remove\+Restaurant (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+allows a logged in user to assign a restaurant a personal rating. 
+
+This methods allows a user to remove a restaurant from the vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The restaurant object to removes \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+code/\mbox{\hyperlink{_u_i_8h}{UI.\+h}}\item 
+code/\mbox{\hyperlink{_u_i_8cpp}{UI.\+cpp}}\end{DoxyCompactItemize}

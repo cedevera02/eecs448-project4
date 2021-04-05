@@ -1,0 +1,123 @@
+\hypertarget{class_executive}{}\doxysection{Executive Class Reference}
+\label{class_executive}\index{Executive@{Executive}}
+
+
+{\ttfamily \#include $<$Executive.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}{Executive}} ()
+\item 
+\mbox{\hyperlink{class_executive_a4ce80c499f7640b1770ade77cf56d965}{$\sim$\+Executive}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_executive}{Executive}} constructor, initializes local objects and vars. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_executive_adef7cad3387e8fc79d92ffd418f45258}{run}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_executive}{Executive}} desctructor, clears out the heap allocation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_executive_ae67be6e7faf6e242199710bccc67386d}{read\+In}} (std\+::string file\+To\+Parse)
+\begin{DoxyCompactList}\small\item\em Main program loop that handles menu choices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_executive_a4a57ae5e898dcefac7f39b8f09aa531f}{write\+Out}} (std\+::string file\+To\+Write)
+\begin{DoxyCompactList}\small\item\em Reads in from the specified text file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_executive_a970328ce777cb11ae38f976d067b4670}{fill\+Cuisine\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Writes out to a secified text file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_executive_a37a8a4a4148806d3cbefaa16e5cc288b}{correct\+Invalid}} ()
+\begin{DoxyCompactList}\small\item\em Fills out the cuisine vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}\label{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}} 
+\index{Executive@{Executive}!Executive@{Executive}}
+\index{Executive@{Executive}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{Executive()}{Executive()}}
+{\footnotesize\ttfamily Executive\+::\+Executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+EXECUTIVE CONSTRUCTOR
+
+This will initalize local objects and some local variables \mbox{\Hypertarget{class_executive_a4ce80c499f7640b1770ade77cf56d965}\label{class_executive_a4ce80c499f7640b1770ade77cf56d965}} 
+\index{Executive@{Executive}!````~Executive@{$\sim$Executive}}
+\index{````~Executive@{$\sim$Executive}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{$\sim$Executive()}{~Executive()}}
+{\footnotesize\ttfamily Executive\+::$\sim$\+Executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_executive}{Executive}} constructor, initializes local objects and vars. 
+
+EXECUTIVE DESTRUCTOR
+
+Clears out the objects in the heap allocated restaurant vector, deletes pointer 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_executive_a37a8a4a4148806d3cbefaa16e5cc288b}\label{class_executive_a37a8a4a4148806d3cbefaa16e5cc288b}} 
+\index{Executive@{Executive}!correctInvalid@{correctInvalid}}
+\index{correctInvalid@{correctInvalid}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{correctInvalid()}{correctInvalid()}}
+{\footnotesize\ttfamily void Executive\+::correct\+Invalid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fills out the cuisine vector. 
+
+Helper function to reduce code repition in input checks. \mbox{\Hypertarget{class_executive_a970328ce777cb11ae38f976d067b4670}\label{class_executive_a970328ce777cb11ae38f976d067b4670}} 
+\index{Executive@{Executive}!fillCuisineVector@{fillCuisineVector}}
+\index{fillCuisineVector@{fillCuisineVector}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{fillCuisineVector()}{fillCuisineVector()}}
+{\footnotesize\ttfamily void Executive\+::fill\+Cuisine\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Writes out to a secified text file. 
+
+function called when run has the restaurant vector and needs to fill out cuisine vector
+
+This vector is filled to use for printing all of the cuisine types that the user can search by \mbox{\Hypertarget{class_executive_ae67be6e7faf6e242199710bccc67386d}\label{class_executive_ae67be6e7faf6e242199710bccc67386d}} 
+\index{Executive@{Executive}!readIn@{readIn}}
+\index{readIn@{readIn}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{readIn()}{readIn()}}
+{\footnotesize\ttfamily bool Executive\+::read\+In (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+To\+Parse }\end{DoxyParamCaption})}
+
+
+
+Main program loop that handles menu choices. 
+
+function called when run method needs to read in from a file
+
+If the user is a guest or new user, this is a standard file, otherwise it is under their username. 
+\begin{DoxyParams}{Parameters}
+{\em file\+To\+Parse,the} & string that names the file to be read in \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_executive_adef7cad3387e8fc79d92ffd418f45258}\label{class_executive_adef7cad3387e8fc79d92ffd418f45258}} 
+\index{Executive@{Executive}!run@{run}}
+\index{run@{run}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Executive\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_executive}{Executive}} desctructor, clears out the heap allocation. 
+
+METHODS
+
+This is the main game loop, called in main as the access point to the program, handles logic after menu choice, file writes and reads, input check \mbox{\Hypertarget{class_executive_a4a57ae5e898dcefac7f39b8f09aa531f}\label{class_executive_a4a57ae5e898dcefac7f39b8f09aa531f}} 
+\index{Executive@{Executive}!writeOut@{writeOut}}
+\index{writeOut@{writeOut}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{writeOut()}{writeOut()}}
+{\footnotesize\ttfamily void Executive\+::write\+Out (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+To\+Write }\end{DoxyParamCaption})}
+
+
+
+Reads in from the specified text file. 
+
+function called when run methods needs to write to a file
+
+If the user is a guest no write will happen, if they are a new user the file will be created, returning users overwrite old file. 
+\begin{DoxyParams}{Parameters}
+{\em file\+To\+Write,the} & string that names the file to written to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+code/\mbox{\hyperlink{_executive_8h}{Executive.\+h}}\item 
+code/\mbox{\hyperlink{_executive_8cpp}{Executive.\+cpp}}\end{DoxyCompactItemize}
