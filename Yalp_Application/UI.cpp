@@ -33,6 +33,12 @@ int UI::printMenu()
     return input;
 }
 
+///This method sets up the YalpWindow ui to be used
+void UI::setUI(Ui::YalpWindow *ui)
+{
+    m_ui = ui;
+}
+
 ///This method prints all of the retaurants and their data
 ///
 ///Acesses local restaurant vector and formats the output into lines
@@ -128,8 +134,8 @@ void UI::printByRating(int type, double ratingLower, double ratingHigher)
 void UI::printRandom()
 {
     int i = rand() % (_resVector->size()-1) + 0;
-    std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
-
+    //std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
+    m_ui->RestaurantTextEdit->insertPlainText(_resVector->at(i).getName() + "  " + _resVector->at(i).getCusine() + "  " +QString::number(_resVector->at(i).getPrice()) + "  Rating: " + QString::number(_resVector->at(i).getRating()) + "  Personal Rating: " + QString::number(_resVector->at(i).getPRating()) + "\n");
 }
 
 ///This methods allows a user to give a retaurant a personal rating

@@ -6,6 +6,13 @@
 #include <string>
 #include "UI.h" //include this so we can create and use UI
 #include "Account.h"
+#include <QFile>
+#include <QTextStream>
+#include <QMainWindow>
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class YalpWindow; }
+QT_END_NAMESPACE
 
 /// This class handles the main program loop and is called as the single entry point from main
 
@@ -30,26 +37,27 @@ class Executive
     Account m_Account;///< Local instance of Account to call Account methods
     //std::string m_userFile;//
     int m_menuChoice;///< Variable to hold users menu selection
-    std::vector<std::string> m_cuisineVector;///< A vector to hold all of the cuisine types for searching by cuisine
+    std::vector<QString> m_cuisineVector;///< A vector to hold all of the cuisine types for searching by cuisine
     bool m_isReturning;///< Used to see if a file needs to be written out to or not, only ultimately false if GUEST
 
-    std::string m_tempRestName;///< Temp holder for restaurant name
-    std::string m_tempRestType;///< Temp holder for restaurant type
+    QString m_tempRestName;///< Temp holder for restaurant name
+    QString m_tempRestType;///< Temp holder for restaurant type
     int m_tempPricing;///< Temp holder for restaurant price
     double m_tempRating;///< Temp holder for restaurant rating
     int m_tempUserRating;///< Temp holder for personal restaurant rating
 
-    std::fstream m_file;///< File stream that is opened and closed for reads and writes
+    //QFile m_file;///< File stream that is opened and closed for reads and writes
     //std::ofstream m_outFile;
+    Ui::YalpWindow *m_ui;
 
 
 
     public:
-    Executive();/// Executive constructor, initializes local objects and vars
+    Executive(Ui::YalpWindow *ui);/// Executive constructor, initializes local objects and vars, requires ui parameter
     ~Executive();/// Executive desctructor, clears out the heap allocation
     void run();/// Main program loop that handles menu choices
-    bool readIn(std::string fileToParse);/// Reads in from the specified text file
-    void writeOut(std::string fileToWrite);/// Writes out to a secified text file
+    bool readIn(QString fileToParse);/// Reads in from the specified text file
+    void writeOut(QString fileToWrite);/// Writes out to a secified text file
     void fillCuisineVector();/// Fills out the cuisine vector
     void correctInvalid();/// Helper function to reduce code repition on input checking
 

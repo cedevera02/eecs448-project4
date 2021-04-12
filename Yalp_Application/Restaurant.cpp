@@ -1,9 +1,10 @@
 #include "Restaurant.h"
 
+
 ///RESTAURANT CONSTRUCTOR
 ///
 ///@param name Takes in the name of the rataurant
-Restaurant::Restaurant(std::string name)
+Restaurant::Restaurant(QString name)
 {
     m_name = name;
     m_cuisine = "";
@@ -22,7 +23,7 @@ Restaurant::~Restaurant()
 ///
 ///This sets the restaurant name
 ///@param name Name of the restaurant
-void Restaurant::setName(std::string name)
+void Restaurant::setName(QString name)
 {
     m_name = name;
 }
@@ -30,7 +31,7 @@ void Restaurant::setName(std::string name)
 ///This sets the restaurant cuisine type
 ///
 ///@param cuisine Cuisine type of restaurant
-void Restaurant::setCuisine(std::string cuisine)
+void Restaurant::setCuisine(QString cuisine)
 {
     m_cuisine = cuisine;
 }
@@ -63,7 +64,7 @@ void Restaurant::setPRating(double pRating)
 //This get the restaurant name
 ///
 ///@return Returns the restaurant name string
-std::string Restaurant::getName()
+QString Restaurant::getName()
 {
     return m_name;
 }
@@ -71,7 +72,7 @@ std::string Restaurant::getName()
 ///This gets the cuisine type
 ///
 ///@return Returns the restaurant cuisine string
-std::string Restaurant::getCusine()
+QString Restaurant::getCusine()
 {
     return m_cuisine;
 }

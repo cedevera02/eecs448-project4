@@ -4,6 +4,13 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <QMainWindow>
+#include "yalpwindow.h"
+#include "ui_yalpwindow.h"
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class YalpWindow; }
+QT_END_NAMESPACE
 
 ///This class handles all of the UI output
 
@@ -20,9 +27,11 @@ class UI
     void printRandom();/// prints a random restaurant.
     void giveRating(std::string name, double rating);/// allows a logged in user to assign a restaurant a personal rating.
     void removeRestaurant(std::string name);/// allows a logged in user to remove a restaurant from their list.
+    void setUI(Ui::YalpWindow *ui); ///sets the window Ui for the gui
 
     private:
     std::vector<Restaurant>* _resVector; ///< vector storing Restaurant objects.
+    Ui::YalpWindow *m_ui;
 
 };
 

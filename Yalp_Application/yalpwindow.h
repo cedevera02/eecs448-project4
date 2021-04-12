@@ -2,6 +2,7 @@
 #define YALPWINDOW_H
 
 #include <QMainWindow>
+#include "UI.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class YalpWindow; }
@@ -15,7 +16,12 @@ public:
     YalpWindow(QWidget *parent = nullptr);
     ~YalpWindow();
 
+private slots:
+    void on_FeelingHungryButton_clicked();
+
 private:
     Ui::YalpWindow *ui;
+    UI m_UI;
+
 };
 #endif // YALPWINDOW_H

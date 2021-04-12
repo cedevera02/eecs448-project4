@@ -7,13 +7,16 @@
 ///EXECUTIVE CONSTRUCTOR
 ///
 ///This will initalize local objects and some local variables
-Executive::Executive()
+Executive::Executive(Ui::YalpWindow *ui)
 {
     m_restVector = new std::vector<Restaurant>;
     m_UI = nullptr;
     m_isReturning = false;
     m_menuChoice = 0;
     m_Account = Account();
+    m_ui = ui;
+    m_UI.setUi(ui);
+    readIn(STD_FILE_NAME); //just for testing
 }
 
 ///EXECUTIVE DESTRUCTOR
@@ -39,7 +42,7 @@ void Executive::run()
         std::cin >> m_isReturning;
     }
 
-    std::string tempName;
+    QString tempName;
     if(!m_isReturning) {
         readIn(STD_FILE_NAME);
         std::cout << "Would you like to be a guest (0) or create (1) an account?: ";
@@ -265,13 +268,31 @@ void Executive::run()
 ///function called when run method needs to read in from a file
 /** If the user is a guest or new user, this is a standard file, otherwise it is under their username.*/
 ///@param fileToParse, the string that names the file to be read in
-bool Executive::readIn(std::string fileToParse)
+bool Executive::readIn(QString fileToParse)
 {
-    m_file.open(fileToParse + ".txt");
-    if(m_file.is_open())
+    QFile m_file(fileToParse + ".txt");
+    if(m_file.open(QIODevice::ReadOnly))
     {
-        while(m_file >> m_tempRestName >> m_tempRestType >> m_tempPricing >> m_tempRating >> m_tempUserRating)
+        while(!m_file.atEnd())
         {
+            //m_file >> m_tempRestName >> m_tempRestType >> m_tempPricing >> m_tempRating >> m_tempUserRating
+            QString line = m_file.readLine();
+            int pos = line.indexOf(" ");
+            m_tempRestName = line.left(pos-1);
+            line = line.right(line.size() - pos+1);
+            pos = line.indexOf(" ");
+            m_tempRestType = line.left(pos-1);
+            line = line.right(line.size() - pos+1);
+            pos = line.indexOf(" ");
+            m_tempPricing = line.left(pos-1).toInt();
+            line = line.right(line.size() - pos+1);
+            pos = line.indexOf(" ");
+            m_tempRating = line.left(pos-1).toDouble();
+            line = line.right(line.size() - pos+1);
+            pos = line.indexOf(" ");
+            m_tempUserRating = line.left(pos-1).toDouble();
+            line = line.right(line.size() - pos+1);
+
             Restaurant temp = Restaurant(m_tempRestName);
             temp.setCuisine(m_tempRestType);
             temp.setPrice(m_tempPricing);
@@ -287,7 +308,7 @@ bool Executive::readIn(std::string fileToParse)
     }
     else
     {
-        std::cout << "Couldn't open read " << fileToParse << " file!\n";
+        //std::cout << "Couldn't open read " << fileToParse << " file!\n";
         return false;
     }
 }
@@ -295,19 +316,21 @@ bool Executive::readIn(std::string fileToParse)
 ///function called when run methods needs to write to a file
 /**If the user is a guest no write will happen, if they are a new user the file will be created, returning users overwrite old file.*/
 ///@param fileToWrite, the string that names the file to written to
-void Executive::writeOut(std::string fileToWrite)
+void Executive::writeOut(QString fileToWrite)
 {
-    m_file.open(fileToWrite + ".txt", std::ios::out | std::ios::trunc); // I believe the second arg will clear the file
-    if(m_file.is_open())
+    QFile m_file (fileToWrite + "txt");
+    //m_file.open(QIODevice::WriteOnly | QIODevice::Text); // I believe the second arg will clear the file
+    if(m_file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
+        QTextStream out (&m_file);
         for(int i = 0; i< (int)m_restVector->size(); i++) {
-            m_file << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine()
+            out << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine()
             << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << std::endl;
         }
     }
     else
     {
-        std::cout << "Couldn't open write " << fileToWrite << " file!\n";
+        //std::cout << "Couldn't open write " << fileToWrite << " file!\n";
     }
 }
 
