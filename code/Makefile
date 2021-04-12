@@ -16,5 +16,8 @@ Restaurant.o: Restaurant.h Restaurant.cpp
 UI.o: UI.h UI.cpp Restaurant.h
 	g++ -std=c++11 -g -Wall -c UI.cpp
 
+TestSuite.o: TestSuite.cpp TestSuite.h
+	g++ -std=c++11 -g -Wall -c main.cpp
+
 clean:
 	rm *.o prog
