@@ -2,7 +2,10 @@
 #define YALPWINDOW_H
 
 #include <QMainWindow>
-#include "UI.h"
+#include <vector>
+#include "Choices.h"
+#include "Restaurant.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class YalpWindow; }
@@ -17,11 +20,40 @@ public:
     ~YalpWindow();
 
 private slots:
-    void on_FeelingHungryButton_clicked();
+
+    void on_Min1RB_clicked();
+
+    void on_Min2RB_clicked();
+
+    void on_Min3RB_clicked();
+
+    void on_Max1RB_clicked();
+
+    void on_Max2RB_clicked();
+
+    void on_Max3RB_clicked();
+
+    void on_searchFilterButton_clicked();
+
+    void on_publicRRadioButtn_clicked();
+
+    void on_radioButton_2_clicked();
+
+    void on_cusineTypeLineEdit_textEdited(const QString &arg1);
 
 private:
     Ui::YalpWindow *ui;
-    UI m_UI;
+    std::vector<Restaurant>* m_restVector; ///vector containing all restaurants in file
+    std::vector<Restaurant>* m_printVector; ///vector to be printed when search is finished
+    int m_minRB;
+    int m_maxRB;
+    int m_pubRate;
+    int m_mineRate;
+    int m_ratingType;
+    int m_rating[2];
+    QString m_cuisineType;
+    Choices m_choices;
+    void TestVectorCreator();
 
 };
 #endif // YALPWINDOW_H

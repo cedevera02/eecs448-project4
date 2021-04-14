@@ -4,15 +4,10 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include "UI.h" //include this so we can create and use UI
+#include "Choices.h" //include this so we can create and use Choices
 #include "Account.h"
 #include <QFile>
-#include <QTextStream>
-#include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class YalpWindow; }
-QT_END_NAMESPACE
 
 /// This class handles the main program loop and is called as the single entry point from main
 
@@ -33,7 +28,7 @@ class Executive
 
     private:
     std::vector<Restaurant>* m_restVector;///< Pointer to vector holding all restaurant objects
-    UI m_UI;///< Local instance of UI to call UI methods
+    Choices m_Choices;///< Local instance of Choices to call Choices methods
     Account m_Account;///< Local instance of Account to call Account methods
     //std::string m_userFile;//
     int m_menuChoice;///< Variable to hold users menu selection
@@ -48,12 +43,12 @@ class Executive
 
     //QFile m_file;///< File stream that is opened and closed for reads and writes
     //std::ofstream m_outFile;
-    Ui::YalpWindow *m_ui;
+    //Ui::YalpWindow *m_ui;
 
 
 
     public:
-    Executive(Ui::YalpWindow *ui);/// Executive constructor, initializes local objects and vars, requires ui parameter
+    Executive();/// Executive constructor, initializes local objects and vars, requires ui parameter
     ~Executive();/// Executive desctructor, clears out the heap allocation
     void run();/// Main program loop that handles menu choices
     bool readIn(QString fileToParse);/// Reads in from the specified text file

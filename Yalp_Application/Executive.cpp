@@ -7,15 +7,13 @@
 ///EXECUTIVE CONSTRUCTOR
 ///
 ///This will initalize local objects and some local variables
-Executive::Executive(Ui::YalpWindow *ui)
+Executive::Executive()
 {
     m_restVector = new std::vector<Restaurant>;
-    m_UI = nullptr;
+    m_Choices = nullptr;
     m_isReturning = false;
     m_menuChoice = 0;
     m_Account = Account();
-    m_ui = ui;
-    m_UI.setUi(ui);
     readIn(STD_FILE_NAME); //just for testing
 }
 
@@ -75,7 +73,7 @@ void Executive::run()
 
         readIn(tempName);
     }
-    m_UI = UI(m_restVector);
+    m_Choices = Choices(m_restVector);
     fillCuisineVector();
     // THIS IS FOR TESTING IF THE CUISINE VECTOR IS FILLED
     /*
@@ -88,11 +86,11 @@ void Executive::run()
 
     while(m_menuChoice != EXIT_CODE)
     {
-        m_menuChoice = m_UI.printMenu();
+        m_menuChoice = m_Choices.printMenu();
 
         if(m_menuChoice == SHOW_ALL_CODE)
         {
-            m_UI.printAll();
+            m_Choices.printAll();
         }
         else if(m_menuChoice == SEARCH_PRICE_CODE)
         {
@@ -115,7 +113,7 @@ void Executive::run()
                 std::cin >> higher;
             }
 
-            m_UI.printByPrice(lower, higher);
+            m_Choices.printByPrice(lower, higher);
 
 
         }
@@ -134,7 +132,7 @@ void Executive::run()
                 std::cin >> choice;
             }
 
-            m_UI.printByCuisine(m_cuisineVector.at(choice-1));
+            m_Choices.printByCuisine(m_cuisineVector.at(choice-1));
 
 
         }
@@ -182,7 +180,7 @@ void Executive::run()
                 correctInvalid();
                 std::cin >> highR;
             }
-            m_UI.printByRating(typeChoice, lowR, highR);
+            m_Choices.printByRating(typeChoice, lowR, highR);
 
 
         }
@@ -218,7 +216,7 @@ void Executive::run()
                     std::cin >> aRatingToAdd;
                 }
 
-                m_UI.giveRating(restChoice, aRatingToAdd);
+                m_Choices.giveRating(restChoice, aRatingToAdd);
 
             }
             else
@@ -243,7 +241,7 @@ void Executive::run()
                     std::cin >> restChoice;
                 }
 
-                m_UI.removeRestaurant(restChoice);
+                m_Choices.removeRestaurant(restChoice);
 
             }
             else
@@ -253,7 +251,7 @@ void Executive::run()
         }
         else if(m_menuChoice == RANDOM_CODE) // Random.
         {
-            m_UI.printRandom();
+            m_Choices.printRandom();
         }
     }
 

@@ -11,11 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QKeySequenceEdit>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -37,8 +36,7 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QSplitter *splitter_2;
     QFrame *frame;
-    QFormLayout *formLayout;
-    QVBoxLayout *verticalLayout_5;
+    QVBoxLayout *verticalLayout_11;
     QLabel *FiltersLabel;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout;
@@ -65,19 +63,27 @@ public:
     QLabel *PPP1Label;
     QLabel *PPP2Label;
     QLabel *PPP3Label;
-    QSpacerItem *verticalSpacer_2;
-    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *verticalLayout_10;
+    QVBoxLayout *verticalLayout_9;
+    QVBoxLayout *verticalLayout_5;
     QLabel *RatingsLabel;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *PublicRLabel;
-    QSpinBox *PublicRSpinBox;
+    QHBoxLayout *horizontalLayout_10;
+    QSpacerItem *horizontalSpacer_2;
+    QHBoxLayout *horizontalLayout_9;
+    QRadioButton *publicRRadioButtn;
+    QRadioButton *radioButton_2;
+    QHBoxLayout *horizontalLayout_11;
+    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_4;
-    QLabel *MineRLabel;
-    QSpinBox *MineRSpinBox;
+    QLabel *MinRateLabel;
+    QSpinBox *MinRSpinBox;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *MaxRateLabel;
+    QSpinBox *PublicRSpinBox;
     QVBoxLayout *verticalLayout_3;
-    QSpacerItem *verticalSpacer_3;
-    QLabel *label;
-    QKeySequenceEdit *CusineTypeKeySeq;
+    QLabel *cuisineTypeLabel;
+    QLineEdit *cusineTypeLineEdit;
+    QPushButton *searchFilterButton;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_8;
     QHBoxLayout *horizontalLayout_7;
@@ -113,21 +119,19 @@ public:
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
         frame->setLineWidth(3);
-        formLayout = new QFormLayout(frame);
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_11 = new QVBoxLayout(frame);
+        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
         FiltersLabel = new QLabel(frame);
         FiltersLabel->setObjectName(QString::fromUtf8("FiltersLabel"));
         QFont font;
         font.setPointSize(12);
         FiltersLabel->setFont(font);
 
-        verticalLayout_5->addWidget(FiltersLabel);
+        verticalLayout_11->addWidget(FiltersLabel);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_5->addItem(verticalSpacer);
+        verticalLayout_11->addItem(verticalSpacer);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -190,7 +194,7 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
 
-        verticalLayout_5->addLayout(verticalLayout);
+        verticalLayout_11->addLayout(verticalLayout);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
@@ -201,7 +205,7 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        PPPSpacer = new QSpacerItem(40, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
+        PPPSpacer = new QSpacerItem(30, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(PPPSpacer);
 
@@ -249,75 +253,116 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_3);
 
 
-        verticalLayout_5->addLayout(verticalLayout_4);
+        verticalLayout_11->addLayout(verticalLayout_4);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-
-        verticalLayout_5->addItem(verticalSpacer_2);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_10 = new QVBoxLayout();
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
+        verticalLayout_9 = new QVBoxLayout();
+        verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         RatingsLabel = new QLabel(frame);
         RatingsLabel->setObjectName(QString::fromUtf8("RatingsLabel"));
         RatingsLabel->setFont(font1);
 
-        verticalLayout_2->addWidget(RatingsLabel);
+        verticalLayout_5->addWidget(RatingsLabel);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        horizontalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_10->addItem(horizontalSpacer_2);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        publicRRadioButtn = new QRadioButton(frame);
+        publicRRadioButtn->setObjectName(QString::fromUtf8("publicRRadioButtn"));
+
+        horizontalLayout_9->addWidget(publicRRadioButtn);
+
+        radioButton_2 = new QRadioButton(frame);
+        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+
+        horizontalLayout_9->addWidget(radioButton_2);
+
+
+        horizontalLayout_10->addLayout(horizontalLayout_9);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_10);
+
+
+        verticalLayout_9->addLayout(verticalLayout_5);
+
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        MinRateLabel = new QLabel(frame);
+        MinRateLabel->setObjectName(QString::fromUtf8("MinRateLabel"));
+
+        horizontalLayout_4->addWidget(MinRateLabel);
+
+        MinRSpinBox = new QSpinBox(frame);
+        MinRSpinBox->setObjectName(QString::fromUtf8("MinRSpinBox"));
+        MinRSpinBox->setMaximum(5);
+
+        horizontalLayout_4->addWidget(MinRSpinBox);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_4);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        PublicRLabel = new QLabel(frame);
-        PublicRLabel->setObjectName(QString::fromUtf8("PublicRLabel"));
+        MaxRateLabel = new QLabel(frame);
+        MaxRateLabel->setObjectName(QString::fromUtf8("MaxRateLabel"));
 
-        horizontalLayout_5->addWidget(PublicRLabel);
+        horizontalLayout_5->addWidget(MaxRateLabel);
 
         PublicRSpinBox = new QSpinBox(frame);
         PublicRSpinBox->setObjectName(QString::fromUtf8("PublicRSpinBox"));
+        PublicRSpinBox->setMaximum(5);
 
         horizontalLayout_5->addWidget(PublicRSpinBox);
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
 
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        MineRLabel = new QLabel(frame);
-        MineRLabel->setObjectName(QString::fromUtf8("MineRLabel"));
 
-        horizontalLayout_4->addWidget(MineRLabel);
-
-        MineRSpinBox = new QSpinBox(frame);
-        MineRSpinBox->setObjectName(QString::fromUtf8("MineRSpinBox"));
-
-        horizontalLayout_4->addWidget(MineRSpinBox);
+        horizontalLayout_11->addLayout(verticalLayout_2);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_4);
+        verticalLayout_9->addLayout(horizontalLayout_11);
 
 
-        verticalLayout_5->addLayout(verticalLayout_2);
+        verticalLayout_10->addLayout(verticalLayout_9);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
+        cuisineTypeLabel = new QLabel(frame);
+        cuisineTypeLabel->setObjectName(QString::fromUtf8("cuisineTypeLabel"));
+        cuisineTypeLabel->setFont(font1);
 
-        verticalLayout_3->addItem(verticalSpacer_3);
+        verticalLayout_3->addWidget(cuisineTypeLabel);
 
-        label = new QLabel(frame);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font1);
+        cusineTypeLineEdit = new QLineEdit(frame);
+        cusineTypeLineEdit->setObjectName(QString::fromUtf8("cusineTypeLineEdit"));
+        cusineTypeLineEdit->setMaxLength(30);
 
-        verticalLayout_3->addWidget(label);
+        verticalLayout_3->addWidget(cusineTypeLineEdit);
 
-        CusineTypeKeySeq = new QKeySequenceEdit(frame);
-        CusineTypeKeySeq->setObjectName(QString::fromUtf8("CusineTypeKeySeq"));
+        searchFilterButton = new QPushButton(frame);
+        searchFilterButton->setObjectName(QString::fromUtf8("searchFilterButton"));
 
-        verticalLayout_3->addWidget(CusineTypeKeySeq);
-
-
-        verticalLayout_5->addLayout(verticalLayout_3);
+        verticalLayout_3->addWidget(searchFilterButton);
 
 
-        formLayout->setLayout(0, QFormLayout::LabelRole, verticalLayout_5);
+        verticalLayout_10->addLayout(verticalLayout_3);
+
+
+        verticalLayout_11->addLayout(verticalLayout_10);
 
         splitter_2->addWidget(frame);
         layoutWidget = new QWidget(splitter_2);
@@ -383,6 +428,7 @@ public:
 
         RestaurantTextEdit = new QTextEdit(layoutWidget1);
         RestaurantTextEdit->setObjectName(QString::fromUtf8("RestaurantTextEdit"));
+        RestaurantTextEdit->setReadOnly(true);
 
         verticalLayout_6->addWidget(RestaurantTextEdit);
 
@@ -429,9 +475,12 @@ public:
         PPP2Label->setText(QCoreApplication::translate("YalpWindow", "- $11-$30", nullptr));
         PPP3Label->setText(QCoreApplication::translate("YalpWindow", "- $31-$60", nullptr));
         RatingsLabel->setText(QCoreApplication::translate("YalpWindow", "Rating (1-5):", nullptr));
-        PublicRLabel->setText(QCoreApplication::translate("YalpWindow", "Public:", nullptr));
-        MineRLabel->setText(QCoreApplication::translate("YalpWindow", "Mine:", nullptr));
-        label->setText(QCoreApplication::translate("YalpWindow", "Cusine Type:", nullptr));
+        publicRRadioButtn->setText(QCoreApplication::translate("YalpWindow", "Public", nullptr));
+        radioButton_2->setText(QCoreApplication::translate("YalpWindow", "Personal", nullptr));
+        MinRateLabel->setText(QCoreApplication::translate("YalpWindow", "Min:", nullptr));
+        MaxRateLabel->setText(QCoreApplication::translate("YalpWindow", "Max:", nullptr));
+        cuisineTypeLabel->setText(QCoreApplication::translate("YalpWindow", "Cusine Type:", nullptr));
+        searchFilterButton->setText(QCoreApplication::translate("YalpWindow", "Search", nullptr));
         UsingAsLabel->setText(QCoreApplication::translate("YalpWindow", "Using as:", nullptr));
         GuessNameLabel->setText(QCoreApplication::translate("YalpWindow", "Guess", nullptr));
         pushButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));
