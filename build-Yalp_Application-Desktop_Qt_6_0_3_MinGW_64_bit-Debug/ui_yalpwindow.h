@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -77,7 +78,7 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QHBoxLayout *horizontalLayout_9;
     QRadioButton *publicRRadioButtn;
-    QRadioButton *radioButton_2;
+    QRadioButton *personalRRadioButton;
     QHBoxLayout *horizontalLayout_11;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_4;
@@ -107,12 +108,13 @@ public:
     QTextEdit *RestaurantTextEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
+    QButtonGroup *buttonGroup;
 
     void setupUi(QMainWindow *YalpWindow)
     {
         if (YalpWindow->objectName().isEmpty())
             YalpWindow->setObjectName(QString::fromUtf8("YalpWindow"));
-        YalpWindow->resize(800, 607);
+        YalpWindow->resize(800, 625);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_8 = new QHBoxLayout(centralwidget);
@@ -137,6 +139,7 @@ public:
         FiltersLabel->setObjectName(QString::fromUtf8("FiltersLabel"));
         QFont font;
         font.setPointSize(12);
+        font.setBold(true);
         FiltersLabel->setFont(font);
 
         verticalLayout->addWidget(FiltersLabel);
@@ -152,6 +155,7 @@ public:
         PriceLabel->setObjectName(QString::fromUtf8("PriceLabel"));
         QFont font1;
         font1.setPointSize(10);
+        font1.setBold(true);
         PriceLabel->setFont(font1);
 
         verticalLayout_11->addWidget(PriceLabel);
@@ -222,6 +226,7 @@ public:
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         PPPLabel = new QLabel(frame);
         PPPLabel->setObjectName(QString::fromUtf8("PPPLabel"));
+        PPPLabel->setFont(font1);
 
         verticalLayout_4->addWidget(PPPLabel);
 
@@ -301,14 +306,18 @@ public:
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
         publicRRadioButtn = new QRadioButton(frame);
+        buttonGroup = new QButtonGroup(YalpWindow);
+        buttonGroup->setObjectName(QString::fromUtf8("buttonGroup"));
+        buttonGroup->addButton(publicRRadioButtn);
         publicRRadioButtn->setObjectName(QString::fromUtf8("publicRRadioButtn"));
 
         horizontalLayout_9->addWidget(publicRRadioButtn);
 
-        radioButton_2 = new QRadioButton(frame);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+        personalRRadioButton = new QRadioButton(frame);
+        buttonGroup->addButton(personalRRadioButton);
+        personalRRadioButton->setObjectName(QString::fromUtf8("personalRRadioButton"));
 
-        horizontalLayout_9->addWidget(radioButton_2);
+        horizontalLayout_9->addWidget(personalRRadioButton);
 
 
         horizontalLayout_10->addLayout(horizontalLayout_9);
@@ -483,7 +492,7 @@ public:
     {
         YalpWindow->setWindowTitle(QCoreApplication::translate("YalpWindow", "YalpWindow", nullptr));
         FiltersLabel->setText(QCoreApplication::translate("YalpWindow", "Filters", nullptr));
-        PriceLabel->setText(QCoreApplication::translate("YalpWindow", "Price", nullptr));
+        PriceLabel->setText(QCoreApplication::translate("YalpWindow", "Price:", nullptr));
         MinPriceLabel->setText(QCoreApplication::translate("YalpWindow", "Min:", nullptr));
         Min1RB->setText(QCoreApplication::translate("YalpWindow", "$", nullptr));
         Min2RB->setText(QCoreApplication::translate("YalpWindow", "$$", nullptr));
@@ -501,7 +510,7 @@ public:
         PPP3Label->setText(QCoreApplication::translate("YalpWindow", "- $31-$60", nullptr));
         RatingsLabel->setText(QCoreApplication::translate("YalpWindow", "Rating (1-5):", nullptr));
         publicRRadioButtn->setText(QCoreApplication::translate("YalpWindow", "Public", nullptr));
-        radioButton_2->setText(QCoreApplication::translate("YalpWindow", "Personal", nullptr));
+        personalRRadioButton->setText(QCoreApplication::translate("YalpWindow", "Personal", nullptr));
         MinRateLabel->setText(QCoreApplication::translate("YalpWindow", "Min:", nullptr));
         MaxRateLabel->setText(QCoreApplication::translate("YalpWindow", "Max:", nullptr));
         cuisineTypeLabel->setText(QCoreApplication::translate("YalpWindow", "Cusine Type:", nullptr));

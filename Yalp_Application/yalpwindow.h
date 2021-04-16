@@ -39,9 +39,13 @@ private slots:
 
     void on_publicRRadioButtn_clicked();
 
-    void on_radioButton_2_clicked();
+    void on_personalRRadioButton_clicked();
 
     void on_cusineTypeLineEdit_textEdited(const QString &arg1);
+
+    void on_MinRSpinBox_valueChanged(int arg1);
+
+    void on_PublicRSpinBox_valueChanged(int arg1);
 
 private:
     Ui::YalpWindow *ui;

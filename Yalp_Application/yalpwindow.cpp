@@ -55,31 +55,37 @@ void YalpWindow::TestVectorCreator()
 void YalpWindow::on_Min1RB_clicked()
 {
     m_minRB = 1;
+    ui->RestaurantTextEdit->setText(QString::number(m_minRB));
 }
 
 void YalpWindow::on_Min2RB_clicked()
 {
     m_minRB = 2;
+    ui->RestaurantTextEdit->setText(QString::number(m_minRB));
 }
 
 void YalpWindow::on_Min3RB_clicked()
 {
     m_minRB = 3;
+    ui->RestaurantTextEdit->setText(QString::number(m_minRB));
 }
 
 void YalpWindow::on_Max1RB_clicked()
 {
     m_maxRB = 1;
+    ui->RestaurantTextEdit->setText(QString::number(m_maxRB));
 }
 
 void YalpWindow::on_Max2RB_clicked()
 {
     m_maxRB = 2;
+    ui->RestaurantTextEdit->setText(QString::number(m_maxRB));
 }
 
 void YalpWindow::on_Max3RB_clicked()
 {
     m_maxRB = 3;
+    ui->RestaurantTextEdit->setText(QString::number(m_maxRB));
 }
 
 void YalpWindow::on_searchFilterButton_clicked()
@@ -102,11 +108,13 @@ void YalpWindow::on_searchFilterButton_clicked()
 void YalpWindow::on_publicRRadioButtn_clicked()
 {
     m_ratingType = 2;
+    ui->RestaurantTextEdit->setText(QString::number(m_ratingType));
 }
 
-void YalpWindow::on_radioButton_2_clicked()
+void YalpWindow::on_personalRRadioButton_clicked()
 {
     m_ratingType = 1;
+    ui->RestaurantTextEdit->setText(QString::number(m_ratingType));
 }
 
 
@@ -117,15 +125,16 @@ void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
         for (int i = 0; i < m_cuisineType.size();i++){
             if (i == 0){
                 m_cuisineType[i] = m_cuisineType[i].toUpper();
-            }
-            if (m_cuisineType[i] == ' '){
+            } else if (m_cuisineType[i] == ' '){
                 m_cuisineType[i] = '_';
-                if (i+1 < m_cuisineType.size()){
-                    m_cuisineType[i+1] = m_cuisineType[i+1].toUpper();
-                }
+            } else if (i < m_cuisineType.size() && m_cuisineType[i-1] == '_'){
+                m_cuisineType[i] = m_cuisineType[i].toUpper();
+            }else{
+                m_cuisineType[i] = m_cuisineType[i].toLower();
             }
         }
     }
+    ui->RestaurantTextEdit->setText(m_cuisineType);
 }
 
 bool YalpWindow::readIn()
@@ -154,4 +163,17 @@ bool YalpWindow::readIn()
         {
             return false;
         }
+}
+
+void YalpWindow::on_MinRSpinBox_valueChanged(int arg1)
+{
+    m_rating[0] = arg1;
+    ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));
+
+}
+
+void YalpWindow::on_PublicRSpinBox_valueChanged(int arg1)
+{
+    m_rating[0] = arg1;
+    ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));
 }

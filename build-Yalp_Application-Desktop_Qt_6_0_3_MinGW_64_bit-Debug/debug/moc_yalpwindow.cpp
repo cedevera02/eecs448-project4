@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_YalpWindow_t {
-    const uint offsetsAndSize[26];
-    char stringdata0[242];
+    const uint offsetsAndSize[30];
+    char stringdata0[308];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_YalpWindow_t, stringdata0) + ofs), len 
@@ -39,9 +39,11 @@ QT_MOC_LITERAL(84, 17), // "on_Max2RB_clicked"
 QT_MOC_LITERAL(102, 17), // "on_Max3RB_clicked"
 QT_MOC_LITERAL(120, 29), // "on_searchFilterButton_clicked"
 QT_MOC_LITERAL(150, 28), // "on_publicRRadioButtn_clicked"
-QT_MOC_LITERAL(179, 24), // "on_radioButton_2_clicked"
-QT_MOC_LITERAL(204, 32), // "on_cusineTypeLineEdit_textEdited"
-QT_MOC_LITERAL(237, 4) // "arg1"
+QT_MOC_LITERAL(179, 31), // "on_personalRRadioButton_clicked"
+QT_MOC_LITERAL(211, 32), // "on_cusineTypeLineEdit_textEdited"
+QT_MOC_LITERAL(244, 4), // "arg1"
+QT_MOC_LITERAL(249, 27), // "on_MinRSpinBox_valueChanged"
+QT_MOC_LITERAL(277, 30) // "on_PublicRSpinBox_valueChanged"
 
     },
     "YalpWindow\0on_Min1RB_clicked\0\0"
@@ -49,8 +51,10 @@ QT_MOC_LITERAL(237, 4) // "arg1"
     "on_Max1RB_clicked\0on_Max2RB_clicked\0"
     "on_Max3RB_clicked\0on_searchFilterButton_clicked\0"
     "on_publicRRadioButtn_clicked\0"
-    "on_radioButton_2_clicked\0"
-    "on_cusineTypeLineEdit_textEdited\0arg1"
+    "on_personalRRadioButton_clicked\0"
+    "on_cusineTypeLineEdit_textEdited\0arg1\0"
+    "on_MinRSpinBox_valueChanged\0"
+    "on_PublicRSpinBox_valueChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,7 +64,7 @@ static const uint qt_meta_data_YalpWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,16 +72,18 @@ static const uint qt_meta_data_YalpWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   74,    2, 0x08,    0 /* Private */,
-       3,    0,   75,    2, 0x08,    1 /* Private */,
-       4,    0,   76,    2, 0x08,    2 /* Private */,
-       5,    0,   77,    2, 0x08,    3 /* Private */,
-       6,    0,   78,    2, 0x08,    4 /* Private */,
-       7,    0,   79,    2, 0x08,    5 /* Private */,
-       8,    0,   80,    2, 0x08,    6 /* Private */,
-       9,    0,   81,    2, 0x08,    7 /* Private */,
-      10,    0,   82,    2, 0x08,    8 /* Private */,
-      11,    1,   83,    2, 0x08,    9 /* Private */,
+       1,    0,   86,    2, 0x08,    0 /* Private */,
+       3,    0,   87,    2, 0x08,    1 /* Private */,
+       4,    0,   88,    2, 0x08,    2 /* Private */,
+       5,    0,   89,    2, 0x08,    3 /* Private */,
+       6,    0,   90,    2, 0x08,    4 /* Private */,
+       7,    0,   91,    2, 0x08,    5 /* Private */,
+       8,    0,   92,    2, 0x08,    6 /* Private */,
+       9,    0,   93,    2, 0x08,    7 /* Private */,
+      10,    0,   94,    2, 0x08,    8 /* Private */,
+      11,    1,   95,    2, 0x08,    9 /* Private */,
+      13,    1,   98,    2, 0x08,   11 /* Private */,
+      14,    1,  101,    2, 0x08,   13 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -90,6 +96,8 @@ static const uint qt_meta_data_YalpWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   12,
+    QMetaType::Void, QMetaType::Int,   12,
+    QMetaType::Void, QMetaType::Int,   12,
 
        0        // eod
 };
@@ -108,8 +116,10 @@ void YalpWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_Max3RB_clicked(); break;
         case 6: _t->on_searchFilterButton_clicked(); break;
         case 7: _t->on_publicRRadioButtn_clicked(); break;
-        case 8: _t->on_radioButton_2_clicked(); break;
+        case 8: _t->on_personalRRadioButton_clicked(); break;
         case 9: _t->on_cusineTypeLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 10: _t->on_MinRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: _t->on_PublicRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -123,7 +133,7 @@ const QMetaObject YalpWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_YalpWindow_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
 
 
 >,
@@ -150,13 +160,13 @@ int YalpWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 12;
     }
     return _id;
 }
