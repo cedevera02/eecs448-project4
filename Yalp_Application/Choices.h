@@ -8,7 +8,7 @@
 class Choices
 {
     public:
-    Choices(){}
+    Choices();
     Choices(std::vector<Restaurant>* vec); /// Choices object constructor, store _resVector member variable, fills in cuisine vector.
     //int printMenu(); /// prints full user menu.
     //void printAll();/// prints all restaurants.
@@ -19,6 +19,7 @@ class Choices
     //void giveRating(QString name, double rating);/// allows a logged in user to assign a restaurant a personal rating.
     //void removeRestaurant(QString name);/// allows a logged in user to remove a restaurant from their list.
     std::vector<Restaurant>* createVector(int minRB,int maxRB,int ratingType,int rating[2], QString cuisineType); ///creates a vector of restaurants that match the given parameters
+    void setRestVector(std::vector<Restaurant>* vec);
 
     private:
     std::vector<Restaurant>* _resVector; ///< vector storing Restaurant objects.

@@ -5,6 +5,8 @@
 #include <vector>
 #include "Choices.h"
 #include "Restaurant.h"
+#include <QFile>
+#include <QTextStream>
 
 
 QT_BEGIN_NAMESPACE
@@ -51,9 +53,15 @@ private:
     int m_mineRate;
     int m_ratingType;
     int m_rating[2];
+    QString m_tempRestName;
+    QString m_tempRestType;
+    int m_tempPricing;
+    double m_tempRating;
+    int m_tempUserRating;
     QString m_cuisineType;
     Choices m_choices;
     void TestVectorCreator();
+    bool readIn();
 
 };
 #endif // YALPWINDOW_H

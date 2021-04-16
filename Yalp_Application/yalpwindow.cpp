@@ -12,12 +12,6 @@ YalpWindow::YalpWindow(QWidget *parent)
     m_cuisineType = "";
     m_ratingType = 0; //1 is personal, 2 is public
     m_rating[0] = 0; m_rating[1] = 5; // m_rating[0] is min, m_rating[1] = max
-    TestVectorCreator(); // create temp restVector for testing
-    Choices choice(m_restVector);
-    m_choices = choice;
-    for (int i = 0; i < (int)m_restVector->size(); i++){
-        ui->RestaurantTextEdit->setText(m_restVector->at(i).getName() + "  " + m_restVector->at(i).getCusine() + "  " +QString::number(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n");
-    }
 }
 
 YalpWindow::~YalpWindow()
@@ -90,11 +84,19 @@ void YalpWindow::on_Max3RB_clicked()
 
 void YalpWindow::on_searchFilterButton_clicked()
 {
-    m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
-    for (int i = 0; i < (int)m_printVector->size(); i++)
-    {
-        ui->RestaurantTextEdit->setText(m_restVector->at(i).getName() + "  " + m_restVector->at(i).getCusine() + "  " +QString::number(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n");
-    }
+    bool read = readIn();
+   if (read){
+        m_choices.setRestVector(m_restVector);
+        m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
+        int i = 0;
+        //for (int i = 0; i < (int)m_printVector->size(); i++)
+        //{
+            ui->RestaurantTextEdit->setText(m_restVector->at(i).getName() + "  " + m_restVector->at(i).getCusine() + "  " +QString::number(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n");
+        //}
+   }
+   else{
+       ui->RestaurantTextEdit->setText("Read Failed\n");
+   }
 }
 
 void YalpWindow::on_publicRRadioButtn_clicked()
@@ -124,4 +126,32 @@ void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
             }
         }
     }
+}
+
+bool YalpWindow::readIn()
+{
+    QFile m_file("C:/Users/cedev/OneDrive/Documents/~eecs448/Project4/eecs448-project4/Yalp_Application/restaurants.txt");
+        if(m_file.open(QFile::ReadOnly | QFile::Text))
+        {
+            QTextStream stream (&m_file);
+            while(!stream.atEnd())
+            {
+                stream >> m_tempRestName >> m_tempRestType >> m_tempPricing >> m_tempRating >> m_tempUserRating;
+
+
+                Restaurant temp = Restaurant(m_tempRestName);
+                temp.setCuisine(m_tempRestType);
+                temp.setPrice(m_tempPricing);
+                temp.setRating(m_tempRating);
+                temp.setPRating(m_tempUserRating);
+                m_restVector->push_back(temp);
+            }
+
+            m_file.close();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 }

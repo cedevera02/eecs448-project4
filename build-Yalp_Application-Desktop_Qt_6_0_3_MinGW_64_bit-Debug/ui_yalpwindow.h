@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -36,16 +37,21 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QSplitter *splitter_2;
     QFrame *frame;
+    QVBoxLayout *verticalLayout_14;
+    QVBoxLayout *verticalLayout_12;
     QVBoxLayout *verticalLayout_11;
+    QVBoxLayout *verticalLayout;
     QLabel *FiltersLabel;
     QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout;
     QLabel *PriceLabel;
+    QGroupBox *MinPriceGroupBox;
     QHBoxLayout *horizontalLayout;
     QLabel *MinPriceLabel;
     QRadioButton *Min1RB;
     QRadioButton *Min2RB;
     QRadioButton *Min3RB;
+    QVBoxLayout *verticalLayout_13;
+    QGroupBox *MaxPriceGroupBox;
     QHBoxLayout *horizontalLayout_2;
     QLabel *MaxPriceLabel;
     QRadioButton *Max1RB;
@@ -119,82 +125,98 @@ public:
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
         frame->setLineWidth(3);
-        verticalLayout_11 = new QVBoxLayout(frame);
+        verticalLayout_14 = new QVBoxLayout(frame);
+        verticalLayout_14->setObjectName(QString::fromUtf8("verticalLayout_14"));
+        verticalLayout_12 = new QVBoxLayout();
+        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
+        verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         FiltersLabel = new QLabel(frame);
         FiltersLabel->setObjectName(QString::fromUtf8("FiltersLabel"));
         QFont font;
         font.setPointSize(12);
         FiltersLabel->setFont(font);
 
-        verticalLayout_11->addWidget(FiltersLabel);
+        verticalLayout->addWidget(FiltersLabel);
 
         verticalSpacer = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_11->addItem(verticalSpacer);
+        verticalLayout->addItem(verticalSpacer);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+
+        verticalLayout_11->addLayout(verticalLayout);
+
         PriceLabel = new QLabel(frame);
         PriceLabel->setObjectName(QString::fromUtf8("PriceLabel"));
         QFont font1;
         font1.setPointSize(10);
         PriceLabel->setFont(font1);
 
-        verticalLayout->addWidget(PriceLabel);
+        verticalLayout_11->addWidget(PriceLabel);
 
-        horizontalLayout = new QHBoxLayout();
+
+        verticalLayout_12->addLayout(verticalLayout_11);
+
+        MinPriceGroupBox = new QGroupBox(frame);
+        MinPriceGroupBox->setObjectName(QString::fromUtf8("MinPriceGroupBox"));
+        horizontalLayout = new QHBoxLayout(MinPriceGroupBox);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        MinPriceLabel = new QLabel(frame);
+        MinPriceLabel = new QLabel(MinPriceGroupBox);
         MinPriceLabel->setObjectName(QString::fromUtf8("MinPriceLabel"));
 
         horizontalLayout->addWidget(MinPriceLabel);
 
-        Min1RB = new QRadioButton(frame);
+        Min1RB = new QRadioButton(MinPriceGroupBox);
         Min1RB->setObjectName(QString::fromUtf8("Min1RB"));
 
         horizontalLayout->addWidget(Min1RB);
 
-        Min2RB = new QRadioButton(frame);
+        Min2RB = new QRadioButton(MinPriceGroupBox);
         Min2RB->setObjectName(QString::fromUtf8("Min2RB"));
 
         horizontalLayout->addWidget(Min2RB);
 
-        Min3RB = new QRadioButton(frame);
+        Min3RB = new QRadioButton(MinPriceGroupBox);
         Min3RB->setObjectName(QString::fromUtf8("Min3RB"));
 
         horizontalLayout->addWidget(Min3RB);
 
 
-        verticalLayout->addLayout(horizontalLayout);
+        verticalLayout_12->addWidget(MinPriceGroupBox);
 
-        horizontalLayout_2 = new QHBoxLayout();
+
+        verticalLayout_14->addLayout(verticalLayout_12);
+
+        verticalLayout_13 = new QVBoxLayout();
+        verticalLayout_13->setObjectName(QString::fromUtf8("verticalLayout_13"));
+        MaxPriceGroupBox = new QGroupBox(frame);
+        MaxPriceGroupBox->setObjectName(QString::fromUtf8("MaxPriceGroupBox"));
+        horizontalLayout_2 = new QHBoxLayout(MaxPriceGroupBox);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        MaxPriceLabel = new QLabel(frame);
+        MaxPriceLabel = new QLabel(MaxPriceGroupBox);
         MaxPriceLabel->setObjectName(QString::fromUtf8("MaxPriceLabel"));
 
         horizontalLayout_2->addWidget(MaxPriceLabel);
 
-        Max1RB = new QRadioButton(frame);
+        Max1RB = new QRadioButton(MaxPriceGroupBox);
         Max1RB->setObjectName(QString::fromUtf8("Max1RB"));
 
         horizontalLayout_2->addWidget(Max1RB);
 
-        Max2RB = new QRadioButton(frame);
+        Max2RB = new QRadioButton(MaxPriceGroupBox);
         Max2RB->setObjectName(QString::fromUtf8("Max2RB"));
 
         horizontalLayout_2->addWidget(Max2RB);
 
-        Max3RB = new QRadioButton(frame);
+        Max3RB = new QRadioButton(MaxPriceGroupBox);
         Max3RB->setObjectName(QString::fromUtf8("Max3RB"));
 
         horizontalLayout_2->addWidget(Max3RB);
 
 
-        verticalLayout->addLayout(horizontalLayout_2);
-
-
-        verticalLayout_11->addLayout(verticalLayout);
+        verticalLayout_13->addWidget(MaxPriceGroupBox);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
@@ -253,7 +275,10 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_3);
 
 
-        verticalLayout_11->addLayout(verticalLayout_4);
+        verticalLayout_13->addLayout(verticalLayout_4);
+
+
+        verticalLayout_14->addLayout(verticalLayout_13);
 
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
@@ -362,7 +387,7 @@ public:
         verticalLayout_10->addLayout(verticalLayout_3);
 
 
-        verticalLayout_11->addLayout(verticalLayout_10);
+        verticalLayout_14->addLayout(verticalLayout_10);
 
         splitter_2->addWidget(frame);
         layoutWidget = new QWidget(splitter_2);

@@ -16,6 +16,17 @@ Choices::Choices(std::vector<Restaurant>* vec)
 
 }
 
+///Choices CONSTRUCTOR
+/// Contains no param
+Choices::Choices()
+{
+    m_minRB = 0;
+    m_maxRB = 0;
+    m_ratingType = 0;
+    m_rating[0] = 0;m_rating[1] = 5;
+    m_cuisineType = "";
+}
+
 ///METHODS
 ///
 ///Prints out all of the menu options that user can choose from
@@ -38,6 +49,14 @@ Choices::Choices(std::vector<Restaurant>* vec)
 
 //    return input;
 //}
+
+///sets the print and rest vectors
+///@param vec Takes in restaurant vector pointer
+void Choices::setRestVector(std::vector<Restaurant>* vec)
+{
+    _resVector = vec;
+    m_printVector = vec;
+}
 
 ///This method prints all of the retaurants and their data
 ///
