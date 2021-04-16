@@ -45,7 +45,7 @@ private slots:
 
     void on_MinRSpinBox_valueChanged(int arg1);
 
-    void on_PublicRSpinBox_valueChanged(int arg1);
+    void on_MaxRSpinBox_valueChanged(int arg1);
 
 private:
     Ui::YalpWindow *ui;

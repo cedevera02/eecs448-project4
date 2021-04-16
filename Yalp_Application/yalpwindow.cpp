@@ -94,11 +94,10 @@ void YalpWindow::on_searchFilterButton_clicked()
    if (read){
         m_choices.setRestVector(m_restVector);
         m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
-        int i = 0;
-        //for (int i = 0; i < (int)m_printVector->size(); i++)
-        //{
-            ui->RestaurantTextEdit->setText(m_restVector->at(i).getName() + "  " + m_restVector->at(i).getCusine() + "  " +QString::number(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n");
-        //}
+        //int i = 0;
+        for(int i = 0; i < (int)m_printVector->size(); i++){
+            ui->RestaurantTextEdit->append(m_printVector->at(i).getName() + "  " + m_printVector->at(i).getCusine() + "  " +QString::number(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n");
+        }
    }
    else{
        ui->RestaurantTextEdit->setText("Read Failed\n");
@@ -172,7 +171,7 @@ void YalpWindow::on_MinRSpinBox_valueChanged(int arg1)
 
 }
 
-void YalpWindow::on_PublicRSpinBox_valueChanged(int arg1)
+void YalpWindow::on_MaxRSpinBox_valueChanged(int arg1)
 {
     m_rating[0] = arg1;
     ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));

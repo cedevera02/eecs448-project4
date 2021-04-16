@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>625</height>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -342,7 +342,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="PublicRSpinBox">
+                   <widget class="QSpinBox" name="MaxRSpinBox">
                     <property name="maximum">
                      <number>5</number>
                     </property>
@@ -430,7 +430,7 @@
              </layout>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="loginButton">
               <property name="text">
                <string>Login</string>
               </property>
