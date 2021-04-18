@@ -13,6 +13,9 @@ YalpWindow::YalpWindow(QWidget *parent)
     m_ratingType = 0; //1 is personal, 2 is public
     m_rating[0] = 0; m_rating[1] = 5; // m_rating[0] is min, m_rating[1] = max
     m_valid = true;
+    m_restVector = new std::vector<Restaurant>;
+    //m_printVector = new std::vector<Restaurant>;
+    srand(time(NULL));
 }
 
 YalpWindow::~YalpWindow()
@@ -33,10 +36,10 @@ void YalpWindow::TestVectorCreator()
     temp.setPRating(0);
     m_restVector->push_back(temp);
     Restaurant temp1("Terrebonne_Po'_Boys");
-    temp.setCuisine("Cajun");
-    temp.setPrice(1);
-    temp.setRating(4.9);
-    temp.setPRating(0);
+    temp1.setCuisine("Cajun");
+    temp1.setPrice(1);
+    temp1.setRating(4.9);
+    temp1.setPRating(0);
     m_restVector->push_back(temp1);
     Restaurant temp2("Encore_Cafe");
     temp.setCuisine("Asian_Fusion");
@@ -188,4 +191,21 @@ void YalpWindow::on_MaxRSpinBox_valueChanged(int arg1)
 {
     m_rating[0] = arg1;
     ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));
+}
+
+void YalpWindow::on_FeelingHungryButton_clicked()
+{
+    bool read = readIn();
+    if (read){
+    TestVectorCreator();
+        m_choices.setRestVector(m_restVector);
+    //int i = rand() % (m_restVector->size()) + 0;
+   //Restaurant temp = (m_restVector->at(i));
+        Restaurant temp = m_choices.printRandom();
+        ui->RestaurantTextEdit->setText(temp.getName() + "  " + temp.getCusine() + "  " +QString::number(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n");
+    }
+    else{
+      ui->RestaurantTextEdit->setText("Failed Read");
+    }
+    //ui->RestaurantTextEdit->setText("Hello!");
 }

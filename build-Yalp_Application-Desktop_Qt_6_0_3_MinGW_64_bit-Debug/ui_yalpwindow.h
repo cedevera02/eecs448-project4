@@ -23,7 +23,6 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
-#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -35,8 +34,7 @@ class Ui_YalpWindow
 {
 public:
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout_8;
-    QSplitter *splitter_2;
+    QHBoxLayout *horizontalLayout_12;
     QFrame *frame;
     QVBoxLayout *verticalLayout_14;
     QVBoxLayout *verticalLayout_12;
@@ -91,8 +89,7 @@ public:
     QLabel *cuisineTypeLabel;
     QLineEdit *cusineTypeLineEdit;
     QPushButton *searchFilterButton;
-    QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout_8;
+    QVBoxLayout *verticalLayout_15;
     QHBoxLayout *horizontalLayout_7;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_7;
@@ -100,12 +97,14 @@ public:
     QLabel *UsingAsLabel;
     QLabel *GuessNameLabel;
     QPushButton *loginButton;
-    QSplitter *splitter;
-    QWidget *layoutWidget1;
-    QVBoxLayout *verticalLayout_6;
+    QVBoxLayout *verticalLayout_8;
     QLabel *LawrenceRestaurantsLabel;
+    QVBoxLayout *verticalLayout_6;
     QPushButton *FeelingHungryButton;
     QTextEdit *RestaurantTextEdit;
+    QHBoxLayout *horizontalLayout_8;
+    QLineEdit *lineEdit;
+    QPushButton *removeRestButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QButtonGroup *buttonGroup;
@@ -117,12 +116,9 @@ public:
         YalpWindow->resize(800, 630);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        horizontalLayout_8 = new QHBoxLayout(centralwidget);
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        splitter_2 = new QSplitter(centralwidget);
-        splitter_2->setObjectName(QString::fromUtf8("splitter_2"));
-        splitter_2->setOrientation(Qt::Horizontal);
-        frame = new QFrame(splitter_2);
+        horizontalLayout_12 = new QHBoxLayout(centralwidget);
+        horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
+        frame = new QFrame(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
@@ -398,12 +394,11 @@ public:
 
         verticalLayout_14->addLayout(verticalLayout_10);
 
-        splitter_2->addWidget(frame);
-        layoutWidget = new QWidget(splitter_2);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        verticalLayout_8 = new QVBoxLayout(layoutWidget);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
+
+        horizontalLayout_12->addWidget(frame);
+
+        verticalLayout_15 = new QVBoxLayout();
+        verticalLayout_15->setObjectName(QString::fromUtf8("verticalLayout_15"));
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
         horizontalSpacer = new QSpacerItem(378, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -414,12 +409,12 @@ public:
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        UsingAsLabel = new QLabel(layoutWidget);
+        UsingAsLabel = new QLabel(centralwidget);
         UsingAsLabel->setObjectName(QString::fromUtf8("UsingAsLabel"));
 
         horizontalLayout_6->addWidget(UsingAsLabel);
 
-        GuessNameLabel = new QLabel(layoutWidget);
+        GuessNameLabel = new QLabel(centralwidget);
         GuessNameLabel->setObjectName(QString::fromUtf8("GuessNameLabel"));
 
         horizontalLayout_6->addWidget(GuessNameLabel);
@@ -427,7 +422,7 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_6);
 
-        loginButton = new QPushButton(layoutWidget);
+        loginButton = new QPushButton(centralwidget);
         loginButton->setObjectName(QString::fromUtf8("loginButton"));
 
         verticalLayout_7->addWidget(loginButton);
@@ -436,43 +431,55 @@ public:
         horizontalLayout_7->addLayout(verticalLayout_7);
 
 
-        verticalLayout_8->addLayout(horizontalLayout_7);
+        verticalLayout_15->addLayout(horizontalLayout_7);
 
-        splitter = new QSplitter(layoutWidget);
-        splitter->setObjectName(QString::fromUtf8("splitter"));
-        splitter->setOrientation(Qt::Vertical);
-        layoutWidget1 = new QWidget(splitter);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        verticalLayout_6 = new QVBoxLayout(layoutWidget1);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        LawrenceRestaurantsLabel = new QLabel(layoutWidget1);
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        LawrenceRestaurantsLabel = new QLabel(centralwidget);
         LawrenceRestaurantsLabel->setObjectName(QString::fromUtf8("LawrenceRestaurantsLabel"));
         QFont font2;
         font2.setFamily(QString::fromUtf8("Lucida Fax"));
         font2.setPointSize(15);
         LawrenceRestaurantsLabel->setFont(font2);
 
-        verticalLayout_6->addWidget(LawrenceRestaurantsLabel);
+        verticalLayout_8->addWidget(LawrenceRestaurantsLabel);
 
-        FeelingHungryButton = new QPushButton(layoutWidget1);
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        FeelingHungryButton = new QPushButton(centralwidget);
         FeelingHungryButton->setObjectName(QString::fromUtf8("FeelingHungryButton"));
 
         verticalLayout_6->addWidget(FeelingHungryButton);
 
-        RestaurantTextEdit = new QTextEdit(layoutWidget1);
+        RestaurantTextEdit = new QTextEdit(centralwidget);
         RestaurantTextEdit->setObjectName(QString::fromUtf8("RestaurantTextEdit"));
         RestaurantTextEdit->setReadOnly(true);
 
         verticalLayout_6->addWidget(RestaurantTextEdit);
 
-        splitter->addWidget(layoutWidget1);
 
-        verticalLayout_8->addWidget(splitter);
+        verticalLayout_8->addLayout(verticalLayout_6);
 
-        splitter_2->addWidget(layoutWidget);
 
-        horizontalLayout_8->addWidget(splitter_2);
+        verticalLayout_15->addLayout(verticalLayout_8);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+
+        horizontalLayout_8->addWidget(lineEdit);
+
+        removeRestButton = new QPushButton(centralwidget);
+        removeRestButton->setObjectName(QString::fromUtf8("removeRestButton"));
+
+        horizontalLayout_8->addWidget(removeRestButton);
+
+
+        verticalLayout_15->addLayout(horizontalLayout_8);
+
+
+        horizontalLayout_12->addLayout(verticalLayout_15);
 
         YalpWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(YalpWindow);
@@ -520,6 +527,7 @@ public:
         loginButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));
         LawrenceRestaurantsLabel->setText(QCoreApplication::translate("YalpWindow", "Lawrence Restaurants", nullptr));
         FeelingHungryButton->setText(QCoreApplication::translate("YalpWindow", "Feeling Hungry!", nullptr));
+        removeRestButton->setText(QCoreApplication::translate("YalpWindow", "Remove Restaurant", nullptr));
     } // retranslateUi
 
 };

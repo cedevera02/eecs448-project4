@@ -13,6 +13,7 @@ Choices::Choices(std::vector<Restaurant>* vec)
     m_ratingType = 0;
     m_rating[0] = 0;m_rating[1] = 5;
     m_cuisineType = "";
+    srand(time(NULL));
 
 }
 
@@ -25,6 +26,7 @@ Choices::Choices()
     m_ratingType = 0;
     m_rating[0] = 0;m_rating[1] = 5;
     m_cuisineType = "";
+    srand(time(NULL));
 }
 
 ///METHODS
@@ -142,12 +144,14 @@ void Choices::printByRating()
 }
 
 ///This method selects and prints a random restaurant and its data
-//void Choices::printRandom()
-//{
-//    int i = rand() % (_resVector->size()-1) + 0;
-//    //std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
-//    //m_ui->RestaurantTextEdit->insertPlainText(_resVector->at(i).getName() + "  " + _resVector->at(i).getCusine() + "  " +QString::number(_resVector->at(i).getPrice()) + "  Rating: " + QString::number(_resVector->at(i).getRating()) + "  Personal Rating: " + QString::number(_resVector->at(i).getPRating()) + "\n");
-//}
+/// @return returns random restaurant
+Restaurant Choices::printRandom()
+{
+    int i = rand() % (_resVector->size()-1) + 0;
+    return (_resVector->at(i));
+    //std::cout << _resVector->at(i).getName() << "  " << _resVector->at(i).getCusine() << "  " <<_resVector->at(i).getPrice() << "  Rating: " << _resVector->at(i).getRating() << "  Personal Rating: " << _resVector->at(i).getPRating() << "\n";
+    //m_ui->RestaurantTextEdit->insertPlainText(_resVector->at(i).getName() + "  " + _resVector->at(i).getCusine() + "  " +QString::number(_resVector->at(i).getPrice()) + "  Rating: " + QString::number(_resVector->at(i).getRating()) + "  Personal Rating: " + QString::number(_resVector->at(i).getPRating()) + "\n");
+}
 
 ///This methods allows a user to give a retaurant a personal rating
 ///

@@ -47,6 +47,8 @@ private slots:
 
     void on_MaxRSpinBox_valueChanged(int arg1);
 
+    void on_FeelingHungryButton_clicked();
+
 private:
     Ui::YalpWindow *ui;
     std::vector<Restaurant>* m_restVector; ///vector containing all restaurants in file
