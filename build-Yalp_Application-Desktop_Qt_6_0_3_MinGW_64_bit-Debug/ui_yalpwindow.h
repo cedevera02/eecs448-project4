@@ -86,7 +86,7 @@ public:
     QSpinBox *MinRSpinBox;
     QHBoxLayout *horizontalLayout_5;
     QLabel *MaxRateLabel;
-    QSpinBox *PublicRSpinBox;
+    QSpinBox *MaxRSpinBox;
     QVBoxLayout *verticalLayout_3;
     QLabel *cuisineTypeLabel;
     QLineEdit *cusineTypeLineEdit;
@@ -99,7 +99,7 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QLabel *UsingAsLabel;
     QLabel *GuessNameLabel;
-    QPushButton *pushButton;
+    QPushButton *loginButton;
     QSplitter *splitter;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_6;
@@ -114,7 +114,7 @@ public:
     {
         if (YalpWindow->objectName().isEmpty())
             YalpWindow->setObjectName(QString::fromUtf8("YalpWindow"));
-        YalpWindow->resize(800, 625);
+        YalpWindow->resize(800, 630);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_8 = new QHBoxLayout(centralwidget);
@@ -355,11 +355,11 @@ public:
 
         horizontalLayout_5->addWidget(MaxRateLabel);
 
-        PublicRSpinBox = new QSpinBox(frame);
-        PublicRSpinBox->setObjectName(QString::fromUtf8("PublicRSpinBox"));
-        PublicRSpinBox->setMaximum(5);
+        MaxRSpinBox = new QSpinBox(frame);
+        MaxRSpinBox->setObjectName(QString::fromUtf8("MaxRSpinBox"));
+        MaxRSpinBox->setMaximum(5);
 
-        horizontalLayout_5->addWidget(PublicRSpinBox);
+        horizontalLayout_5->addWidget(MaxRSpinBox);
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
@@ -427,10 +427,10 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_6);
 
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        loginButton = new QPushButton(layoutWidget);
+        loginButton->setObjectName(QString::fromUtf8("loginButton"));
 
-        verticalLayout_7->addWidget(pushButton);
+        verticalLayout_7->addWidget(loginButton);
 
 
         horizontalLayout_7->addLayout(verticalLayout_7);
@@ -517,7 +517,7 @@ public:
         searchFilterButton->setText(QCoreApplication::translate("YalpWindow", "Search", nullptr));
         UsingAsLabel->setText(QCoreApplication::translate("YalpWindow", "Using as:", nullptr));
         GuessNameLabel->setText(QCoreApplication::translate("YalpWindow", "Guess", nullptr));
-        pushButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));
+        loginButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));
         LawrenceRestaurantsLabel->setText(QCoreApplication::translate("YalpWindow", "Lawrence Restaurants", nullptr));
         FeelingHungryButton->setText(QCoreApplication::translate("YalpWindow", "Feeling Hungry!", nullptr));
     } // retranslateUi

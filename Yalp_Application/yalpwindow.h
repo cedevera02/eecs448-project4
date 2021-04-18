@@ -65,7 +65,8 @@ private:
     QString m_cuisineType;
     Choices m_choices;
     void TestVectorCreator();
-    bool readIn();
+    bool readIn(); ///function that reads in from restaurant text file
+    bool m_valid; /// tells whether input for filter is valid
 
 };
 #endif // YALPWINDOW_H

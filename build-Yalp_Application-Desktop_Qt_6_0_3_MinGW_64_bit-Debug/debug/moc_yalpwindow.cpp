@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_YalpWindow_t {
     const uint offsetsAndSize[30];
-    char stringdata0[308];
+    char stringdata0[305];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_YalpWindow_t, stringdata0) + ofs), len 
@@ -43,7 +43,7 @@ QT_MOC_LITERAL(179, 31), // "on_personalRRadioButton_clicked"
 QT_MOC_LITERAL(211, 32), // "on_cusineTypeLineEdit_textEdited"
 QT_MOC_LITERAL(244, 4), // "arg1"
 QT_MOC_LITERAL(249, 27), // "on_MinRSpinBox_valueChanged"
-QT_MOC_LITERAL(277, 30) // "on_PublicRSpinBox_valueChanged"
+QT_MOC_LITERAL(277, 27) // "on_MaxRSpinBox_valueChanged"
 
     },
     "YalpWindow\0on_Min1RB_clicked\0\0"
@@ -54,7 +54,7 @@ QT_MOC_LITERAL(277, 30) // "on_PublicRSpinBox_valueChanged"
     "on_personalRRadioButton_clicked\0"
     "on_cusineTypeLineEdit_textEdited\0arg1\0"
     "on_MinRSpinBox_valueChanged\0"
-    "on_PublicRSpinBox_valueChanged"
+    "on_MaxRSpinBox_valueChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -119,7 +119,7 @@ void YalpWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->on_personalRRadioButton_clicked(); break;
         case 9: _t->on_cusineTypeLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 10: _t->on_MinRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 11: _t->on_PublicRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: _t->on_MaxRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
