@@ -7,6 +7,7 @@
 #include "Restaurant.h"
 #include <QFile>
 #include <QTextStream>
+#include <QMessageBox>
 
 
 QT_BEGIN_NAMESPACE
@@ -49,6 +50,10 @@ private slots:
 
     void on_FeelingHungryButton_clicked();
 
+    void on_lineEdit_textEdited(const QString &arg1);
+
+    void on_removeRestButton_clicked();
+
 private:
     Ui::YalpWindow *ui;
     std::vector<Restaurant>* m_restVector; ///vector containing all restaurants in file
@@ -66,6 +71,7 @@ private:
     int m_tempUserRating;
     QString m_cuisineType;
     Choices m_choices;
+    QString m_removeRest; //restaurant to be removed
     void TestVectorCreator();
     bool readIn(); ///function that reads in from restaurant text file
     bool m_valid; /// tells whether input for filter is valid

@@ -57,7 +57,6 @@ Choices::Choices()
 void Choices::setRestVector(std::vector<Restaurant>* vec)
 {
     _resVector = vec;
-    m_printVector = vec;
 }
 
 ///This method prints all of the retaurants and their data
@@ -179,24 +178,19 @@ Restaurant Choices::printRandom()
 ///This methods allows a user to remove a restaurant from the vector
 ///
 ///@param name The restaurant object to removes
-//void Choices::removeRestaurant(QString name)
-//{
-//    bool haveRes = false;
-//    for(int i = 0; i < _resVector->size(); i++)
-//    {
-//        if (_resVector->at(i).getName()== name){
-//            haveRes = true;
-//            _resVector->erase(_resVector->begin() + i);
-//            break;
-//        }
-//    }
-//    std::cout << "\nThe restaurant " << name << " was removed successfully from the list of restaurants" << "\n";
-
-//    if(!haveRes)
-//    {
-//        std::cout << "\nNo restaurant found with the matching name! Did you make sure to include the underlines(_)?" << "\n";
-//    }
-//}
+/// @param haveRes whether or not the restaurant name is present
+void Choices::removeRestaurant(QString name, bool& haveRes)
+{
+    haveRes = false;
+    for(int i = 0; i < (int)_resVector->size(); i++)
+    {
+        if (name == _resVector->at(i).getName()){
+            haveRes = true;
+            _resVector->erase(_resVector->begin() + i);
+            break;
+        }
+    }
+}
 
 ///This method creates a vector from the _resVector by filtering out restaurants based on parameters
 /// @param minRB[3] boolean array that determines which of 3 minimum price points was chosen

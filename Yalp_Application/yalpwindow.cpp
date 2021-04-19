@@ -16,6 +16,10 @@ YalpWindow::YalpWindow(QWidget *parent)
     m_restVector = new std::vector<Restaurant>;
     //m_printVector = new std::vector<Restaurant>;
     srand(time(NULL));
+    bool read = readIn();
+    if(!read){
+        QMessageBox::about(this, "File Read", "File failed to read...");
+    }
 }
 
 YalpWindow::~YalpWindow()
@@ -101,18 +105,12 @@ void YalpWindow::on_Max3RB_clicked()
 /// it will print in the RestaurantTextEdit
 void YalpWindow::on_searchFilterButton_clicked()
 {
-    bool read = readIn();
-   if (read){
-        m_choices.setRestVector(m_restVector);
-        m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
-        //int i = 0;
-        for(int i = 0; i < (int)m_printVector->size(); i++){
-            ui->RestaurantTextEdit->append(m_printVector->at(i).getName() + "  " + m_printVector->at(i).getCusine() + "  " +QString::number(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n");
-        }
-   }
-   else{
-       ui->RestaurantTextEdit->setText("Read Failed\n"); //probably use a QMessageBox for this instead
-   }
+    m_choices.setRestVector(m_restVector);
+    m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
+    //int i = 0;
+    for(int i = 0; i < (int)m_printVector->size(); i++){
+        ui->RestaurantTextEdit->append(m_printVector->at(i).getName() + "  " + m_printVector->at(i).getCusine() + "  " +QString::number(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n");
+    }
 }
 
 ///Stores which type of rating value is chosen in m_ratingType
@@ -195,17 +193,40 @@ void YalpWindow::on_MaxRSpinBox_valueChanged(int arg1)
 
 void YalpWindow::on_FeelingHungryButton_clicked()
 {
-    bool read = readIn();
-    if (read){
-    TestVectorCreator();
-        m_choices.setRestVector(m_restVector);
-    //int i = rand() % (m_restVector->size()) + 0;
-   //Restaurant temp = (m_restVector->at(i));
-        Restaurant temp = m_choices.printRandom();
-        ui->RestaurantTextEdit->setText(temp.getName() + "  " + temp.getCusine() + "  " +QString::number(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n");
+    m_choices.setRestVector(m_restVector);
+    Restaurant temp = m_choices.printRandom();
+    ui->RestaurantTextEdit->setText(temp.getName() + "  " + temp.getCusine() + "  " +QString::number(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n");
+}
+
+void YalpWindow::on_lineEdit_textEdited(const QString &arg1)
+{
+    m_removeRest = arg1;
+    if (m_removeRest.size() > 0){
+        for (int i = 0; i < m_removeRest.size();i++){
+            if (i == 0){
+                m_removeRest[i] = m_removeRest[i].toUpper();
+            } else if (m_removeRest[i] == ' '){
+                m_removeRest[i] = '_';
+            } else if (i < m_removeRest.size() && m_removeRest[i-1] == '_'){
+                m_removeRest[i] = m_removeRest[i].toUpper();
+            }else{
+                m_removeRest[i] = m_removeRest[i].toLower();
+            }
+        }
     }
-    else{
-      ui->RestaurantTextEdit->setText("Failed Read");
+    ui->RestaurantTextEdit->setText(m_removeRest);
+}
+
+
+
+void YalpWindow::on_removeRestButton_clicked()
+{
+    m_choices.setRestVector(m_restVector); //set restvector that restaurant will be removed from
+    bool haveRes = true;
+    m_choices.removeRestaurant(m_removeRest, haveRes); //remove restaurant
+    if (haveRes){
+        QMessageBox::about(this,"Removing Restaurant", "The restaurant " + m_removeRest + " has been removed.");
+    }else{
+         QMessageBox::about(this,"Removing Restaurant", "No restaurant with matching names.");
     }
-    //ui->RestaurantTextEdit->setText("Hello!");
 }
