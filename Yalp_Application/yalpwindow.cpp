@@ -1,5 +1,6 @@
 #include "yalpwindow.h"
 #include "ui_yalpwindow.h"
+#include "loginwindow.h"
 //#include "UI.h"
 
 YalpWindow::YalpWindow(QWidget *parent)
@@ -150,7 +151,7 @@ void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
 ///reads in Restaurants from restaurant.txt
 bool YalpWindow::readIn()
 {
-    QFile m_file("C:/Users/cedev/OneDrive/Documents/~eecs448/Project4/eecs448-project4/Yalp_Application/restaurants.txt");
+    QFile m_file("restaurants.txt");
         if(m_file.open(QFile::ReadOnly | QFile::Text))
         {
             QTextStream stream (&m_file);
@@ -229,4 +230,12 @@ void YalpWindow::on_removeRestButton_clicked()
     }else{
          QMessageBox::about(this,"Removing Restaurant", "No restaurant with matching names.");
     }
+}
+
+void YalpWindow::on_loginButton_clicked()
+{
+    loginWindow loginWind;
+    loginWind.setModal(true);
+    loginWind.exec();
+
 }

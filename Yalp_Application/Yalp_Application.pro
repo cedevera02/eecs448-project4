@@ -13,6 +13,7 @@ SOURCES += \
     Choices.cpp \
     #Executive.cpp \
     Restaurant.cpp \
+    loginwindow.cpp \
     main.cpp \
     yalpwindow.cpp
 
@@ -21,9 +22,11 @@ HEADERS += \
     Choices.h \
     #Executive.h \
     Restaurant.h \
+    loginwindow.h \
     yalpwindow.h
 
 FORMS += \
+    loginwindow.ui \
     yalpwindow.ui
 
 # Default rules for deployment.

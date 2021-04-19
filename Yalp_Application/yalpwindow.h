@@ -54,6 +54,8 @@ private slots:
 
     void on_removeRestButton_clicked();
 
+    void on_loginButton_clicked();
+
 private:
     Ui::YalpWindow *ui;
     std::vector<Restaurant>* m_restVector; ///vector containing all restaurants in file
@@ -72,6 +74,7 @@ private:
     QString m_cuisineType;
     Choices m_choices;
     QString m_removeRest; //restaurant to be removed
+    QFile m_file;
     void TestVectorCreator();
     bool readIn(); ///function that reads in from restaurant text file
     bool m_valid; /// tells whether input for filter is valid

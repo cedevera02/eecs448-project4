@@ -30,6 +30,7 @@ class Choices
     int m_maxRB; ///shows which radio button is chosen for max price
     int m_ratingType; ///shows what the public rating chosen
     int m_rating[2]; ///show what the personal rating chose
+    bool isGuest;
     QString m_cuisineType;
 
 };
