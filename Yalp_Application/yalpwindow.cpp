@@ -16,11 +16,11 @@ YalpWindow::YalpWindow(QWidget *parent)
     m_valid = true;
     m_restVector = new std::vector<Restaurant>;
     //m_printVector = new std::vector<Restaurant>;
-    srand(time(NULL));
     bool read = readIn();
     if(!read){
         QMessageBox::about(this, "File Read", "File failed to read...");
     }
+    printAllRest();
 }
 
 YalpWindow::~YalpWindow()
@@ -106,11 +106,12 @@ void YalpWindow::on_Max3RB_clicked()
 /// it will print in the RestaurantTextEdit
 void YalpWindow::on_searchFilterButton_clicked()
 {
+    ui->RestaurantTextEdit->clear();
     m_choices.setRestVector(m_restVector);
     m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
     //int i = 0;
     for(int i = 0; i < (int)m_printVector->size(); i++){
-        ui->RestaurantTextEdit->append(m_printVector->at(i).getName() + "  " + m_printVector->at(i).getCusine() + "  " +QString::number(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n");
+        ui->RestaurantTextEdit->append(makeNice(m_printVector->at(i).getName()) + "  " + makeNice(m_printVector->at(i).getCusine()) + "  " +dollarPrice(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n");
     }
 }
 
@@ -196,7 +197,7 @@ void YalpWindow::on_FeelingHungryButton_clicked()
 {
     m_choices.setRestVector(m_restVector);
     Restaurant temp = m_choices.printRandom();
-    ui->RestaurantTextEdit->setText(temp.getName() + "  " + temp.getCusine() + "  " +QString::number(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n");
+    ui->RestaurantTextEdit->setText(makeNice(temp.getName()) + "  " + makeNice(temp.getCusine()) + "  " + dollarPrice(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n");
 }
 
 void YalpWindow::on_lineEdit_textEdited(const QString &arg1)
@@ -238,4 +239,32 @@ void YalpWindow::on_loginButton_clicked()
     loginWind.setModal(true);
     loginWind.exec();
 
+}
+
+void YalpWindow::printAllRest()
+{
+    ui->RestaurantTextEdit->clear();
+    for (int i = 0; i < (int)m_restVector->size()-1; i++){
+        ui->RestaurantTextEdit->append(makeNice(m_restVector->at(i).getName()) + "  " + makeNice(m_restVector->at(i).getCusine()) + "  " + dollarPrice(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n");
+    }
+}
+
+///Removes underlines from string and returns it
+QString YalpWindow::makeNice(QString word)
+{
+    for (int i = 0; i < word.size(); i++){
+        if (word[i] == '_'){
+            word[i] = ' ';
+        }
+    }
+    return word;
+}
+
+QString YalpWindow::dollarPrice(int price)
+{
+    QString dollars = "";
+    for (int i =0; i< price; i++){
+        dollars += "$";
+    }
+    return dollars;
 }
