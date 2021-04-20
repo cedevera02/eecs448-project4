@@ -81,6 +81,9 @@ private:
     bool readIn(); ///function that reads in from restaurant text file
     void writeOut();
     bool m_valid; /// tells whether input for filter is valid
+    void printAllRest();///prints all the restaurants in m_restVector
+    QString makeNice(QString word);///removes the underlines in QString and then returns it
+    QString dollarPrice(int price); ///turns number price into dollar sign
 
 };
 #endif // YALPWINDOW_H
