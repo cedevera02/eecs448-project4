@@ -1,6 +1,7 @@
 #include "yalpwindow.h"
 #include "ui_yalpwindow.h"
 #include "loginwindow.h"
+#include <QCloseEvent>
 //#include "UI.h"
 
 YalpWindow::YalpWindow(QWidget *parent)
@@ -21,6 +22,7 @@ YalpWindow::YalpWindow(QWidget *parent)
         QMessageBox::about(this, "File Read", "File failed to read...");
     }
     m_username = "GUEST";
+    m_isGuest = true;
     printAllRest();
 }
 
@@ -150,6 +152,36 @@ void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
     ui->RestaurantTextEdit->setText(m_cuisineType);
 }
 
+void YalpWindow::closeEvent(QCloseEvent *event)
+{
+    //adapted from https://stackoverflow.com/questions/17480984/qt-how-do-i-handle-the-event-of-the-user-pressing-the-x-close-button
+    QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Exit",
+                                                                tr("Are you sure?\n"),
+                                                                QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
+                                                                QMessageBox::Yes);
+    if (resBtn != QMessageBox::Yes) {
+        event->ignore();
+    } else {
+        if(!m_isGuest) {
+            writeOut();
+        }
+        event->accept();
+    }
+}
+
+void YalpWindow::writeOut()
+{
+    QFile m_file(m_username + ".txt");
+    if(m_file.open(QFile::WriteOnly | QFile::Text)) {
+        QTextStream stream (&m_file);
+        for(int i = 0; i < (int)m_restVector->size() - 1; i++) {
+            stream << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine()
+                   << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << Qt::endl;
+        }
+        m_file.close();
+    }
+}
+
 ///reads in Restaurants from restaurant.txt
 bool YalpWindow::readIn()
 {
@@ -247,6 +279,7 @@ void YalpWindow::on_loginButton_clicked()
 
         if(loginWind.isValidName()) {
             m_username = loginWind.getUsername();
+            m_isGuest = false;
             QMessageBox::about(this, "Login", "Signed in as " + m_username);
         } else {
             QMessageBox::about(this, "Login", "No login detected. You are still a guest.");

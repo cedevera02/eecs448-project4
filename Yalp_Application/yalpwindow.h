@@ -77,6 +77,7 @@ private:
     QString m_removeRest; //restaurant to be removed
     QFile m_file;
     QString m_username;
+    bool m_isGuest;
     void TestVectorCreator();
     bool readIn(); ///function that reads in from restaurant text file
     void writeOut();
@@ -84,6 +85,7 @@ private:
     void printAllRest();///prints all the restaurants in m_restVector
     QString makeNice(QString word);///removes the underlines in QString and then returns it
     QString dollarPrice(int price); ///turns number price into dollar sign
+    void closeEvent(QCloseEvent *event);
 
 };
 #endif // YALPWINDOW_H
