@@ -15,6 +15,7 @@ public:
     explicit loginWindow(QWidget *parent = nullptr);
     ~loginWindow();
     QString getUsername() const;
+    bool isValidName();
 
 private slots:
     void on_pushButton_Login_clicked();
@@ -22,9 +23,10 @@ private slots:
 private:
     Ui::loginWindow *ui;
     QString username;
-    bool isValidName;
-    void validateName(QString name);
-    void cleanName(QString name);
+    bool misValidName;
+    void validateName(QString* name);
+    void cleanName(QString* name);
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // LOGINWINDOW_H

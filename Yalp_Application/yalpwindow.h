@@ -21,6 +21,7 @@ class YalpWindow : public QMainWindow
 public:
     YalpWindow(QWidget *parent = nullptr);
     ~YalpWindow();
+    void setUsername(QString aUsername);
 
 private slots:
 
@@ -75,8 +76,10 @@ private:
     Choices m_choices;
     QString m_removeRest; //restaurant to be removed
     QFile m_file;
+    QString m_username;
     void TestVectorCreator();
     bool readIn(); ///function that reads in from restaurant text file
+    void writeOut();
     bool m_valid; /// tells whether input for filter is valid
 
 };

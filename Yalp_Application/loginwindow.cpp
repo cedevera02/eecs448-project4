@@ -1,17 +1,31 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 #include <QMessageBox>
+#include <QCloseEvent>
+#include "yalpwindow.h"
 
 loginWindow::loginWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::loginWindow)
 {
     ui->setupUi(this);
+    misValidName = false;
 }
 
 loginWindow::~loginWindow()
 {
     delete ui;
+}
+//make it give the name to the main, give successful login to the main so we know if they are still a guest or not
+
+void loginWindow::closeEvent(QCloseEvent *event)
+{
+    if(isValidName()) {
+        event->accept();
+    } else {
+        QMessageBox::warning(this, "Login", "Must enter valid username before exiting");
+        event->ignore();
+    }
 }
 
 void loginWindow::on_pushButton_Login_clicked()
@@ -19,12 +33,12 @@ void loginWindow::on_pushButton_Login_clicked()
     if(!ui->lineEdit_username->text().isEmpty()) {
         username = ui->lineEdit_username->text();
 
-        validateName(username);
+        validateName(&username);
 
-        if(isValidName) {
-            QMessageBox::information(this, "Login", "Username is valid " + username);
+        if(misValidName) {
+            QMessageBox::information(this, "Login", "Username is valid. Exit login window to continue as user.");
         } else {
-            QMessageBox::warning(this, "Login", "Username is invalid");
+            QMessageBox::warning(this, "Login", "Username is invalid. Please try again.");
         }
 
     }
@@ -35,26 +49,32 @@ QString loginWindow::getUsername() const
     return username;
 }
 
-void loginWindow::cleanName(QString name)
+bool loginWindow::isValidName()
 {
-    QString tempName = "";
-
-    for(int i = 0; i < name.length(); i++) {
-        if(name[i] != ' ') {
-            tempName += name[i];
-        }
-    }
-    name = tempName;
+    return misValidName;
 }
 
-void loginWindow::validateName(QString name)
+void loginWindow::cleanName(QString* name)
 {
-    cleanName(name);
+    QString tempName = "";
+    QString holder = *name;
 
-    if(name != "") {
-        isValidName = true;
+    for(int i = 0; i < holder.length(); i++) {
+        if(holder[i] != ' ') {
+            tempName += holder[i];
+        }
+    }
+    *name = tempName;
+}
+
+void loginWindow::validateName(QString* name)
+{
+    cleanName(&username);
+
+    if(*name != "") {
+        misValidName = true;
     } else {
-        isValidName = false;
+        misValidName = false;
     }
     return;
 }

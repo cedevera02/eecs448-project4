@@ -21,6 +21,7 @@ YalpWindow::YalpWindow(QWidget *parent)
     if(!read){
         QMessageBox::about(this, "File Read", "File failed to read...");
     }
+    m_username = "GUEST";
 }
 
 YalpWindow::~YalpWindow()
@@ -232,10 +233,24 @@ void YalpWindow::on_removeRestButton_clicked()
     }
 }
 
+void YalpWindow::setUsername(QString aUsername)
+{
+    m_username = aUsername;
+}
 void YalpWindow::on_loginButton_clicked()
 {
-    loginWindow loginWind;
-    loginWind.setModal(true);
-    loginWind.exec();
+    if(m_username == "GUEST") {
+        loginWindow loginWind;
+        loginWind.setModal(true);
+        loginWind.exec();
 
+        if(loginWind.isValidName()) {
+            m_username = loginWind.getUsername();
+            QMessageBox::about(this, "Login", "Signed in as " + m_username);
+        } else {
+            QMessageBox::about(this, "Login", "No login detected. You are still a guest.");
+        }
+    } else {
+        QMessageBox::warning(this, "Login", "Already signed in as " + m_username);
+    }
 }
