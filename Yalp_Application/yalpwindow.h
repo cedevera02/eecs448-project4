@@ -57,6 +57,12 @@ private slots:
 
     void on_loginButton_clicked();
 
+    void on_RestToBeRatiedLineEdit_textEdited(const QString &arg1);
+
+    void on_RestToRateSpinBox_valueChanged(int arg1);
+
+    void on_AddRatinButton_clicked();
+
 private:
     Ui::YalpWindow *ui;
     std::vector<Restaurant>* m_restVector; ///vector containing all restaurants in file
@@ -77,6 +83,8 @@ private:
     QString m_removeRest; //restaurant to be removed
     QFile m_file;
     QString m_username;
+    QString m_restToRate; ///restaurant to rate for personal
+    int m_restRate; ///rating to give for personal rating
     bool m_isGuest;
     void TestVectorCreator();
     bool readIn(); ///function that reads in from restaurant text file

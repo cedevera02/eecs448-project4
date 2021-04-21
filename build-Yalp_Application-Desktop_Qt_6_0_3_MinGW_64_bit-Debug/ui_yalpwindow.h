@@ -89,6 +89,17 @@ public:
     QLabel *cuisineTypeLabel;
     QLineEdit *cusineTypeLineEdit;
     QPushButton *searchFilterButton;
+    QFrame *frame_2;
+    QVBoxLayout *verticalLayout_17;
+    QVBoxLayout *verticalLayout_16;
+    QLabel *AddPRLabel;
+    QHBoxLayout *horizontalLayout_13;
+    QLabel *RestToRateLabel;
+    QLineEdit *RestToBeRatiedLineEdit;
+    QSpinBox *RestToRateSpinBox;
+    QHBoxLayout *horizontalLayout_14;
+    QPushButton *AddRatinButton;
+    QSpacerItem *horizontalSpacer_3;
     QVBoxLayout *verticalLayout_15;
     QHBoxLayout *horizontalLayout_7;
     QSpacerItem *horizontalSpacer;
@@ -113,7 +124,7 @@ public:
     {
         if (YalpWindow->objectName().isEmpty())
             YalpWindow->setObjectName(QString::fromUtf8("YalpWindow"));
-        YalpWindow->resize(800, 630);
+        YalpWindow->resize(959, 751);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_12 = new QHBoxLayout(centralwidget);
@@ -394,6 +405,61 @@ public:
 
         verticalLayout_14->addLayout(verticalLayout_10);
 
+        frame_2 = new QFrame(frame);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        verticalLayout_17 = new QVBoxLayout(frame_2);
+        verticalLayout_17->setObjectName(QString::fromUtf8("verticalLayout_17"));
+        verticalLayout_16 = new QVBoxLayout();
+        verticalLayout_16->setObjectName(QString::fromUtf8("verticalLayout_16"));
+        AddPRLabel = new QLabel(frame_2);
+        AddPRLabel->setObjectName(QString::fromUtf8("AddPRLabel"));
+        AddPRLabel->setFont(font1);
+
+        verticalLayout_16->addWidget(AddPRLabel);
+
+        horizontalLayout_13 = new QHBoxLayout();
+        horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
+        RestToRateLabel = new QLabel(frame_2);
+        RestToRateLabel->setObjectName(QString::fromUtf8("RestToRateLabel"));
+
+        horizontalLayout_13->addWidget(RestToRateLabel);
+
+        RestToBeRatiedLineEdit = new QLineEdit(frame_2);
+        RestToBeRatiedLineEdit->setObjectName(QString::fromUtf8("RestToBeRatiedLineEdit"));
+
+        horizontalLayout_13->addWidget(RestToBeRatiedLineEdit);
+
+        RestToRateSpinBox = new QSpinBox(frame_2);
+        RestToRateSpinBox->setObjectName(QString::fromUtf8("RestToRateSpinBox"));
+        RestToRateSpinBox->setMaximum(5);
+
+        horizontalLayout_13->addWidget(RestToRateSpinBox);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_13);
+
+        horizontalLayout_14 = new QHBoxLayout();
+        horizontalLayout_14->setObjectName(QString::fromUtf8("horizontalLayout_14"));
+        AddRatinButton = new QPushButton(frame_2);
+        AddRatinButton->setObjectName(QString::fromUtf8("AddRatinButton"));
+
+        horizontalLayout_14->addWidget(AddRatinButton);
+
+        horizontalSpacer_3 = new QSpacerItem(218, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_14->addItem(horizontalSpacer_3);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_14);
+
+
+        verticalLayout_17->addLayout(verticalLayout_16);
+
+
+        verticalLayout_14->addWidget(frame_2);
+
 
         horizontalLayout_12->addWidget(frame);
 
@@ -484,7 +550,7 @@ public:
         YalpWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(YalpWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 959, 26));
         YalpWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(YalpWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -522,6 +588,9 @@ public:
         MaxRateLabel->setText(QCoreApplication::translate("YalpWindow", "Max:", nullptr));
         cuisineTypeLabel->setText(QCoreApplication::translate("YalpWindow", "Cusine Type:", nullptr));
         searchFilterButton->setText(QCoreApplication::translate("YalpWindow", "Search", nullptr));
+        AddPRLabel->setText(QCoreApplication::translate("YalpWindow", "Add a Personal Rating to a Restaurant:", nullptr));
+        RestToRateLabel->setText(QCoreApplication::translate("YalpWindow", "Restaurant Name:", nullptr));
+        AddRatinButton->setText(QCoreApplication::translate("YalpWindow", "Add Rating", nullptr));
         UsingAsLabel->setText(QCoreApplication::translate("YalpWindow", "Using as:", nullptr));
         GuessNameLabel->setText(QCoreApplication::translate("YalpWindow", "Guess", nullptr));
         loginButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));

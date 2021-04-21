@@ -156,24 +156,19 @@ Restaurant Choices::printRandom()
 ///
 ///@param name The name of the restaurant to rate
 ///@param rating The rating double that the user gives
-//void Choices::giveRating(QString name, double rating)
-//{
-//    bool haveRes = false;
-//    for(int i = 0; i < _resVector->size(); i++)
-//    {
-//        haveRes = true;
-//        if(_resVector->at(i).getName().compare(name) == 0)
-//        {
-//            _resVector->at(i).setPRating(rating);
-//            std::cout << "\nRating " << rating << " set successfully for restaurant " << _resVector->at(i).getName() << "\n";
-//        }
-//    }
-
-//    if(!haveRes)
-//    {
-//        std::cout << "\nNo restaurant found with the matching name!" << "\n";
-//    }
-//}
+bool Choices::giveRating(QString name, int rating)
+{
+    bool haveRes = false;
+    for(int i = 0; i < (int)_resVector->size(); i++)
+    {
+        if(_resVector->at(i).getName().compare(name) == 0)
+        {
+            _resVector->at(i).setPRating(rating);
+            haveRes = true;
+        }
+    }
+ return haveRes;
+}
 
 ///This methods allows a user to remove a restaurant from the vector
 ///

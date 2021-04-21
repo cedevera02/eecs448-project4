@@ -23,7 +23,9 @@ YalpWindow::YalpWindow(QWidget *parent)
     }
     m_username = "GUEST";
     m_isGuest = true;
+    m_restToRate = "";
     printAllRest();
+
 }
 
 YalpWindow::~YalpWindow()
@@ -281,6 +283,7 @@ void YalpWindow::on_loginButton_clicked()
             m_username = loginWind.getUsername();
             m_isGuest = false;
             QMessageBox::about(this, "Login", "Signed in as " + m_username);
+            ui->GuessNameLabel->setText(m_username);
         } else {
             QMessageBox::about(this, "Login", "No login detected. You are still a guest.");
         }
@@ -315,4 +318,42 @@ QString YalpWindow::dollarPrice(int price)
         dollars += "$";
     }
     return dollars;
+}
+
+void YalpWindow::on_RestToBeRatiedLineEdit_textEdited(const QString &arg1)
+{
+    m_restToRate = arg1;
+    if (m_restToRate.size() > 0){
+        for (int i = 0; i < m_restToRate.size();i++){
+            if (i == 0){
+                m_restToRate[i] = m_restToRate[i].toUpper();
+            } else if (m_restToRate[i] == ' '){
+                m_restToRate[i] = '_';
+            } else if (i < m_restToRate.size() && m_restToRate[i-1] == '_'){
+                m_restToRate[i] = m_restToRate[i].toUpper();
+            }else{
+                m_restToRate[i] = m_restToRate[i].toLower();
+            }
+        }
+    }
+}
+
+void YalpWindow::on_RestToRateSpinBox_valueChanged(int arg1)
+{
+    m_restRate = arg1;
+}
+
+void YalpWindow::on_AddRatinButton_clicked()
+{
+    m_choices.setRestVector(m_restVector);
+    if (m_restToRate == ""){
+        QMessageBox::warning(this,"Rating a Restaurant", "A Blank Restaurant Name Cannot Be Given a Rating.");
+    }else{
+        bool present = m_choices.giveRating(m_restToRate, m_restRate);
+        if (present){
+            QMessageBox::about(this, "Rating a Restaurant", "Rating " + QString::number(m_restRate) + " set successfully for restaurant " + m_restToRate);
+        }else{
+            QMessageBox::about(this, "Rating a Restaurant", "No restaurant found with matching name!");
+        }
+    }
 }

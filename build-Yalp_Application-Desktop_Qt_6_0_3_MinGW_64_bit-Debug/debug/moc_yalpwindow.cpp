@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_YalpWindow_t {
-    const uint offsetsAndSize[38];
-    char stringdata0[410];
+    const uint offsetsAndSize[44];
+    char stringdata0[507];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_YalpWindow_t, stringdata0) + ofs), len 
@@ -47,7 +47,10 @@ QT_MOC_LITERAL(277, 27), // "on_MaxRSpinBox_valueChanged"
 QT_MOC_LITERAL(305, 30), // "on_FeelingHungryButton_clicked"
 QT_MOC_LITERAL(336, 22), // "on_lineEdit_textEdited"
 QT_MOC_LITERAL(359, 27), // "on_removeRestButton_clicked"
-QT_MOC_LITERAL(387, 22) // "on_loginButton_clicked"
+QT_MOC_LITERAL(387, 22), // "on_loginButton_clicked"
+QT_MOC_LITERAL(410, 36), // "on_RestToBeRatiedLineEdit_tex..."
+QT_MOC_LITERAL(447, 33), // "on_RestToRateSpinBox_valueCha..."
+QT_MOC_LITERAL(481, 25) // "on_AddRatinButton_clicked"
 
     },
     "YalpWindow\0on_Min1RB_clicked\0\0"
@@ -62,7 +65,10 @@ QT_MOC_LITERAL(387, 22) // "on_loginButton_clicked"
     "on_FeelingHungryButton_clicked\0"
     "on_lineEdit_textEdited\0"
     "on_removeRestButton_clicked\0"
-    "on_loginButton_clicked"
+    "on_loginButton_clicked\0"
+    "on_RestToBeRatiedLineEdit_textEdited\0"
+    "on_RestToRateSpinBox_valueChanged\0"
+    "on_AddRatinButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,7 +78,7 @@ static const uint qt_meta_data_YalpWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -80,22 +86,25 @@ static const uint qt_meta_data_YalpWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  110,    2, 0x08,    0 /* Private */,
-       3,    0,  111,    2, 0x08,    1 /* Private */,
-       4,    0,  112,    2, 0x08,    2 /* Private */,
-       5,    0,  113,    2, 0x08,    3 /* Private */,
-       6,    0,  114,    2, 0x08,    4 /* Private */,
-       7,    0,  115,    2, 0x08,    5 /* Private */,
-       8,    0,  116,    2, 0x08,    6 /* Private */,
-       9,    0,  117,    2, 0x08,    7 /* Private */,
-      10,    0,  118,    2, 0x08,    8 /* Private */,
-      11,    1,  119,    2, 0x08,    9 /* Private */,
-      13,    1,  122,    2, 0x08,   11 /* Private */,
-      14,    1,  125,    2, 0x08,   13 /* Private */,
-      15,    0,  128,    2, 0x08,   15 /* Private */,
-      16,    1,  129,    2, 0x08,   16 /* Private */,
-      17,    0,  132,    2, 0x08,   18 /* Private */,
-      18,    0,  133,    2, 0x08,   19 /* Private */,
+       1,    0,  128,    2, 0x08,    0 /* Private */,
+       3,    0,  129,    2, 0x08,    1 /* Private */,
+       4,    0,  130,    2, 0x08,    2 /* Private */,
+       5,    0,  131,    2, 0x08,    3 /* Private */,
+       6,    0,  132,    2, 0x08,    4 /* Private */,
+       7,    0,  133,    2, 0x08,    5 /* Private */,
+       8,    0,  134,    2, 0x08,    6 /* Private */,
+       9,    0,  135,    2, 0x08,    7 /* Private */,
+      10,    0,  136,    2, 0x08,    8 /* Private */,
+      11,    1,  137,    2, 0x08,    9 /* Private */,
+      13,    1,  140,    2, 0x08,   11 /* Private */,
+      14,    1,  143,    2, 0x08,   13 /* Private */,
+      15,    0,  146,    2, 0x08,   15 /* Private */,
+      16,    1,  147,    2, 0x08,   16 /* Private */,
+      17,    0,  150,    2, 0x08,   18 /* Private */,
+      18,    0,  151,    2, 0x08,   19 /* Private */,
+      19,    1,  152,    2, 0x08,   20 /* Private */,
+      20,    1,  155,    2, 0x08,   22 /* Private */,
+      21,    0,  158,    2, 0x08,   24 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -113,6 +122,9 @@ static const uint qt_meta_data_YalpWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   12,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   12,
+    QMetaType::Void, QMetaType::Int,   12,
     QMetaType::Void,
 
        0        // eod
@@ -140,6 +152,9 @@ void YalpWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: _t->on_lineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 14: _t->on_removeRestButton_clicked(); break;
         case 15: _t->on_loginButton_clicked(); break;
+        case 16: _t->on_RestToBeRatiedLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 17: _t->on_RestToRateSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 18: _t->on_AddRatinButton_clicked(); break;
         default: ;
         }
     }
@@ -153,7 +168,7 @@ const QMetaObject YalpWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_YalpWindow_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -180,13 +195,13 @@ int YalpWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 19)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 16;
+        _id -= 19;
     }
     return _id;
 }
