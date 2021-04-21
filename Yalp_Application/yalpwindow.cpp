@@ -116,7 +116,7 @@ void YalpWindow::on_searchFilterButton_clicked()
     m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
     //int i = 0;
     for(int i = 0; i < (int)m_printVector->size(); i++){
-        ui->RestaurantTextEdit->append(makeNice(m_printVector->at(i).getName()) + "  " + makeNice(m_printVector->at(i).getCusine()) + "  " +dollarPrice(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n");
+        ui->RestaurantTextEdit->append("<html><b>"+makeNice(m_printVector->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(m_printVector->at(i).getCusine())+"</i></html>" + "  " +dollarPrice(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n\n");
     }
 }
 
@@ -232,7 +232,7 @@ void YalpWindow::on_FeelingHungryButton_clicked()
 {
     m_choices.setRestVector(m_restVector);
     Restaurant temp = m_choices.printRandom();
-    ui->RestaurantTextEdit->setText(makeNice(temp.getName()) + "  " + makeNice(temp.getCusine()) + "  " + dollarPrice(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n");
+    ui->RestaurantTextEdit->setText(makeNice("<html><b>"+temp.getName())+"</b></html>"  + "  " + "<html><i>"+makeNice(temp.getCusine())+"</i></html>"  + "  " + dollarPrice(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n\n");
 }
 
 void YalpWindow::on_lineEdit_textEdited(const QString &arg1)
@@ -251,7 +251,7 @@ void YalpWindow::on_lineEdit_textEdited(const QString &arg1)
             }
         }
     }
-    ui->RestaurantTextEdit->setText(m_removeRest);
+    ui->RestaurantTextEdit->setText("<html><b>"+m_removeRest+"</b><html>");
 }
 
 
@@ -296,7 +296,7 @@ void YalpWindow::printAllRest()
 {
     ui->RestaurantTextEdit->clear();
     for (int i = 0; i < (int)m_restVector->size()-1; i++){
-        ui->RestaurantTextEdit->append(makeNice(m_restVector->at(i).getName()) + "  " + makeNice(m_restVector->at(i).getCusine()) + "  " + dollarPrice(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n");
+        ui->RestaurantTextEdit->append("<html><b>"+makeNice(m_restVector->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(m_restVector->at(i).getCusine())+"</i></html>"  + "  " + dollarPrice(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n\n");
     }
 }
 

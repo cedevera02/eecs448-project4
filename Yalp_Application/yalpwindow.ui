@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>959</width>
-    <height>751</height>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -538,6 +538,11 @@
           </item>
           <item>
            <widget class="QTextEdit" name="RestaurantTextEdit">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>

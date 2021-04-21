@@ -124,7 +124,7 @@ public:
     {
         if (YalpWindow->objectName().isEmpty())
             YalpWindow->setObjectName(QString::fromUtf8("YalpWindow"));
-        YalpWindow->resize(959, 751);
+        YalpWindow->resize(959, 752);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_12 = new QHBoxLayout(centralwidget);
@@ -519,6 +519,9 @@ public:
 
         RestaurantTextEdit = new QTextEdit(centralwidget);
         RestaurantTextEdit->setObjectName(QString::fromUtf8("RestaurantTextEdit"));
+        QFont font3;
+        font3.setPointSize(12);
+        RestaurantTextEdit->setFont(font3);
         RestaurantTextEdit->setReadOnly(true);
 
         verticalLayout_6->addWidget(RestaurantTextEdit);
