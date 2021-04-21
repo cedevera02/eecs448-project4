@@ -24,7 +24,7 @@ YalpWindow::YalpWindow(QWidget *parent)
     m_username = "GUEST";
     m_isGuest = true;
     m_restToRate = "";
-    printAllRest();
+    printAllRest(m_restVector);
 
 }
 
@@ -113,11 +113,10 @@ void YalpWindow::on_searchFilterButton_clicked()
 {
     ui->RestaurantTextEdit->clear();
     m_choices.setRestVector(m_restVector);
+    m_printVector->clear();
+    delete m_printVector;
     m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
-    //int i = 0;
-    for(int i = 0; i < (int)m_printVector->size(); i++){
-        ui->RestaurantTextEdit->append("<html><b>"+makeNice(m_printVector->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(m_printVector->at(i).getCusine())+"</i></html>" + "  " +dollarPrice(m_printVector->at(i).getPrice()) + "  Rating: " + QString::number(m_printVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_printVector->at(i).getPRating()) + "\n\n");
-    }
+    printAllRest(m_printVector);
 }
 
 ///Stores which type of rating value is chosen in m_ratingType
@@ -235,7 +234,7 @@ void YalpWindow::on_FeelingHungryButton_clicked()
     ui->RestaurantTextEdit->setText(makeNice("<html><b>"+temp.getName())+"</b></html>"  + "  " + "<html><i>"+makeNice(temp.getCusine())+"</i></html>"  + "  " + dollarPrice(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n\n");
 }
 
-void YalpWindow::on_lineEdit_textEdited(const QString &arg1)
+void YalpWindow::on_removeRestLineEdit_textEdited(const QString &arg1)
 {
     m_removeRest = arg1;
     if (m_removeRest.size() > 0){
@@ -292,11 +291,11 @@ void YalpWindow::on_loginButton_clicked()
     }
 }
 
-void YalpWindow::printAllRest()
+void YalpWindow::printAllRest(std::vector<Restaurant>* vect)
 {
     ui->RestaurantTextEdit->clear();
     for (int i = 0; i < (int)m_restVector->size()-1; i++){
-        ui->RestaurantTextEdit->append("<html><b>"+makeNice(m_restVector->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(m_restVector->at(i).getCusine())+"</i></html>"  + "  " + dollarPrice(m_restVector->at(i).getPrice()) + "  Rating: " + QString::number(m_restVector->at(i).getRating()) + "  Personal Rating: " + QString::number(m_restVector->at(i).getPRating()) + "\n\n");
+        ui->RestaurantTextEdit->append("<html><b>"+makeNice(vect->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(vect->at(i).getCusine())+"</i></html>"  + "  " + dollarPrice(vect->at(i).getPrice()) + "  Rating: " + QString::number(vect->at(i).getRating()) + "  Personal Rating: " + QString::number(vect->at(i).getPRating()) + "\n\n");
     }
 }
 

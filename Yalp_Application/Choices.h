@@ -12,8 +12,6 @@ class Choices
     public:
     Choices();
     Choices(std::vector<Restaurant>* vec); /// Choices object constructor, store _resVector member variable, fills in cuisine vector.
-    //int printMenu(); /// prints full user menu.
-    //void printAll();/// prints all restaurants.
     void printByPrice();/// prints restaurants fitting the users given price range.
     void printByCuisine();/// prints all restaurants that fits the users choosen cusine.
     void printByRating();/// prints all restaurants fitting in the users given rating range(eitehr personal or public ratings).
@@ -30,8 +28,8 @@ class Choices
     int m_maxRB; ///shows which radio button is chosen for max price
     int m_ratingType; ///shows what the public rating chosen
     int m_rating[2]; ///show what the personal rating chose
-    bool isGuest;
-    QString m_cuisineType;
+    bool isGuest; ///indicates whether the user has logged in or not
+    QString m_cuisineType; ///type of restaurant the user is asking for
 
 };
 

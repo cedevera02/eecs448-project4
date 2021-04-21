@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_YalpWindow_t {
     const uint offsetsAndSize[44];
-    char stringdata0[507];
+    char stringdata0[517];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_YalpWindow_t, stringdata0) + ofs), len 
@@ -45,12 +45,12 @@ QT_MOC_LITERAL(244, 4), // "arg1"
 QT_MOC_LITERAL(249, 27), // "on_MinRSpinBox_valueChanged"
 QT_MOC_LITERAL(277, 27), // "on_MaxRSpinBox_valueChanged"
 QT_MOC_LITERAL(305, 30), // "on_FeelingHungryButton_clicked"
-QT_MOC_LITERAL(336, 22), // "on_lineEdit_textEdited"
-QT_MOC_LITERAL(359, 27), // "on_removeRestButton_clicked"
-QT_MOC_LITERAL(387, 22), // "on_loginButton_clicked"
-QT_MOC_LITERAL(410, 36), // "on_RestToBeRatiedLineEdit_tex..."
-QT_MOC_LITERAL(447, 33), // "on_RestToRateSpinBox_valueCha..."
-QT_MOC_LITERAL(481, 25) // "on_AddRatinButton_clicked"
+QT_MOC_LITERAL(336, 32), // "on_removeRestLineEdit_textEdited"
+QT_MOC_LITERAL(369, 27), // "on_removeRestButton_clicked"
+QT_MOC_LITERAL(397, 22), // "on_loginButton_clicked"
+QT_MOC_LITERAL(420, 36), // "on_RestToBeRatiedLineEdit_tex..."
+QT_MOC_LITERAL(457, 33), // "on_RestToRateSpinBox_valueCha..."
+QT_MOC_LITERAL(491, 25) // "on_AddRatinButton_clicked"
 
     },
     "YalpWindow\0on_Min1RB_clicked\0\0"
@@ -63,7 +63,7 @@ QT_MOC_LITERAL(481, 25) // "on_AddRatinButton_clicked"
     "on_MinRSpinBox_valueChanged\0"
     "on_MaxRSpinBox_valueChanged\0"
     "on_FeelingHungryButton_clicked\0"
-    "on_lineEdit_textEdited\0"
+    "on_removeRestLineEdit_textEdited\0"
     "on_removeRestButton_clicked\0"
     "on_loginButton_clicked\0"
     "on_RestToBeRatiedLineEdit_textEdited\0"
@@ -149,7 +149,7 @@ void YalpWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 10: _t->on_MinRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->on_MaxRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 12: _t->on_FeelingHungryButton_clicked(); break;
-        case 13: _t->on_lineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 13: _t->on_removeRestLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 14: _t->on_removeRestButton_clicked(); break;
         case 15: _t->on_loginButton_clicked(); break;
         case 16: _t->on_RestToBeRatiedLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
