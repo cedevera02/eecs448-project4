@@ -15,6 +15,7 @@ SOURCES += \
     Restaurant.cpp \
     loginwindow.cpp \
     main.cpp \
+    testsuite.cpp \
     yalpwindow.cpp
 
 HEADERS += \
@@ -23,10 +24,12 @@ HEADERS += \
     #Executive.h \
     Restaurant.h \
     loginwindow.h \
+    testsuite.h \
     yalpwindow.h
 
 FORMS += \
     loginwindow.ui \
+    testsuite.ui \
     yalpwindow.ui
 
 # Default rules for deployment.

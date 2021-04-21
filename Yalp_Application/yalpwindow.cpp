@@ -1,6 +1,7 @@
 #include "yalpwindow.h"
 #include "ui_yalpwindow.h"
 #include "loginwindow.h"
+#include "testsuite.h"
 #include <QCloseEvent>
 //#include "UI.h"
 
@@ -63,6 +64,15 @@ void YalpWindow::TestVectorCreator()
     temp.setRating(4.3);
     temp.setPRating(0);
     m_restVector->push_back(temp3);
+}
+
+///runs the test suite
+void YalpWindow::on_testButton_clicked()
+{
+    ///create testSuite object and run main testSuite function
+    testSuite test;
+    test.setModal(true);
+    test.exec();
 }
 
 ///Stores which minimum price value is chosen in m_minRB

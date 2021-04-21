@@ -5,6 +5,7 @@
 #include <vector>
 #include "Choices.h"
 #include "Restaurant.h"
+#include "testsuite.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
@@ -25,7 +26,13 @@ public:
 
 private slots:
 
+<<<<<<< HEAD
     void on_Min1RB_clicked(); ///stores min price range
+=======
+    void on_testButton_clicked();
+
+    void on_Min1RB_clicked();
+>>>>>>> 7226dc3226d6998edd2497206cde7562140cdd7e
 
     void on_Min2RB_clicked();///stores min price range
 
