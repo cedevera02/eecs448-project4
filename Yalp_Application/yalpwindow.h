@@ -5,6 +5,7 @@
 #include <vector>
 #include "Choices.h"
 #include "Restaurant.h"
+#include "testsuite.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
@@ -24,6 +25,8 @@ public:
     void setUsername(QString aUsername);
 
 private slots:
+
+    void on_testButton_clicked();
 
     void on_Min1RB_clicked();
 

@@ -469,6 +469,13 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
+         <widget class="QPushButton" name="testButton">
+          <property name="text">
+           <string>Run Test Suite</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="horizontalSpacer">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -576,7 +583,7 @@
      <x>0</x>
      <y>0</y>
      <width>959</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
