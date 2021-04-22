@@ -26,13 +26,9 @@ public:
 
 private slots:
 
-<<<<<<< HEAD
     void on_Min1RB_clicked(); ///stores min price range
-=======
-    void on_testButton_clicked();
 
-    void on_Min1RB_clicked();
->>>>>>> 7226dc3226d6998edd2497206cde7562140cdd7e
+    void on_testButton_clicked();///creates tests suite objects and opens the window
 
     void on_Min2RB_clicked();///stores min price range
 
@@ -97,6 +93,7 @@ private:
     bool m_valid; /// tells whether input for filter is valid
     void printAllRest(std::vector<Restaurant>* vect);///prints all the restaurants in m_restVector
     QString makeNice(QString word);///removes the underlines in QString and then returns it
+    QString makeFormat(QString word);///puts input into format used for restaurants
     QString dollarPrice(int price); ///turns number price into dollar sign
     void closeEvent(QCloseEvent *event);
 };

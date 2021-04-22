@@ -38,6 +38,7 @@ YalpWindow::~YalpWindow()
     delete m_printVector;
 }
 
+///Creates a test vector to test out code on
 void YalpWindow::TestVectorCreator()
 {
     Restaurant temp("Tortas_Jalisco");
@@ -126,7 +127,11 @@ void YalpWindow::on_searchFilterButton_clicked()
     m_printVector->clear();
     delete m_printVector;
     m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
-    printAllRest(m_printVector);
+    if ((int)m_printVector->size() == 0){
+        QMessageBox::warning(this, "Filtered Restaurants", "It seems there are no restaurants matching your choices.");
+    }else{
+        printAllRest(m_printVector);
+    }
 }
 
 ///Stores which type of rating value is chosen in m_ratingType
@@ -146,20 +151,7 @@ void YalpWindow::on_personalRRadioButton_clicked()
 ///Stores which type of cuisine is typed adn changes it into form used, storing it into m_cuisineType
 void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
 {
-    m_cuisineType = arg1;
-    if (m_cuisineType.size() > 0){
-        for (int i = 0; i < m_cuisineType.size();i++){
-            if (i == 0){
-                m_cuisineType[i] = m_cuisineType[i].toUpper();
-            } else if (m_cuisineType[i] == ' '){
-                m_cuisineType[i] = '_';
-            } else if (i < m_cuisineType.size() && m_cuisineType[i-1] == '_'){
-                m_cuisineType[i] = m_cuisineType[i].toUpper();
-            }else{
-                m_cuisineType[i] = m_cuisineType[i].toLower();
-            }
-        }
-    }
+    m_cuisineType = makeFormat(arg1);
     ui->RestaurantTextEdit->setText(m_cuisineType);
 }
 
@@ -194,6 +186,7 @@ void YalpWindow::writeOut()
 }
 
 ///reads in Restaurants from restaurant.txt
+/// @return true if file could be read in, false otherwise
 bool YalpWindow::readIn()
 {
     QFile m_file("restaurants.txt");
@@ -214,6 +207,11 @@ bool YalpWindow::readIn()
             }
 
             m_file.close();
+            bool haveRes= true;
+            m_choices.setRestVector(m_restVector);
+            while(haveRes){
+                m_choices.removeRestaurant("",haveRes);
+            }
             return true;
         }
         else
@@ -237,6 +235,7 @@ void YalpWindow::on_MaxRSpinBox_valueChanged(int arg1)
     ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));
 }
 
+///prinst out random restaurant
 void YalpWindow::on_FeelingHungryButton_clicked()
 {
     m_choices.setRestVector(m_restVector);
@@ -244,27 +243,15 @@ void YalpWindow::on_FeelingHungryButton_clicked()
     ui->RestaurantTextEdit->setText(makeNice("<html><b>"+temp.getName())+"</b></html>"  + "  " + "<html><i>"+makeNice(temp.getCusine())+"</i></html>"  + "  " + dollarPrice(temp.getPrice()) + "  Rating: " + QString::number(temp.getRating()) + "  Personal Rating: " + QString::number(temp.getPRating()) + "\n\n");
 }
 
+///stores restaurant name to be removed
+/// @param arg1 name of restaurant
 void YalpWindow::on_removeRestLineEdit_textEdited(const QString &arg1)
 {
-    m_removeRest = arg1;
-    if (m_removeRest.size() > 0){
-        for (int i = 0; i < m_removeRest.size();i++){
-            if (i == 0){
-                m_removeRest[i] = m_removeRest[i].toUpper();
-            } else if (m_removeRest[i] == ' '){
-                m_removeRest[i] = '_';
-            } else if (i < m_removeRest.size() && m_removeRest[i-1] == '_'){
-                m_removeRest[i] = m_removeRest[i].toUpper();
-            }else{
-                m_removeRest[i] = m_removeRest[i].toLower();
-            }
-        }
-    }
+    m_removeRest = makeFormat(arg1);
     ui->RestaurantTextEdit->setText("<html><b>"+m_removeRest+"</b><html>");
 }
 
-
-
+///removes restaurant stored in m_removeRest
 void YalpWindow::on_removeRestButton_clicked()
 {
     m_choices.setRestVector(m_restVector); //set restvector that restaurant will be removed from
@@ -301,15 +288,19 @@ void YalpWindow::on_loginButton_clicked()
     }
 }
 
+///prints out all restaurants in vector input
+/// @param vect is the vector to be printed out
 void YalpWindow::printAllRest(std::vector<Restaurant>* vect)
 {
     ui->RestaurantTextEdit->clear();
-    for (int i = 0; i < (int)m_restVector->size()-1; i++){
+    for (int i = 0; i < (int)m_restVector->size(); i++){
         ui->RestaurantTextEdit->append("<html><b>"+makeNice(vect->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(vect->at(i).getCusine())+"</i></html>"  + "  " + dollarPrice(vect->at(i).getPrice()) + "  Rating: " + QString::number(vect->at(i).getRating()) + "  Personal Rating: " + QString::number(vect->at(i).getPRating()) + "\n\n");
     }
 }
 
 ///Removes underlines from string and returns it
+/// @param word is the word being edited
+/// @return edited string
 QString YalpWindow::makeNice(QString word)
 {
     for (int i = 0; i < word.size(); i++){
@@ -320,6 +311,31 @@ QString YalpWindow::makeNice(QString word)
     return word;
 }
 
+///adds underlines to name instead of spaces, and capitalizes first letter of every word
+/// @param is the word being edited
+/// @return edited string
+QString YalpWindow::makeFormat(QString word)
+{
+    if (word.size() > 0){
+        for (int i = 0; i < word.size();i++){
+            if (i == 0){
+                word[i] = word[i].toUpper();
+            } else if (word[i] == ' '){
+                word[i] = '_';
+            } else if (i < word.size() && word[i-1] == '_'){
+                word[i] = word[i].toUpper();
+            }else{
+                word[i] = word[i].toLower();
+            }
+        }
+    }
+
+    return word;
+}
+
+///represents price range with dollar sign
+/// @param price range
+/// @return string with "price" number of $
 QString YalpWindow::dollarPrice(int price)
 {
     QString dollars = "";
@@ -329,29 +345,19 @@ QString YalpWindow::dollarPrice(int price)
     return dollars;
 }
 
+///stores restaurant to be rated
 void YalpWindow::on_RestToBeRatiedLineEdit_textEdited(const QString &arg1)
 {
-    m_restToRate = arg1;
-    if (m_restToRate.size() > 0){
-        for (int i = 0; i < m_restToRate.size();i++){
-            if (i == 0){
-                m_restToRate[i] = m_restToRate[i].toUpper();
-            } else if (m_restToRate[i] == ' '){
-                m_restToRate[i] = '_';
-            } else if (i < m_restToRate.size() && m_restToRate[i-1] == '_'){
-                m_restToRate[i] = m_restToRate[i].toUpper();
-            }else{
-                m_restToRate[i] = m_restToRate[i].toLower();
-            }
-        }
-    }
+    m_restToRate = makeFormat(arg1);
 }
 
+///stores rating of restaurant
 void YalpWindow::on_RestToRateSpinBox_valueChanged(int arg1)
 {
     m_restRate = arg1;
 }
 
+///adds rating in m_restRate to restuarant specified in m_restToRate
 void YalpWindow::on_AddRatinButton_clicked()
 {
     m_choices.setRestVector(m_restVector);

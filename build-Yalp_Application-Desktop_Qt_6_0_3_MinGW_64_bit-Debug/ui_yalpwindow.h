@@ -102,6 +102,7 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QVBoxLayout *verticalLayout_15;
     QHBoxLayout *horizontalLayout_7;
+    QPushButton *testButton;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout_6;
@@ -467,6 +468,11 @@ public:
         verticalLayout_15->setObjectName(QString::fromUtf8("verticalLayout_15"));
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        testButton = new QPushButton(centralwidget);
+        testButton->setObjectName(QString::fromUtf8("testButton"));
+
+        horizontalLayout_7->addWidget(testButton);
+
         horizontalSpacer = new QSpacerItem(378, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_7->addItem(horizontalSpacer);
@@ -553,7 +559,7 @@ public:
         YalpWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(YalpWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 959, 26));
+        menubar->setGeometry(QRect(0, 0, 959, 21));
         YalpWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(YalpWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -594,6 +600,7 @@ public:
         AddPRLabel->setText(QCoreApplication::translate("YalpWindow", "Add a Personal Rating to a Restaurant:", nullptr));
         RestToRateLabel->setText(QCoreApplication::translate("YalpWindow", "Restaurant Name:", nullptr));
         AddRatinButton->setText(QCoreApplication::translate("YalpWindow", "Add Rating", nullptr));
+        testButton->setText(QCoreApplication::translate("YalpWindow", "Run Test Suite", nullptr));
         UsingAsLabel->setText(QCoreApplication::translate("YalpWindow", "Using as:", nullptr));
         GuessNameLabel->setText(QCoreApplication::translate("YalpWindow", "Guess", nullptr));
         loginButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));

@@ -19,11 +19,11 @@ class Choices
     bool giveRating(QString name, int rating);/// allows a logged in user to assign a restaurant a personal rating.
     void removeRestaurant(QString name, bool& haveRes);/// allows a logged in user to remove a restaurant from their list.
     std::vector<Restaurant>* createVector(int minRB,int maxRB,int ratingType,int rating[2], QString cuisineType); ///creates a vector of restaurants that match the given parameters
-    void setRestVector(std::vector<Restaurant>* vec);
+    void setRestVector(std::vector<Restaurant>* vec);///sets the _resVector equal to for fiddling with
 
     private:
     std::vector<Restaurant>* _resVector; ///< vector storing Restaurant objects.
-    std::vector<Restaurant>* m_printVector;
+    std::vector<Restaurant>* m_printVector; ///vector that stores restaurant based on filters
     int m_minRB; ///shows which radio button is chosen for min price
     int m_maxRB; ///shows which radio button is chosen for max price
     int m_ratingType; ///shows what the public rating chosen
