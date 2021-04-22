@@ -562,7 +562,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="removeRestLineEdit"/>
         </item>
         <item>
          <widget class="QPushButton" name="removeRestButton">
@@ -583,7 +583,7 @@
      <x>0</x>
      <y>0</y>
      <width>959</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
