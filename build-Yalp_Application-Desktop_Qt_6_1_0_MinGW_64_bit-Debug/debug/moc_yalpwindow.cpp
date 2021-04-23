@@ -23,16 +23,16 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_YalpWindow_t {
     const uint offsetsAndSize[46];
-    char stringdata0[529];
+    char stringdata0[539];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_YalpWindow_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_YalpWindow_t qt_meta_stringdata_YalpWindow = {
     {
 QT_MOC_LITERAL(0, 10), // "YalpWindow"
-QT_MOC_LITERAL(11, 21), // "on_testButton_clicked"
-QT_MOC_LITERAL(33, 0), // ""
-QT_MOC_LITERAL(34, 17), // "on_Min1RB_clicked"
+QT_MOC_LITERAL(11, 17), // "on_Min1RB_clicked"
+QT_MOC_LITERAL(29, 0), // ""
+QT_MOC_LITERAL(30, 21), // "on_testButton_clicked"
 QT_MOC_LITERAL(52, 17), // "on_Min2RB_clicked"
 QT_MOC_LITERAL(70, 17), // "on_Min3RB_clicked"
 QT_MOC_LITERAL(88, 17), // "on_Max1RB_clicked"
@@ -46,16 +46,16 @@ QT_MOC_LITERAL(266, 4), // "arg1"
 QT_MOC_LITERAL(271, 27), // "on_MinRSpinBox_valueChanged"
 QT_MOC_LITERAL(299, 27), // "on_MaxRSpinBox_valueChanged"
 QT_MOC_LITERAL(327, 30), // "on_FeelingHungryButton_clicked"
-QT_MOC_LITERAL(358, 22), // "on_lineEdit_textEdited"
-QT_MOC_LITERAL(381, 27), // "on_removeRestButton_clicked"
-QT_MOC_LITERAL(409, 22), // "on_loginButton_clicked"
-QT_MOC_LITERAL(432, 36), // "on_RestToBeRatiedLineEdit_tex..."
-QT_MOC_LITERAL(469, 33), // "on_RestToRateSpinBox_valueCha..."
-QT_MOC_LITERAL(503, 25) // "on_AddRatinButton_clicked"
+QT_MOC_LITERAL(358, 32), // "on_removeRestLineEdit_textEdited"
+QT_MOC_LITERAL(391, 27), // "on_removeRestButton_clicked"
+QT_MOC_LITERAL(419, 22), // "on_loginButton_clicked"
+QT_MOC_LITERAL(442, 36), // "on_RestToBeRatiedLineEdit_tex..."
+QT_MOC_LITERAL(479, 33), // "on_RestToRateSpinBox_valueCha..."
+QT_MOC_LITERAL(513, 25) // "on_AddRatinButton_clicked"
 
     },
-    "YalpWindow\0on_testButton_clicked\0\0"
-    "on_Min1RB_clicked\0on_Min2RB_clicked\0"
+    "YalpWindow\0on_Min1RB_clicked\0\0"
+    "on_testButton_clicked\0on_Min2RB_clicked\0"
     "on_Min3RB_clicked\0on_Max1RB_clicked\0"
     "on_Max2RB_clicked\0on_Max3RB_clicked\0"
     "on_searchFilterButton_clicked\0"
@@ -65,7 +65,7 @@ QT_MOC_LITERAL(503, 25) // "on_AddRatinButton_clicked"
     "on_MinRSpinBox_valueChanged\0"
     "on_MaxRSpinBox_valueChanged\0"
     "on_FeelingHungryButton_clicked\0"
-    "on_lineEdit_textEdited\0"
+    "on_removeRestLineEdit_textEdited\0"
     "on_removeRestButton_clicked\0"
     "on_loginButton_clicked\0"
     "on_RestToBeRatiedLineEdit_textEdited\0"
@@ -140,8 +140,8 @@ void YalpWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<YalpWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_testButton_clicked(); break;
-        case 1: _t->on_Min1RB_clicked(); break;
+        case 0: _t->on_Min1RB_clicked(); break;
+        case 1: _t->on_testButton_clicked(); break;
         case 2: _t->on_Min2RB_clicked(); break;
         case 3: _t->on_Min3RB_clicked(); break;
         case 4: _t->on_Max1RB_clicked(); break;
@@ -154,7 +154,7 @@ void YalpWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 11: _t->on_MinRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 12: _t->on_MaxRSpinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 13: _t->on_FeelingHungryButton_clicked(); break;
-        case 14: _t->on_lineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 14: _t->on_removeRestLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 15: _t->on_removeRestButton_clicked(); break;
         case 16: _t->on_loginButton_clicked(); break;
         case 17: _t->on_RestToBeRatiedLineEdit_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;

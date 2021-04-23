@@ -17,6 +17,15 @@ public:
 
 private:
     Ui::testSuite *ui;
+    void run();
+
+    void loginTest();
+    void restVecTest();
+    void priceRangeTest();
+    void personalRatingTest();
+    void publicRatingTest();
+    void cuisineVecTest();
+
 };
 
 #endif // TESTSUITE_H

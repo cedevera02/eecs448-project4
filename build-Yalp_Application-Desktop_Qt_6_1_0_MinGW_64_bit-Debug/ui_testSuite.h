@@ -38,7 +38,7 @@ public:
 
     void retranslateUi(QDialog *testSuite)
     {
-        testSuite->setWindowTitle(QCoreApplication::translate("testSuite", "Dialog", nullptr));
+        testSuite->setWindowTitle(QCoreApplication::translate("testSuite", "Test Suite", nullptr));
     } // retranslateUi
 
 };
