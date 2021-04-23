@@ -98,5 +98,7 @@ private:
     void closeEvent(QCloseEvent *event);
     void printVariables();///prints out all stored variables
     QString m_inFileName;
+    void design();///adds colors to window
+    bool checkFilters();
 };
 #endif // YALPWINDOW_H

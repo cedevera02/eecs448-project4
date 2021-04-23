@@ -10,6 +10,7 @@ YalpWindow::YalpWindow(QWidget *parent)
     , ui(new Ui::YalpWindow)
 {
     ui->setupUi(this);
+    design();
     m_inFileName = "restaurants.txt";
     m_minRB = 0;
     m_maxRB = 0;
@@ -123,14 +124,16 @@ void YalpWindow::on_Max3RB_clicked()
 /// it will print in the RestaurantTextEdit
 void YalpWindow::on_searchFilterButton_clicked()
 {
-    ui->RestaurantTextEdit->clear();
-    m_choices.setRestVector(m_restVector);
-    m_printVector = new std::vector<Restaurant>;
-    m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
-    if ((int)m_printVector->size() == 0){
-        QMessageBox::warning(this, "Filtered Restaurants", "It seems there are no restaurants matching your choices.");
-    }else{
-        printAllRest(m_printVector);
+    if (checkFilters()){
+        ui->RestaurantTextEdit->clear();
+        m_choices.setRestVector(m_restVector);
+        m_printVector = new std::vector<Restaurant>;
+        m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
+        if ((int)m_printVector->size() == 0){
+            QMessageBox::warning(this, "Filtered Restaurants", "It seems there are no restaurants matching your choices.");
+        }else{
+            printAllRest(m_printVector);
+        }
     }
 }
 
@@ -392,4 +395,33 @@ void YalpWindow::printVariables()
     ui->RestaurantTextEdit->append("Rating Type: " + QString::number(m_ratingType) + '\n');
     ui->RestaurantTextEdit->append("Min Rating: " + QString::number(m_rating[0]) + '\n');
     ui->RestaurantTextEdit->append("Max Rating: " + QString::number(m_rating[1]) + '\n');
+}
+
+///Adds colors to window
+void YalpWindow::design()
+{
+    this->setStyleSheet("background-color: red;");
+    ui->RestaurantTextEdit->setStyleSheet("background-color: white;");
+    ui->frame->setStyleSheet("background-color: beige;");
+    ui->centralwidget->setStyleSheet("QPushButton {background-color: orange}");
+    //ui->FeelingHungryButton->setStyleSheet("background-color: beige;");
+    //ui->loginButton->setStyleSheet("background-color: white;");
+    //ui->testButton->setStyleSheet("background-color: white;");
+    //ui->removeRestButton->setStyleSheet("background-color: white;");
+    ui->removeRestLineEdit->setStyleSheet("background-color: white;");
+
+}
+
+bool YalpWindow::checkFilters()
+{
+    bool okay = true;
+    if (m_minRB > m_maxRB){
+        okay = false;
+        QMessageBox::warning(this, "Filter Warning", "Minimum price range cannot be larger than maximum price range.");
+    }
+    if (m_rating[0] > m_rating[1]){
+        okay = false;
+        QMessageBox::warning(this, "Filter Warning", "Minimum rating range cannot be larger than maximum rating range.");
+    }
+    return okay;
 }
