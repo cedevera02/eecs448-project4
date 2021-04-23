@@ -96,5 +96,6 @@ private:
     QString makeFormat(QString word);///puts input into format used for restaurants
     QString dollarPrice(int price); ///turns number price into dollar sign
     void closeEvent(QCloseEvent *event);
+    void printVariables();///prints out all stored variables
 };
 #endif // YALPWINDOW_H
