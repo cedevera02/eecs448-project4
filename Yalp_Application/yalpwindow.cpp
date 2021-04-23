@@ -80,42 +80,42 @@ void YalpWindow::on_testButton_clicked()
 void YalpWindow::on_Min1RB_clicked()
 {
     m_minRB = 1;
-    ui->RestaurantTextEdit->setText(QString::number(m_minRB));
+    printVariables();
 }
 
 ///Stores which minimum price value is chosen in m_minRB
 void YalpWindow::on_Min2RB_clicked()
 {
     m_minRB = 2;
-    ui->RestaurantTextEdit->setText(QString::number(m_minRB));
+    printVariables();
 }
 
 ///Stores which minimum price value is chosen in m_minRB
 void YalpWindow::on_Min3RB_clicked()
 {
     m_minRB = 3;
-    ui->RestaurantTextEdit->setText(QString::number(m_minRB));
+    printVariables();
 }
 
 ///Stores which maximum price value is chosen in m_maxRB
 void YalpWindow::on_Max1RB_clicked()
 {
     m_maxRB = 1;
-    ui->RestaurantTextEdit->setText(QString::number(m_maxRB));
+    printVariables();
 }
 
 ///Stores which maximum price value is chosen in m_maxRB
 void YalpWindow::on_Max2RB_clicked()
 {
     m_maxRB = 2;
-    ui->RestaurantTextEdit->setText(QString::number(m_maxRB));
+    printVariables();
 }
 
 ///Stores which maximum price value is chosen in m_maxRB
 void YalpWindow::on_Max3RB_clicked()
 {
     m_maxRB = 3;
-    ui->RestaurantTextEdit->setText(QString::number(m_maxRB));
+    printVariables();
 }
 
 ///Calls Choices class create vector with filter values passed in to return a vector containing restaurants
@@ -124,8 +124,7 @@ void YalpWindow::on_searchFilterButton_clicked()
 {
     ui->RestaurantTextEdit->clear();
     m_choices.setRestVector(m_restVector);
-    m_printVector->clear();
-    delete m_printVector;
+    m_printVector = new std::vector<Restaurant>;
     m_printVector = m_choices.createVector(m_minRB, m_maxRB, m_ratingType, m_rating, m_cuisineType);
     if ((int)m_printVector->size() == 0){
         QMessageBox::warning(this, "Filtered Restaurants", "It seems there are no restaurants matching your choices.");
@@ -138,21 +137,21 @@ void YalpWindow::on_searchFilterButton_clicked()
 void YalpWindow::on_publicRRadioButtn_clicked()
 {
     m_ratingType = 2;
-    ui->RestaurantTextEdit->setText(QString::number(m_ratingType));
+    printVariables();
 }
 
 ///Stores which type of rating value is chosen in m_ratingType
 void YalpWindow::on_personalRRadioButton_clicked()
 {
     m_ratingType = 1;
-    ui->RestaurantTextEdit->setText(QString::number(m_ratingType));
+    printVariables();
 }
 
 ///Stores which type of cuisine is typed adn changes it into form used, storing it into m_cuisineType
 void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
 {
     m_cuisineType = makeFormat(arg1);
-    ui->RestaurantTextEdit->setText(m_cuisineType);
+    printVariables();
 }
 
 void YalpWindow::closeEvent(QCloseEvent *event)
@@ -224,15 +223,15 @@ bool YalpWindow::readIn()
 void YalpWindow::on_MinRSpinBox_valueChanged(int arg1)
 {
     m_rating[0] = arg1;
-    ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));
+    printVariables();
 
 }
 
 ///Stores max rating chosen in m_rating[1]
 void YalpWindow::on_MaxRSpinBox_valueChanged(int arg1)
 {
-    m_rating[0] = arg1;
-    ui->RestaurantTextEdit->setText(QString::number(m_rating[0]));
+    m_rating[1] = arg1;
+    printVariables();
 }
 
 ///prinst out random restaurant
@@ -371,4 +370,16 @@ void YalpWindow::on_AddRatinButton_clicked()
             QMessageBox::about(this, "Rating a Restaurant", "No restaurant found with matching name!");
         }
     }
+    printAllRest(m_restVector);
+}
+
+///prints out all stored variables for filter
+void YalpWindow::printVariables()
+{
+    ui->RestaurantTextEdit->setText("Min Price: " + QString::number(m_minRB) + '\n');
+    ui->RestaurantTextEdit->append("Max Price: " + QString::number(m_maxRB) + '\n');
+    ui->RestaurantTextEdit->append("Cuisine Type: " + m_cuisineType + '\n');
+    ui->RestaurantTextEdit->append("Rating Type: " + QString::number(m_ratingType) + '\n');
+    ui->RestaurantTextEdit->append("Min Rating: " + QString::number(m_rating[0]) + '\n');
+    ui->RestaurantTextEdit->append("Max Rating: " + QString::number(m_rating[1]) + '\n');
 }

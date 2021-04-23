@@ -7,7 +7,6 @@
 Choices::Choices(std::vector<Restaurant>* vec)
 {
     _resVector = vec;
-    m_printVector = vec;
     m_minRB = 0;
     m_maxRB = 0;
     m_ratingType = 0;
@@ -57,6 +56,10 @@ Choices::Choices()
 void Choices::setRestVector(std::vector<Restaurant>* vec)
 {
     _resVector = vec;
+    m_printVector = new std::vector<Restaurant>;
+    for (int i = 0; i < (int)vec->size(); i++){
+        m_printVector->push_back(vec->at(i));
+    }
 }
 
 ///This method prints all of the retaurants and their data
@@ -128,7 +131,7 @@ void Choices::printByRating()
                 temp->push_back(m_printVector->at(i));
             }
         }
-        else if(m_ratingType == 2 || m_ratingType == 0)//Public or not specified i.e. no radio buttons for rating type were clicked
+        else if(m_ratingType == 2)//Public
         {
             if(_resVector->at(i).getRating() >= m_rating[0] && _resVector->at(i).getRating() <= m_rating[1])
             {
@@ -193,22 +196,25 @@ void Choices::removeRestaurant(QString name, bool& haveRes)
 /// @param ratingType 1 if personal 2 is public/global
 /// @param rating integer array, rating[0] is minimum rating, rating[1] is maximum rating
 /// @param cuisneType type of cuisine to be searched
-std::vector<Restaurant>* Choices::createVector(int minRB, int maxRB,int ratingType,int rating[2], QString cuisineType)
+std::vector<Restaurant>* Choices::createVector(int minRB, int maxRB,int ratingType,int rating[], QString cuisineType)
 {
     m_minRB = minRB;
     m_maxRB = maxRB;
     m_ratingType = ratingType;
-    m_rating[0] = rating[0];m_rating[1] = rating[1];
+    m_rating[0] = rating[0];
+    m_rating[1] = rating[1];
     m_cuisineType = cuisineType;
 
     if (!(m_minRB == 0 && m_maxRB == 0))
     {
         printByPrice();
     }
-    printByRating();
-    if (m_cuisineType != "")
-    {
-        printByCuisine();
-    }
+    //if(m_ratingType != 0){
+    //  printByRating();
+    //}
+    //if (m_cuisineType != "")
+    //{
+    //    printByCuisine();
+   // }
     return m_printVector;
 }
