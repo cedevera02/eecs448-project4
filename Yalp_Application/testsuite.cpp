@@ -186,10 +186,23 @@ void testSuite::restVecTest()
 void testSuite::priceRangeTest()
 {
     /// test code
-    bool pass;
+    bool pass = false;
+    int randomVal = 1 + rand() % 3;
+
+    Restaurant test("Test");
+    test.setPrice(randomVal);
+
+    if(test.getPrice() >= 1 || test.getPrice() <= 3)
+    {
+        pass = true;
+    }
+    else
+    {
+        pass = false;
+    }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test     ");
+    ui->textEdit->insertPlainText("Test #: Price range any value between 1-3       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -203,10 +216,23 @@ void testSuite::priceRangeTest()
 void testSuite::personalRatingTest()
 {
     /// test code
-    bool pass;
+    bool pass = false;
+    double randomVal = (5 - 1) * ((double)rand() / (double)RAND_MAX) + 1;
+
+    Restaurant test("Test");
+    test.setPRating(randomVal);
+
+    if(test.getPRating() >= 1 || test.getPRating() <= 5)
+    {
+        pass = true;
+    }
+    else
+    {
+        pass = false;
+    }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test     ");
+    ui->textEdit->insertPlainText("Test #: User choose personal rating value between 1-5       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
