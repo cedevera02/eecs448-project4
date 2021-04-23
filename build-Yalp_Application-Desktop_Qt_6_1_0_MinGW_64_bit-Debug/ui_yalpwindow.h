@@ -115,7 +115,7 @@ public:
     QPushButton *FeelingHungryButton;
     QTextEdit *RestaurantTextEdit;
     QHBoxLayout *horizontalLayout_8;
-    QLineEdit *lineEdit;
+    QLineEdit *removeRestLineEdit;
     QPushButton *removeRestButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -540,10 +540,10 @@ public:
 
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        removeRestLineEdit = new QLineEdit(centralwidget);
+        removeRestLineEdit->setObjectName(QString::fromUtf8("removeRestLineEdit"));
 
-        horizontalLayout_8->addWidget(lineEdit);
+        horizontalLayout_8->addWidget(removeRestLineEdit);
 
         removeRestButton = new QPushButton(centralwidget);
         removeRestButton->setObjectName(QString::fromUtf8("removeRestButton"));
@@ -559,7 +559,7 @@ public:
         YalpWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(YalpWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 959, 21));
+        menubar->setGeometry(QRect(0, 0, 959, 26));
         YalpWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(YalpWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

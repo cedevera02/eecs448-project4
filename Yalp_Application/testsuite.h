@@ -2,6 +2,7 @@
 #define TESTSUITE_H
 
 #include <QDialog>
+#include "Restaurant.h"
 
 namespace Ui {
 class testSuite;
@@ -17,7 +18,9 @@ public:
 
 private:
     Ui::testSuite *ui;
+    std::vector<Restaurant>* m_restVector;
     void run();
+    void TestVectorCreator();
 
     void loginTest();
     void restVecTest();
