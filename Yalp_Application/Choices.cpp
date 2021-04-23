@@ -209,12 +209,12 @@ std::vector<Restaurant>* Choices::createVector(int minRB, int maxRB,int ratingTy
     {
         printByPrice();
     }
-    //if(m_ratingType != 0){
-    //  printByRating();
-    //}
-    //if (m_cuisineType != "")
-    //{
-    //    printByCuisine();
-   // }
+    if(m_ratingType != 0){
+      printByRating();
+    }
+    if (m_cuisineType != "")
+    {
+        printByCuisine();
+    }
     return m_printVector;
 }

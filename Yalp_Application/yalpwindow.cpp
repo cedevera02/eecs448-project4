@@ -292,7 +292,7 @@ void YalpWindow::on_loginButton_clicked()
 void YalpWindow::printAllRest(std::vector<Restaurant>* vect)
 {
     ui->RestaurantTextEdit->clear();
-    for (int i = 0; i < (int)m_restVector->size(); i++){
+    for (int i = 0; i < (int)vect->size(); i++){
         ui->RestaurantTextEdit->append("<html><b>"+makeNice(vect->at(i).getName())+"</b></html>" + "  " + "<html><i>"+makeNice(vect->at(i).getCusine())+"</i></html>"  + "  " + dollarPrice(vect->at(i).getPrice()) + "  Rating: " + QString::number(vect->at(i).getRating()) + "  Personal Rating: " + QString::number(vect->at(i).getPRating()) + "\n\n");
     }
 }
