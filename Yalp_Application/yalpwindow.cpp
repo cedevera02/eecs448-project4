@@ -54,16 +54,16 @@ void YalpWindow::TestVectorCreator()
     temp1.setPRating(0);
     m_restVector->push_back(temp1);
     Restaurant temp2("Encore_Cafe");
-    temp.setCuisine("Asian_Fusion");
-    temp.setPrice(2);
-    temp.setRating(4.6);
-    temp.setPRating(0);
+    temp2.setCuisine("Asian_Fusion");
+    temp2.setPrice(2);
+    temp2.setRating(4.6);
+    temp2.setPRating(0);
     m_restVector->push_back(temp2);
     Restaurant temp3("War_Restaurant");
-    temp.setCuisine("Sushi");
-    temp.setPrice(2);
-    temp.setRating(4.3);
-    temp.setPRating(0);
+    temp3.setCuisine("Sushi");
+    temp3.setPrice(2);
+    temp3.setRating(4.3);
+    temp3.setPRating(0);
     m_restVector->push_back(temp3);
 }
 
