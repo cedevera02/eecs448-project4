@@ -16,7 +16,6 @@ loginWindow::~loginWindow()
 {
     delete ui;
 }
-//make it give the name to the main, give successful login to the main so we know if they are still a guest or not
 
 void loginWindow::closeEvent(QCloseEvent *event)
 {

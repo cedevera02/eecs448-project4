@@ -97,5 +97,6 @@ private:
     QString dollarPrice(int price); ///turns number price into dollar sign
     void closeEvent(QCloseEvent *event);
     void printVariables();///prints out all stored variables
+    QString m_inFileName;
 };
 #endif // YALPWINDOW_H

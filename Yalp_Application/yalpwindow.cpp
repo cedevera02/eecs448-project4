@@ -10,6 +10,7 @@ YalpWindow::YalpWindow(QWidget *parent)
     , ui(new Ui::YalpWindow)
 {
     ui->setupUi(this);
+    m_inFileName = "restaurants.txt";
     m_minRB = 0;
     m_maxRB = 0;
     m_cuisineType = "";
@@ -176,7 +177,7 @@ void YalpWindow::writeOut()
     QFile m_file(m_username + ".txt");
     if(m_file.open(QFile::WriteOnly | QFile::Text)) {
         QTextStream stream (&m_file);
-        for(int i = 0; i < (int)m_restVector->size() - 1; i++) {
+        for(int i = 0; i < (int)m_restVector->size(); i++) {
             stream << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine()
                    << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << Qt::endl;
         }
@@ -188,7 +189,8 @@ void YalpWindow::writeOut()
 /// @return true if file could be read in, false otherwise
 bool YalpWindow::readIn()
 {
-    QFile m_file("restaurants.txt");
+
+    QFile m_file(m_inFileName);
         if(m_file.open(QFile::ReadOnly | QFile::Text))
         {
             QTextStream stream (&m_file);
@@ -278,13 +280,21 @@ void YalpWindow::on_loginButton_clicked()
             m_username = loginWind.getUsername();
             m_isGuest = false;
             QMessageBox::about(this, "Login", "Signed in as " + m_username);
+            m_inFileName = m_username + ".txt";
             ui->GuessNameLabel->setText(m_username);
+            QFile testFile(m_inFileName);
+            if(testFile.exists()) {
+                m_restVector->clear();
+                readIn();
+                printAllRest(m_restVector);
+             }
         } else {
             QMessageBox::about(this, "Login", "No login detected. You are still a guest.");
         }
     } else {
         QMessageBox::warning(this, "Login", "Already signed in as " + m_username);
     }
+
 }
 
 ///prints out all restaurants in vector input
