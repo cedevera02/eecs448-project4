@@ -164,7 +164,7 @@ bool Choices::giveRating(QString name, int rating)
     bool haveRes = false;
     for(int i = 0; i < (int)_resVector->size(); i++)
     {
-        if(_resVector->at(i).getName().compare(name) == 0)
+        if(_resVector->at(i).getName() == name)
         {
             _resVector->at(i).setPRating(rating);
             haveRes = true;

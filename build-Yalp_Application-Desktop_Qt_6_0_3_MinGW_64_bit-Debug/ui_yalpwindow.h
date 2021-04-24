@@ -429,6 +429,7 @@ public:
 
         RestToBeRatiedLineEdit = new QLineEdit(frame_2);
         RestToBeRatiedLineEdit->setObjectName(QString::fromUtf8("RestToBeRatiedLineEdit"));
+        RestToBeRatiedLineEdit->setMaxLength(100);
 
         horizontalLayout_13->addWidget(RestToBeRatiedLineEdit);
 
