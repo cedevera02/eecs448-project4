@@ -24,12 +24,14 @@ void testSuite::run()
     ///
     /// make new objects to use for testing
 
-    loginTest();
     restVecTest();
     priceRangeTest();
     personalRatingTest();
     publicRatingTest();
-    cuisineVecTest();
+    cuisineTest();
+    randRestTest();
+    removeRestTest();
+    loginTest();
 }
 
 ///Creates a test vector to test out code on
@@ -67,19 +69,39 @@ void testSuite::loginTest()
     /// test code
     bool pass = false;
 
-    ///actually not sure what to put here yet
+    loginWindow loginWind;
+    loginWind.setModal(true);
+    loginWind.exec();
 
-    /// results print out
-    ui->textEdit->insertPlainText("Test #: user can log in and use program with account     ");
-    if(pass)
-    {
-        ui->textEdit->insertPlainText("PASS\n");
-    }
-    else
-    {
-        ui->textEdit->insertPlainText("FAIL\n");
-    }
+    if(loginWind.isValidName()) {
+       QString name = loginWind.getUsername();
+        QMessageBox::about(this, "Login", "Signed in as " + name);
+        /*QString inFileName = name + ".txt";
+        QFile testFile(inFileName);
+        if(testFile.exists()) {
+            m_restVector->clear();
+            readIn();
+            printAllRest(m_restVector);
+         }*/
+        if(name == ""){
+            QMessageBox::about(this, "Login", "No login detected. You are still a guest.");
+        }
+        else{
+            QMessageBox::warning(this, "Login", "Already signed in as " + name);
+        }
 
+        /// results print out
+        ui->textEdit->insertPlainText("Test #: user can log in and use program with account     ");
+        if(pass)
+        {
+            ui->textEdit->insertPlainText("PASS\n");
+        }
+        else
+        {
+            ui->textEdit->insertPlainText("FAIL\n");
+        }
+
+    }
 }
 
 void testSuite::restVecTest()
@@ -183,6 +205,7 @@ void testSuite::restVecTest()
     }
 }
 
+
 void testSuite::priceRangeTest()
 {
     /// test code
@@ -247,7 +270,7 @@ void testSuite::publicRatingTest()
 {
     /// test code
     bool pass = false;
-    double test_rate = (arc4random() % 6) + 1; // random number between 1 and 5 inclusive. Maybe need to change to ^^ rand method
+    double test_rate = (rand() % 6) + 1; // random number between 1 and 5 inclusive. Maybe need to change to ^^ rand method
 
 
     Restaurant ratingTest("rating test");
@@ -274,7 +297,7 @@ void testSuite::publicRatingTest()
     }
 }
 
-void testSuite::cuisineVecTest()
+void testSuite::cuisineTest()
 {
     /// test code
     bool pass = false;
@@ -318,6 +341,16 @@ void testSuite::cuisineVecTest()
     {
         ui->textEdit->insertPlainText("FAIL\n");
     }
+}
+
+void testSuite::randRestTest()
+{
+    /// testing the random restaurant functionality
+}
+
+void testSuite::removeRestTest()
+{
+    /// testing the remove restaurant functionality
 }
 
 

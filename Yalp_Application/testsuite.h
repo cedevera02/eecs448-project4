@@ -2,7 +2,10 @@
 #define TESTSUITE_H
 
 #include <QDialog>
+#include <QFile>
+#include <QMessageBox>
 #include "Restaurant.h"
+#include "loginwindow.h"
 
 namespace Ui {
 class testSuite;
@@ -27,7 +30,10 @@ private:
     void priceRangeTest();
     void personalRatingTest();
     void publicRatingTest();
-    void cuisineVecTest();
+    void cuisineTest();
+    void randRestTest();
+    void removeRestTest();
+
 
 };
 

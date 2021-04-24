@@ -13,11 +13,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,10 +24,9 @@ class Ui_loginWindow
 public:
     QGroupBox *groupBox;
     QPushButton *pushButton_Login;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label;
+    QLabel *label_2;
     QLineEdit *lineEdit_username;
+    QLabel *label;
 
     void setupUi(QDialog *loginWindow)
     {
@@ -38,26 +35,19 @@ public:
         loginWindow->resize(531, 438);
         groupBox = new QGroupBox(loginWindow);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(80, 50, 341, 301));
+        groupBox->setGeometry(QRect(90, 50, 341, 301));
         pushButton_Login = new QPushButton(groupBox);
         pushButton_Login->setObjectName(QString::fromUtf8("pushButton_Login"));
         pushButton_Login->setGeometry(QRect(110, 180, 111, 41));
-        widget = new QWidget(groupBox);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(30, 80, 291, 71));
-        horizontalLayout = new QHBoxLayout(widget);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        horizontalLayout->addWidget(label);
-
-        lineEdit_username = new QLineEdit(widget);
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(20, 130, 101, 16));
+        lineEdit_username = new QLineEdit(groupBox);
         lineEdit_username->setObjectName(QString::fromUtf8("lineEdit_username"));
-
-        horizontalLayout->addWidget(lineEdit_username);
-
+        lineEdit_username->setGeometry(QRect(130, 120, 181, 20));
+        label = new QLabel(groupBox);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(40, 110, 61, 16));
 
         retranslateUi(loginWindow);
 
@@ -66,9 +56,10 @@ public:
 
     void retranslateUi(QDialog *loginWindow)
     {
-        loginWindow->setWindowTitle(QCoreApplication::translate("loginWindow", "Dialog", nullptr));
+        loginWindow->setWindowTitle(QCoreApplication::translate("loginWindow", "Login", nullptr));
         groupBox->setTitle(QCoreApplication::translate("loginWindow", "SignIn", nullptr));
         pushButton_Login->setText(QCoreApplication::translate("loginWindow", "Login", nullptr));
+        label_2->setText(QCoreApplication::translate("loginWindow", "Not Case Sensitive", nullptr));
         label->setText(QCoreApplication::translate("loginWindow", "Username", nullptr));
     } // retranslateUi
 
