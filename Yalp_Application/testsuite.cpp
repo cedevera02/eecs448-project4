@@ -246,10 +246,24 @@ void testSuite::personalRatingTest()
 void testSuite::publicRatingTest()
 {
     /// test code
-    bool pass;
+    bool pass = false;
+    double test_rate = (arc4random() % 6) + 1; // random number between 1 and 5 inclusive. Maybe need to change to ^^ rand method
+
+
+    Restaurant ratingTest("rating test");
+    ratingTest.setRating(test_rate);
+
+    if(ratingTest.getRating() >=1 || ratingTest.getRating() <=5)
+    {
+        pass = true;
+    }
+    else
+    {
+        pass = false;
+    }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test     ");
+    ui->textEdit->insertPlainText("Test #: User choose public rating value between 1-5          ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -263,10 +277,39 @@ void testSuite::publicRatingTest()
 void testSuite::cuisineVecTest()
 {
     /// test code
-    bool pass;
+    bool pass = false;
+    m_restVector = new std::vector<Restaurant>;
+    std::vector<QString> m_cuisineVector;
+
+    //restaurant objects created
+    TestVectorCreator();
+    QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
+    QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
+
+
+    for(int i=0; i < 4; i++) // fill cuisine vector
+    {
+        for(int j=0;  j < 4; j++)
+        {
+            m_cuisineVector.push_back(m_restVector->at(i).getCusine());
+        }
+
+        if(m_restVector->at(i).getCusine() == m_cuisineVector.at(i))
+        {
+            pass = true;
+        }
+        else
+        {
+            pass = false;
+            break;
+         }
+    }
+
+
+
 
     /// results print out
-    ui->textEdit->insertPlainText("Test     ");
+    ui->textEdit->insertPlainText("Test #: The cuisine vector is filled correctly    ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
