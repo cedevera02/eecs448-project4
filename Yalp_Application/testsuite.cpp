@@ -247,7 +247,7 @@ void testSuite::publicRatingTest()
 {
     /// test code
     bool pass = false;
-    double test_rate = (arc4random() % 6) + 1; // random number between 1 and 5 inclusive. Maybe need to change to ^^ rand method
+    double test_rate = (rand() % 6) + 1; // random number between 1 and 5 inclusive. Maybe need to change to ^^ rand method
 
 
     Restaurant ratingTest("rating test");

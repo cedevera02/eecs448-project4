@@ -421,7 +421,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="RestToBeRatiedLineEdit"/>
+               <widget class="QLineEdit" name="RestToBeRatiedLineEdit">
+                <property name="maxLength">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
               <item>
                <widget class="QSpinBox" name="RestToRateSpinBox">

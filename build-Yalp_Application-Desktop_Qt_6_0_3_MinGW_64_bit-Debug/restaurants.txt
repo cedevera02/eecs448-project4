@@ -92,9 +92,9 @@ Munchers_Bakery Desserts 1 4.7 0
 Crystal's_Spot_Delicious_Desserts_Delivered Desserts 1 4.6
 Krustaceans_Seafood_Restaurant Seafood 2 4.2 0
 Tokyo_Sushi_Bar Sushi 2 4.1 0
-Six_Mile_Chop_House_and_Tavern Steak 2 4.3 0
 Sushi_Station_Revolving_Sushi_Bar Sushi 2 4.4 0
 Jade_Garden Ramen 1 3.9 0
 Kobe_Japanese_Steakhouse Japanese 2 4.3 0
 Mama's_Tamales Mexican 1 4.3 0
 Quinton's_Bar_&_Deli Pub 1 4.4 0
+Six_Mile_Chop_House_and_Tavern Steak 2 4.3 0
