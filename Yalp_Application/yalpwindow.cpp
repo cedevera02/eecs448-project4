@@ -29,7 +29,7 @@ YalpWindow::YalpWindow(QWidget *parent)
     m_restToRate = "";
     m_restRate = 0;
     printAllRest(m_restVector);
-    ui->RestaurantTextEdit->setText(m_restVector->at(99).getName());
+    //ui->RestaurantTextEdit->setText(m_restVector->at(99).getName());
 
 }
 
