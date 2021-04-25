@@ -22,7 +22,7 @@ class YalpWindow : public QMainWindow
 public:
     YalpWindow(QWidget *parent = nullptr);
     ~YalpWindow();
-    void setUsername(QString aUsername);
+    void setUsername(QString aUsername);///helper to set the username
 
 private slots:
 
@@ -58,7 +58,7 @@ private slots:
 
     void on_removeRestButton_clicked();///calls Choices class methods to remove restaurant
 
-    void on_loginButton_clicked();
+    void on_loginButton_clicked();///calls the method that opens the login window and sets the username
 
     void on_RestToBeRatiedLineEdit_textEdited(const QString &arg1);///stores restaurant to be rated's name
 
@@ -95,9 +95,9 @@ private:
     QString makeNice(QString word);///removes the underlines in QString and then returns it
     QString makeFormat(QString word);///puts input into format used for restaurants
     QString dollarPrice(int price); ///turns number price into dollar sign
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);///this is the event for file write out as the user closes the window
     void printVariables();///prints out all stored variables
-    QString m_inFileName;
+    QString m_inFileName;///the file stream name
     void design();///adds colors to window
     bool checkFilters();
 };

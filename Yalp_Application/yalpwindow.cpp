@@ -160,31 +160,33 @@ void YalpWindow::on_cusineTypeLineEdit_textEdited(const QString &arg1)
     printVariables();
 }
 
+///Writes out to a file on window close if the user is not a guess
 void YalpWindow::closeEvent(QCloseEvent *event)
 {
     //adapted from https://stackoverflow.com/questions/17480984/qt-how-do-i-handle-the-event-of-the-user-pressing-the-x-close-button
     QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Exit",
                                                                 tr("Are you sure?\n"),
                                                                 QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
-                                                                QMessageBox::Yes);
-    if (resBtn != QMessageBox::Yes) {
-        event->ignore();
+                                                                QMessageBox::Yes);//this brings up a popup box that asks you if you want to exit or not when you try to close the window
+    if (resBtn != QMessageBox::Yes) { //if they click yes
+        event->ignore(); //ignores close out
     } else {
-        if(!m_isGuest) {
-            writeOut();
+        if(!m_isGuest) { //not a guest
+            writeOut(); //this writes out to the file
         }
-        event->accept();
+        event->accept();//accept the event
     }
 }
 
+///This writes the current restaurant vector to a text file
 void YalpWindow::writeOut()
 {
-    QFile m_file(m_username + ".txt");
-    if(m_file.open(QFile::WriteOnly | QFile::Text)) {
-        QTextStream stream (&m_file);
+    QFile m_file(m_username + ".txt");//new QFile object
+    if(m_file.open(QFile::WriteOnly | QFile::Text)) { //opens the file, this function returns a bool
+        QTextStream stream (&m_file);//opens stream output to the file object
         for(int i = 0; i < (int)m_restVector->size(); i++) {
             stream << m_restVector->at(i).getName() << " " << m_restVector->at(i).getCusine()
-                   << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << Qt::endl;
+                   << " " << m_restVector->at(i).getPrice() << " " << m_restVector->at(i).getRating() << " " << m_restVector->at(i).getPRating() << Qt::endl;//writes all of the vector object items out
         }
         m_file.close();
     }
@@ -270,18 +272,21 @@ void YalpWindow::on_removeRestButton_clicked()
     }
 }
 
+///username helper
 void YalpWindow::setUsername(QString aUsername)
 {
     m_username = aUsername;
 }
+
+///This opens the login window when the button if clicked
 void YalpWindow::on_loginButton_clicked()
 {
-    if(m_username == "GUEST") {
-        loginWindow loginWind;
-        loginWind.setModal(true);
-        loginWind.exec();
+    if(m_username == "GUEST") { //makes sure the user is a guest, they can't login again if they aren't a guest
+        loginWindow loginWind;//create the window object
+        loginWind.setModal(true);//modal state means the new window prevents use of the other windows
+        loginWind.exec();//splats the window
 
-        if(loginWind.isValidName()) {
+        if(loginWind.isValidName()) { //if we get a valid name we set the local username, set to not a guest, say you are signed in, set the file name, change the label, then if we have a file we read in
             m_username = loginWind.getUsername();
             m_isGuest = false;
             QMessageBox::about(this, "Login", "Signed in as " + m_username);
