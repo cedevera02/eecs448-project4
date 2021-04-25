@@ -82,7 +82,7 @@ void testSuite::restVecTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: A restaurant vector is created       ");
+    ui->textEdit->insertPlainText("Test 1: A restaurant vector is created       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -157,7 +157,7 @@ void testSuite::restVecTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: The resturant vector is filled correctly       ");
+    ui->textEdit->insertPlainText("Test 2: The resturant vector is filled correctly       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -188,7 +188,7 @@ void testSuite::priceRangeTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: Price range any value between 1-3       ");
+    ui->textEdit->insertPlainText("Test 3: Price range any value between 1-3       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -219,7 +219,7 @@ void testSuite::personalRatingTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: User choose personal rating value between 1-5       ");
+    ui->textEdit->insertPlainText("Test 4: User choose personal rating value between 1-5       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -266,7 +266,7 @@ void testSuite::publicRatingTest()
 
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: Public rating set and read correctly      ");
+    ui->textEdit->insertPlainText("Test 5: Public rating set and read correctly      ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -304,7 +304,7 @@ void testSuite::cuisineTest()
        }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: The cuisine filter filters correctly   ");
+    ui->textEdit->insertPlainText("Test 6: The cuisine filter filters correctly   ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -385,7 +385,7 @@ void testSuite::randRestTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: The random restaurant function returns a random restaurant within the list       ");
+    ui->textEdit->insertPlainText("Test 7: The random restaurant function returns a random restaurant within the list       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -416,7 +416,7 @@ void testSuite::removeRestTest()
         pass = false;
     }
 
-    ui->textEdit->insertPlainText("Test #: After removing a restaurant the restaurant, a restaurant has been removed       ");
+    ui->textEdit->insertPlainText("Test 8: After removing a restaurant the restaurant, a restaurant has been removed       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -482,7 +482,7 @@ void testSuite::removeRestTest()
 
 
 
-    ui->textEdit->insertPlainText("Test #: When removing a restaurtant, the correct one is removed and no others are       ");
+    ui->textEdit->insertPlainText("Test 9: When removing a restaurtant, the correct one is removed and no others are       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
