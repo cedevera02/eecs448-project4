@@ -31,7 +31,7 @@ void testSuite::run()
     personalRatingTest();
     publicRatingTest();
     cuisineTest();
-    //randRestTest();
+    randRestTest();
     removeRestTest();
 }
 
@@ -302,9 +302,9 @@ void testSuite::cuisineTest()
 void testSuite::randRestTest()
 {
     bool pass = false;
+    m_choice.setRestVector(m_restVector);
     /// testing the random restaurant functionality
-    Restaurant randRes = m_choice.printRandom();
-    // ui->textEdit->setText("<html><b>"+randRes.getName()+"</b></html>"  + "  " + "<html><i>"+randRes.getCusine()+"</i></html>"  + "  " + QString::number(randRes.getPrice()) + "  Rating: " + QString::number(randRes.getRating()) + "  Personal Rating: " + QString::number(randRes.getPRating()) + "\n\n");
+   Restaurant randRes = m_choice.printRandom();
 
     QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
     QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
@@ -318,47 +318,52 @@ void testSuite::randRestTest()
         if(randRes.getName() == name[i])
         {
             pass = true;
+            if(randRes.getCusine() == cuisine[i])
+            {
+                pass = true;
+                if(randRes.getPrice() == price[i])
+                {
+                    pass = true;
+                    if(randRes.getRating() == rating[i])
+                    {
+                        pass = true;
+                        if(randRes.getPRating() == prating[i])
+                        {
+                            pass = true;
+                            break;
+                        }
+                        else
+                        {
+                            pass = false;
+                        }
+                    }
+                    else
+                    {
+                        pass = false;
+                    }
+
+
+                }
+                else
+                {
+                    pass = false;
+                }
+
+
+            }
+            else
+            {
+                pass = false;
+            }
+
+
         }
         else
         {
             pass = false;
         }
 
-        if(randRes.getCusine() == cuisine[i])
-        {
-            pass = true;
-        }
-        else
-        {
-            pass = false;
-        }
 
-        if(randRes.getPrice() == price[i])
-        {
-            pass = true;
-        }
-        else
-        {
-            pass = false;
-        }
-
-        if(randRes.getRating() == rating[i])
-        {
-            pass = true;
-        }
-        else
-        {
-            pass = false;
-        }
-
-        if(randRes.getPRating() == prating[i])
-        {
-            pass = true;
-        }
-        else
-        {
-            pass = false;
-        }
 
     }
 
