@@ -286,7 +286,7 @@ void YalpWindow::on_loginButton_clicked()
             m_isGuest = false;
             QMessageBox::about(this, "Login", "Signed in as " + m_username);
             m_inFileName = m_username + ".txt";
-            ui->GuessNameLabel->setText(m_username);
+            ui->GuestNameLabel->setText(m_username);
             QFile testFile(m_inFileName);
             if(testFile.exists()) {
                 m_restVector->clear();
@@ -402,10 +402,10 @@ void YalpWindow::printVariables()
 ///Adds colors to window
 void YalpWindow::design()
 {
-    this->setStyleSheet("background-color: red;");
+    this->setStyleSheet("background-color: #fbc466;");
     ui->RestaurantTextEdit->setStyleSheet("background-color: white;");
-    ui->frame->setStyleSheet("background-color: beige;");
-    ui->centralwidget->setStyleSheet("QPushButton {background-color: orange}");
+    ui->frame->setStyleSheet("background-color: #f6e1bd;");
+    ui->centralwidget->setStyleSheet("QPushButton {background-color: #fa8223}");
     //ui->FeelingHungryButton->setStyleSheet("background-color: beige;");
     //ui->loginButton->setStyleSheet("background-color: white;");
     //ui->testButton->setStyleSheet("background-color: white;");

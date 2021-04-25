@@ -107,7 +107,7 @@ public:
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout_6;
     QLabel *UsingAsLabel;
-    QLabel *GuessNameLabel;
+    QLabel *GuestNameLabel;
     QPushButton *loginButton;
     QVBoxLayout *verticalLayout_8;
     QLabel *LawrenceRestaurantsLabel;
@@ -126,6 +126,7 @@ public:
         if (YalpWindow->objectName().isEmpty())
             YalpWindow->setObjectName(QString::fromUtf8("YalpWindow"));
         YalpWindow->resize(959, 752);
+        YalpWindow->setAutoFillBackground(true);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_12 = new QHBoxLayout(centralwidget);
@@ -429,6 +430,7 @@ public:
 
         RestToBeRatiedLineEdit = new QLineEdit(frame_2);
         RestToBeRatiedLineEdit->setObjectName(QString::fromUtf8("RestToBeRatiedLineEdit"));
+        RestToBeRatiedLineEdit->setMaxLength(100);
 
         horizontalLayout_13->addWidget(RestToBeRatiedLineEdit);
 
@@ -486,10 +488,10 @@ public:
 
         horizontalLayout_6->addWidget(UsingAsLabel);
 
-        GuessNameLabel = new QLabel(centralwidget);
-        GuessNameLabel->setObjectName(QString::fromUtf8("GuessNameLabel"));
+        GuestNameLabel = new QLabel(centralwidget);
+        GuestNameLabel->setObjectName(QString::fromUtf8("GuestNameLabel"));
 
-        horizontalLayout_6->addWidget(GuessNameLabel);
+        horizontalLayout_6->addWidget(GuestNameLabel);
 
 
         verticalLayout_7->addLayout(horizontalLayout_6);
@@ -559,7 +561,7 @@ public:
         YalpWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(YalpWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 959, 26));
+        menubar->setGeometry(QRect(0, 0, 959, 20));
         YalpWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(YalpWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -602,7 +604,7 @@ public:
         AddRatinButton->setText(QCoreApplication::translate("YalpWindow", "Add Rating", nullptr));
         testButton->setText(QCoreApplication::translate("YalpWindow", "Run Test Suite", nullptr));
         UsingAsLabel->setText(QCoreApplication::translate("YalpWindow", "Using as:", nullptr));
-        GuessNameLabel->setText(QCoreApplication::translate("YalpWindow", "Guess", nullptr));
+        GuestNameLabel->setText(QCoreApplication::translate("YalpWindow", "Guest", nullptr));
         loginButton->setText(QCoreApplication::translate("YalpWindow", "Login", nullptr));
         LawrenceRestaurantsLabel->setText(QCoreApplication::translate("YalpWindow", "Lawrence Restaurants", nullptr));
         FeelingHungryButton->setText(QCoreApplication::translate("YalpWindow", "Feeling Hungry!", nullptr));

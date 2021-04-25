@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>YalpWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_12">
     <item>
@@ -504,9 +507,9 @@
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="GuessNameLabel">
+             <widget class="QLabel" name="GuestNameLabel">
               <property name="text">
-               <string>Guess</string>
+               <string>Guest</string>
               </property>
              </widget>
             </item>
@@ -587,7 +590,7 @@
      <x>0</x>
      <y>0</y>
      <width>959</width>
-     <height>26</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

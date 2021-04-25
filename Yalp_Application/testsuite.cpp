@@ -31,7 +31,6 @@ void testSuite::run()
     cuisineTest();
     randRestTest();
     removeRestTest();
-    loginTest();
 }
 
 ///Creates a test vector to test out code on
@@ -61,47 +60,6 @@ void testSuite::TestVectorCreator()
     temp3.setRating(4.3);
     temp3.setPRating(4.0);
     m_restVector->push_back(temp3);
-}
-
-
-void testSuite::loginTest()
-{
-    /// test code
-    bool pass = false;
-
-    loginWindow loginWind;
-    loginWind.setModal(true);
-    loginWind.exec();
-
-    if(loginWind.isValidName()) {
-       QString name = loginWind.getUsername();
-        QMessageBox::about(this, "Login", "Signed in as " + name);
-        /*QString inFileName = name + ".txt";
-        QFile testFile(inFileName);
-        if(testFile.exists()) {
-            m_restVector->clear();
-            readIn();
-            printAllRest(m_restVector);
-         }*/
-        if(name == ""){
-            QMessageBox::about(this, "Login", "No login detected. You are still a guest.");
-        }
-        else{
-            QMessageBox::warning(this, "Login", "Already signed in as " + name);
-        }
-
-        /// results print out
-        ui->textEdit->insertPlainText("Test #: user can log in and use program with account     ");
-        if(pass)
-        {
-            ui->textEdit->insertPlainText("PASS\n");
-        }
-        else
-        {
-            ui->textEdit->insertPlainText("FAIL\n");
-        }
-
-    }
 }
 
 void testSuite::restVecTest()
