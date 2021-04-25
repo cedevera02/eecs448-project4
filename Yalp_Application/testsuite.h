@@ -5,7 +5,8 @@
 #include <QFile>
 #include <QMessageBox>
 #include "Restaurant.h"
-#include "loginwindow.h"
+#include "Choices.h"
+#include "ui_testsuite.h"
 
 namespace Ui {
 class testSuite;
@@ -21,11 +22,12 @@ public:
 
 private:
     Ui::testSuite *ui;
+    Choices m_choice;
     std::vector<Restaurant>* m_restVector;
+    std::vector<QString> m_cuisineVector;
     void run();
     void TestVectorCreator();
 
-    void loginTest();
     void restVecTest();
     void priceRangeTest();
     void personalRatingTest();
@@ -33,7 +35,6 @@ private:
     void cuisineTest();
     void randRestTest();
     void removeRestTest();
-
 
 };
 

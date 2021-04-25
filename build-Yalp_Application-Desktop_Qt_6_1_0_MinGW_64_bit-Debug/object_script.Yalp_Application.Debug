@@ -1,0 +1,10 @@
+debug/Choices.o
+debug/Restaurant.o
+debug/loginwindow.o
+debug/main.o
+debug/testsuite.o
+debug/yalpwindow.o
+debug/qrc_icon.o
+debug/moc_loginwindow.o
+debug/moc_testsuite.o
+debug/moc_yalpwindow.o

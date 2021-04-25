@@ -1,5 +1,5 @@
 #include "testsuite.h"
-#include "ui_testsuite.h"
+
 
 testSuite::testSuite(QWidget *parent) :
     QDialog(parent),
@@ -23,13 +23,15 @@ void testSuite::run()
     ///ui->textEdit->insertPlainText("test complete");
     ///
     /// make new objects to use for testing
+    m_restVector = new std::vector<Restaurant>;
+    Choices m_choice(m_restVector);
 
     restVecTest();
     priceRangeTest();
     personalRatingTest();
     publicRatingTest();
     cuisineTest();
-    randRestTest();
+    //randRestTest();
     removeRestTest();
 }
 
@@ -66,7 +68,7 @@ void testSuite::restVecTest()
 {
     /// test code
     bool pass = false;
-    m_restVector = new std::vector<Restaurant>;
+
     if(m_restVector == nullptr)
     {
         pass = false;
@@ -77,7 +79,7 @@ void testSuite::restVecTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: a restaurant vector is created       ");
+    ui->textEdit->insertPlainText("Test #: A restaurant vector is created       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -152,7 +154,7 @@ void testSuite::restVecTest()
     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: the resturant vector is filled correctly       ");
+    ui->textEdit->insertPlainText("Test #: The resturant vector is filled correctly       ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -259,12 +261,8 @@ void testSuite::cuisineTest()
 {
     /// test code
     bool pass = false;
-    m_restVector = new std::vector<Restaurant>;
-    std::vector<QString> m_cuisineVector;
 
-    //restaurant objects created
-    TestVectorCreator();
-    QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
+    // the cuisines that should be there
     QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
 
 
@@ -303,12 +301,176 @@ void testSuite::cuisineTest()
 
 void testSuite::randRestTest()
 {
+    bool pass = false;
     /// testing the random restaurant functionality
+    Restaurant randRes = m_choice.printRandom();
+    // ui->textEdit->setText("<html><b>"+randRes.getName()+"</b></html>"  + "  " + "<html><i>"+randRes.getCusine()+"</i></html>"  + "  " + QString::number(randRes.getPrice()) + "  Rating: " + QString::number(randRes.getRating()) + "  Personal Rating: " + QString::number(randRes.getPRating()) + "\n\n");
+
+    QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
+    QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
+    int price[4] = {1,1,2,2};
+    double rating[4] = {4.9,4.9,4.6,4.3};
+    double prating[4] = {4.5,4.8,4.2,4.0};
+
+    for(int i=0; i < 4; i++)
+    {
+
+        if(randRes.getName() == name[i])
+        {
+            pass = true;
+        }
+        else
+        {
+            pass = false;
+        }
+
+        if(randRes.getCusine() == cuisine[i])
+        {
+            pass = true;
+        }
+        else
+        {
+            pass = false;
+        }
+
+        if(randRes.getPrice() == price[i])
+        {
+            pass = true;
+        }
+        else
+        {
+            pass = false;
+        }
+
+        if(randRes.getRating() == rating[i])
+        {
+            pass = true;
+        }
+        else
+        {
+            pass = false;
+        }
+
+        if(randRes.getPRating() == prating[i])
+        {
+            pass = true;
+        }
+        else
+        {
+            pass = false;
+        }
+
+    }
+
+    /// results print out
+    ui->textEdit->insertPlainText("Test #: The random restaurant function returns a random restaurant within the list       ");
+    if(pass)
+    {
+        ui->textEdit->insertPlainText("PASS\n");
+    }
+    else
+    {
+        ui->textEdit->insertPlainText("FAIL\n");
+    }
 }
 
 void testSuite::removeRestTest()
 {
     /// testing the remove restaurant functionality
+    bool pass = false;
+    bool haveRes = true;
+    m_choice.setRestVector(m_restVector);
+
+    // removing the restaurant war restaurant
+    m_choice.removeRestaurant("Encore_Cafe", haveRes);
+    /// checking if the restaurant vector is now size 3
+    if(haveRes)
+    {
+        pass = true; //the restaurant exists and has been removed
+    }
+    else
+    {
+        pass = false;
+    }
+
+    ui->textEdit->insertPlainText("Test #: After removing a restaurant the restaurant, a restaurant has been removed       ");
+    if(pass)
+    {
+        ui->textEdit->insertPlainText("PASS\n");
+    }
+    else
+    {
+        ui->textEdit->insertPlainText("FAIL\n");
+    }
+
+/////////////////////////////////////////////////////////////////
+
+    /// checking if the correct restaurant is removed
+
+    for(int i=0; i<3; i++)
+    {
+        if(m_restVector->at(i).getName() == "Encore_Cafe")
+        {
+            pass = false;
+        }
+        else
+        {
+            pass = true;
+            if(m_restVector->at(i).getCusine() == "Asian_Fusion")
+            {
+                pass = false;
+            }
+            else
+            {
+                pass = true;
+                if(m_restVector->at(i).getPrice() == 2)
+                {
+                    pass = false;
+                }
+                else
+                {
+                    pass = true;
+                    if(m_restVector->at(i).getRating() == 4.6)
+                    {
+                        pass = false;
+                    }
+                    else
+                    {
+                        pass = true;
+                        if(m_restVector->at(i).getPRating() == 4.2)
+                        {
+                            pass = false;
+                        }
+                        else
+                        {
+                            pass = true;
+                            break;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+    }
+
+
+
+
+
+    ui->textEdit->insertPlainText("Test #: When removing a restaurtant, the correct one is removed and no others are       ");
+    if(pass)
+    {
+        ui->textEdit->insertPlainText("PASS\n");
+    }
+    else
+    {
+        ui->textEdit->insertPlainText("FAIL\n");
+    }
+
+
+
 }
 
 

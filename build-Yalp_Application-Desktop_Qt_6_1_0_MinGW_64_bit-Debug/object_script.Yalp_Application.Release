@@ -1,0 +1,10 @@
+release/Choices.o
+release/Restaurant.o
+release/loginwindow.o
+release/main.o
+release/testsuite.o
+release/yalpwindow.o
+release/qrc_icon.o
+release/moc_loginwindow.o
+release/moc_testsuite.o
+release/moc_yalpwindow.o

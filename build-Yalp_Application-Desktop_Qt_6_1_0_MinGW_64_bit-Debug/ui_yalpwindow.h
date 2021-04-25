@@ -10,6 +10,7 @@
 #define UI_YALPWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
@@ -126,6 +127,8 @@ public:
         if (YalpWindow->objectName().isEmpty())
             YalpWindow->setObjectName(QString::fromUtf8("YalpWindow"));
         YalpWindow->resize(959, 752);
+        QIcon icon(QIcon::fromTheme(QString::fromUtf8("yalp.jpg")));
+        YalpWindow->setWindowIcon(icon);
         YalpWindow->setAutoFillBackground(true);
         centralwidget = new QWidget(YalpWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
