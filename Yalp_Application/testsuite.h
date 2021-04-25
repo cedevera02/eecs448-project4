@@ -28,7 +28,7 @@ private:
     std::vector<Restaurant>* m_restVector;/// vector storing Restaurant objects
     std::vector<QString> m_cuisineVector;///vector storing cuisine objects
     void run(); ///runs all the tests
-    void TestVectorCreator(); // /test restaruant objects in test vector to use for methods
+    void TestVectorCreator(); ///test restaruant objects in test vector to use for methods
 
     void restVecTest(); ///tests if restaurant vector was filled correctly
     void priceRangeTest(); ///Tests the bounds of the price range

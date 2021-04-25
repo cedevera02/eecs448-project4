@@ -388,6 +388,35 @@ debug/moc_testsuite.cpp: ../Yalp_Application/testsuite.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QSize \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QSizeF \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/QTransform \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QFile \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfile.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMessageBox \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		../Yalp_Application/Restaurant.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMainWindow \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmainwindow.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qicon.h \
+		../Yalp_Application/Choices.h \
+		ui_testsuite.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QVariant \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QApplication \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		../../../Qt/6.1.0/mingw81_64/bin/moc.exe
 	E:\Qt\6.1.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/UniversityProjects/eecs448-project4/build-Yalp_Application-Desktop_Qt_6_1_0_MinGW_64_bit-Release/debug/moc_predefs.h -IE:/Qt/6.1.0/mingw81_64/mkspecs/win32-g++ -IE:/UniversityProjects/eecs448-project4/Yalp_Application -IE:/Qt/6.1.0/mingw81_64/include -IE:/Qt/6.1.0/mingw81_64/include/QtWidgets -IE:/Qt/6.1.0/mingw81_64/include/QtGui -IE:/Qt/6.1.0/mingw81_64/include/QtCore -I. -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Yalp_Application\testsuite.h -o debug\moc_testsuite.cpp
@@ -530,9 +559,27 @@ debug/moc_yalpwindow.cpp: ../Yalp_Application/yalpwindow.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QFile \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfile.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfiledevice.h \
-		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		ui_testsuite.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QVariant \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QApplication \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpen.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream \
 		debug/moc_predefs.h \
 		../../../Qt/6.1.0/mingw81_64/bin/moc.exe
 	E:\Qt\6.1.0\mingw81_64\bin\moc.exe $(DEFINES) --include E:/UniversityProjects/eecs448-project4/build-Yalp_Application-Desktop_Qt_6_1_0_MinGW_64_bit-Release/debug/moc_predefs.h -IE:/Qt/6.1.0/mingw81_64/mkspecs/win32-g++ -IE:/UniversityProjects/eecs448-project4/Yalp_Application -IE:/Qt/6.1.0/mingw81_64/include -IE:/Qt/6.1.0/mingw81_64/include/QtWidgets -IE:/Qt/6.1.0/mingw81_64/include/QtGui -IE:/Qt/6.1.0/mingw81_64/include/QtCore -I. -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Yalp_Application\yalpwindow.h -o debug\moc_yalpwindow.cpp
@@ -962,6 +1009,37 @@ debug/loginwindow.o: ../Yalp_Application/loginwindow.cpp ../Yalp_Application/log
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QSizeF \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/QTransform \
 		ui_loginwindow.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QVariant \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QApplication \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QGroupBox \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qgroupbox.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QLabel \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpicture.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpen.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qicon.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QWidget \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/QCloseEvent \
@@ -969,13 +1047,16 @@ debug/loginwindow.o: ../Yalp_Application/loginwindow.cpp ../Yalp_Application/log
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmainwindow.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtabwidget.h \
-		../../../Qt/6.1.0/mingw81_64/include/QtGui/qicon.h \
 		../Yalp_Application/Choices.h \
 		../Yalp_Application/Restaurant.h \
 		../Yalp_Application/testsuite.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QFile \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfile.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfiledevice.h \
+		ui_testsuite.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\loginwindow.o ..\Yalp_Application\loginwindow.cpp
 
@@ -1117,16 +1198,27 @@ debug/main.o: ../Yalp_Application/main.cpp ../Yalp_Application/yalpwindow.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QFile \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfile.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfiledevice.h \
-		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		ui_testsuite.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QVariant \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QApplication \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qapplication.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qcoreapplication.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
-		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpen.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Yalp_Application\main.cpp
 
 debug/testsuite.o: ../Yalp_Application/testsuite.cpp ../Yalp_Application/testsuite.h \
@@ -1257,7 +1349,35 @@ debug/testsuite.o: ../Yalp_Application/testsuite.cpp ../Yalp_Application/testsui
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QSize \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QSizeF \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/QTransform \
-		ui_testsuite.h
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QFile \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfile.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMessageBox \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		../Yalp_Application/Restaurant.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMainWindow \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmainwindow.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qicon.h \
+		../Yalp_Application/Choices.h \
+		ui_testsuite.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QVariant \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QApplication \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\testsuite.o ..\Yalp_Application\testsuite.cpp
 
 debug/yalpwindow.o: ../Yalp_Application/yalpwindow.cpp ../Yalp_Application/yalpwindow.h \
@@ -1398,10 +1518,62 @@ debug/yalpwindow.o: ../Yalp_Application/yalpwindow.cpp ../Yalp_Application/yalpw
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/QFile \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfile.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtCore/qfiledevice.h \
-		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		ui_testsuite.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QVariant \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QApplication \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qguiapplication.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qinputmethod.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qlocale.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpen.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/QTextStream \
 		ui_yalpwindow.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QButtonGroup \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QFrame \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QGroupBox \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qgroupbox.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QLabel \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qpicture.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QMenuBar \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qmenu.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qaction.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QRadioButton \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qradiobutton.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QSpinBox \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qspinbox.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QStatusBar \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QVBoxLayout \
+		../../../Qt/6.1.0/mingw81_64/include/QtWidgets/QWidget \
 		../Yalp_Application/loginwindow.h \
 		../../../Qt/6.1.0/mingw81_64/include/QtGui/QCloseEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\yalpwindow.o ..\Yalp_Application\yalpwindow.cpp

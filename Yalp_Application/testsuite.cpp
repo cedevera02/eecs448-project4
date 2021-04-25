@@ -277,7 +277,7 @@ void testSuite::publicRatingTest()
     }
 }
 
-///this method tests if a cuisine vector was correctly filled.
+///this method tests if search by cuisine works
 void testSuite::cuisineTest()
 {
 
@@ -288,27 +288,23 @@ void testSuite::cuisineTest()
 
     QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
     QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
+    QString cuisineType = cuisine[0];
+    int ratings[2] = {0,5};
 
 
-     try
-     {
-       m_choice.printByCuisine();
-       for (int i= 0; i<4; i++)
+
+        std::vector<Restaurant>* outputVec;
+        outputVec = m_choice.createVector(0,3,0,ratings,cuisineType); //creates a vector with full range of all categories but only 1 cuisine type.
+       if(outputVec->at(0).getCusine() == "Mexican")
        {
-           if (m_restVector->at(i).getCusine() == cuisine[i])
-           {
-               pass = true;
-           }
+           pass = true;
+       }
+       else {
+           pass = false;
        }
 
-     }
-     catch(const std::runtime_error& e)
-     {
-         pass= false;
-     }
-
     /// results print out
-    ui->textEdit->insertPlainText("Test #: The cuisine vector has been filled and correctly displayed   ");
+    ui->textEdit->insertPlainText("Test #: The cuisine filter filters correctly   ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
