@@ -9,6 +9,7 @@ testSuite::testSuite(QWidget *parent) :
     run();
 }
 
+///Destructor
 testSuite::~testSuite()
 {
     delete ui;
@@ -16,6 +17,7 @@ testSuite::~testSuite()
     delete m_restVector;
 }
 
+///This method instantiates a choices object and runs the test methods
 void testSuite::run()
 {
     ///all test will be called here
@@ -64,6 +66,7 @@ void testSuite::TestVectorCreator()
     m_restVector->push_back(temp3);
 }
 
+///This method tests if a restaurant vector is filled correctly
 void testSuite::restVecTest()
 {
     /// test code
@@ -165,7 +168,7 @@ void testSuite::restVecTest()
     }
 }
 
-
+///This method tests the price range
 void testSuite::priceRangeTest()
 {
     /// test code
@@ -196,6 +199,7 @@ void testSuite::priceRangeTest()
     }
 }
 
+///This method tests the bounds of adding a personal rating
 void testSuite::personalRatingTest()
 {
     /// test code
@@ -226,27 +230,43 @@ void testSuite::personalRatingTest()
     }
 }
 
+///This method tests if a rating is set with the correct restaurant
 void testSuite::publicRatingTest()
 {
     /// test code
     bool pass = false;
-    double test_rate = (rand() % 6) + 1; // random number between 1 and 5 inclusive. Maybe need to change to ^^ rand method
+    Restaurant test("Test");
+    test.setRating(4.6);
+
+    QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
+    QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
+    double rating[4] = {4.9,4.9,4.6,4.3};
 
 
-    Restaurant ratingTest("rating test");
-    ratingTest.setRating(test_rate);
 
-    if(ratingTest.getRating() >=1 || ratingTest.getRating() <=5)
+    for (int i= 0; i<4; i++)
     {
-        pass = true;
+        if (test.getRating() == rating[2])
+        {
+            if(name[2]=="Encore_Cafe")
+               {
+                   pass= true;
+               }
+                else
+                {
+                   pass= false;
+                }
+         }
+          else
+           {
+               pass= false;
+            }
+
     }
-    else
-    {
-        pass = false;
-    }
+
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: User choose public rating value between 1-5          ");
+    ui->textEdit->insertPlainText("Test #: Public rating set and read correctly      ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -257,38 +277,38 @@ void testSuite::publicRatingTest()
     }
 }
 
+///this method tests if a cuisine vector was correctly filled.
 void testSuite::cuisineTest()
 {
+
     /// test code
     bool pass = false;
+    m_choice.setRestVector(m_restVector);
 
-    // the cuisines that should be there
+
+    QString name[4] = {"Tortas_Jalisco","Terrebonne_Po'_Boys","Encore_Cafe","War_Restaurant"};
     QString cuisine[4] = {"Mexican","Cajun","Asian_Fusion","Sushi"};
 
 
-    for(int i=0; i < 4; i++) // fill cuisine vector
-    {
-        for(int j=0;  j < 4; j++)
-        {
-            m_cuisineVector.push_back(m_restVector->at(i).getCusine());
-        }
+     try
+     {
+       m_choice.printByCuisine();
+       for (int i= 0; i<4; i++)
+       {
+           if (m_restVector->at(i).getCusine() == cuisine[i])
+           {
+               pass = true;
+           }
+       }
 
-        if(m_restVector->at(i).getCusine() == m_cuisineVector.at(i))
-        {
-            pass = true;
-        }
-        else
-        {
-            pass = false;
-            break;
-         }
-    }
-
-
-
+     }
+     catch(const std::runtime_error& e)
+     {
+         pass= false;
+     }
 
     /// results print out
-    ui->textEdit->insertPlainText("Test #: The cuisine vector is filled correctly    ");
+    ui->textEdit->insertPlainText("Test #: The cuisine vector has been filled and correctly displayed   ");
     if(pass)
     {
         ui->textEdit->insertPlainText("PASS\n");
@@ -299,6 +319,7 @@ void testSuite::cuisineTest()
     }
 }
 
+///This method tests the random restaurant function and if its accurate
 void testSuite::randRestTest()
 {
     bool pass = false;
@@ -379,6 +400,7 @@ void testSuite::randRestTest()
     }
 }
 
+/// this method tests the remove restaurant function and if that is accurate
 void testSuite::removeRestTest()
 {
     /// testing the remove restaurant functionality
