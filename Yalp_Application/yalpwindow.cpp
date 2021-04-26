@@ -256,7 +256,7 @@ void YalpWindow::on_FeelingHungryButton_clicked()
 void YalpWindow::on_removeRestLineEdit_textEdited(const QString &arg1)
 {
     m_removeRest = makeFormat(arg1);
-    ui->RestaurantTextEdit->setText("<html><b>"+m_removeRest+"</b><html>");
+    //ui->RestaurantTextEdit->setText("<html><b>"+m_removeRest+"</b><html>");
 }
 
 ///removes restaurant stored in m_removeRest
@@ -270,6 +270,7 @@ void YalpWindow::on_removeRestButton_clicked()
     }else{
          QMessageBox::about(this,"Removing Restaurant", "No restaurant with matching names.");
     }
+    printAllRest(m_restVector);
 }
 
 ///username helper
