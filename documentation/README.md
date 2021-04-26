@@ -8,6 +8,7 @@ Project made with C++ and Qt.
 
 - This program is similar to Yelp. It allows the user to see restaurants' pricing, ratings, and cuisine type.
 - A user can use the program as a guest or make an account/log in. If the user has an account and is a returning user, then their preference information is saved.
+- all core code for this project is in the yalp_Application folder.
 
 ## Person Hours Log
 
