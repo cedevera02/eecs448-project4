@@ -126,14 +126,14 @@ void Choices::printByRating()
     {
         if(m_ratingType == 1)//Personal
         {
-            if(m_printVector->at(i).getPRating() >= m_rating[0] && _resVector->at(i).getPRating() <= m_rating[1])
+            if(m_printVector->at(i).getPRating() >= m_rating[0] && m_printVector->at(i).getPRating() <= m_rating[1])
             {
                 temp->push_back(m_printVector->at(i));
             }
         }
         else if(m_ratingType == 2)//Public
         {
-            if(_resVector->at(i).getRating() >= m_rating[0] && _resVector->at(i).getRating() <= m_rating[1])
+            if(m_printVector->at(i).getRating() >= m_rating[0] && m_printVector->at(i).getRating() <= m_rating[1])
             {
                 temp->push_back(m_printVector->at(i));
             }
