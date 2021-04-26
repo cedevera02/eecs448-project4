@@ -182,7 +182,7 @@ void Choices::removeRestaurant(QString name, bool& haveRes)
     haveRes = false;
     for(int i = 0; i < (int)_resVector->size(); i++)
     {
-        if (name == _resVector->at(i).getName()){
+        if (name.toLower() == _resVector->at(i).getName().toLower()){
             haveRes = true;
             _resVector->erase(_resVector->begin() + i);
             break;
